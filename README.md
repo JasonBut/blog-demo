@@ -1,25 +1,29 @@
-# Demo for a vue-base blog
+# blog-demo
 
-
+## Project setup
 ```
-phone : 13650700330
-email : Jason.But@yahoo.com
-QQ    : 153436677
+npm install
 ```
 
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
+### Compiles and minifies for production
+```
+npm run build
+```
 
-简介：
->   这是一个简易的论坛demo，基于Vue，是本人学习完Vue相关知识后做的一个demo。
+### Run your tests
+```
+npm run test
+```
 
+### Lints and fixes files
+```
+npm run lint
+```
 
-主要用到：
-* Vue
-* Vuex
-* Vue-Router
-* iView
-* Scss
-* Axios
-
-
-[挖坑自踩日常](./UPDATE.md)
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
