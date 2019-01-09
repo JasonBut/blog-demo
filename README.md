@@ -17,7 +17,7 @@ QQ    : 153436677
 * Vue
 * Vuex
 * Vue-Router
-* ElementUI
+* iView
 * Scss
 * Axios
 
