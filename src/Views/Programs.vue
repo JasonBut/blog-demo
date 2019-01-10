@@ -1,13 +1,11 @@
 <template>
-  <div class="home">
-    Content
-    <router-view />
+  <div>
+    programs
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'home'
+  name: 'Programs'
 }
 </script>

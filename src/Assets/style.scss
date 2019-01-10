@@ -1,5 +1,15 @@
 body{
+    width: 100%;
     margin: 0;
+    background: #111111;
+    font-family: Tahoma, Arial, Helvetica, sans-serif,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    a{
+        color: #fdfdfd;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 .icon {

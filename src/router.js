@@ -10,7 +10,11 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import('./Views/Content')
+      component: () => import('./Views/Notes')
+    },
+    {
+      path: '/programs',
+      component: () => import('./Views/Programs')
     }
   ]
 })

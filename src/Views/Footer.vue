@@ -26,29 +26,20 @@ export default {
 </script>
 
 <style lang="scss">
-$anchor-color : black;
 footer{
-  font-size: 1.6em;
+  background: rgba(0,0,0,0.45);
+  font-size: 0.9em;
+  text-align: center;
+  color: #fdfdfd;
+  margin-top: 1%;
+  border-top: #065b9c 0.2em solid;
   div{
-    margin: 0.8em 0;
-    text-align: center;
+    margin-top: 1em;
     svg{
-      margin: 0 0.2em 0 2em;
+      margin: 0 0.5em 0 2em;
     }
     span{
-      font-size: 0.7em;
       font-weight: bold;
-      a{
-        color: $anchor-color;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
-        &:active{
-          color: $anchor-color;
-          text-decoration: none;
-        }
-      }
     }
   }
 }
