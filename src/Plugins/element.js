@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import '../Assets/style/element-variables.scss'
+
 import {
   Container,
   Header,
@@ -6,8 +8,7 @@ import {
   Main,
   Footer,
   Menu,
-  MenuItem,
-  MenuItemGroup
+  MenuItem
 } from 'element-ui'
 
 Vue.use(Container)
@@ -17,4 +18,3 @@ Vue.use(Main)
 Vue.use(Footer)
 Vue.use(Menu)
 Vue.use(MenuItem)
-Vue.use(MenuItemGroup)
