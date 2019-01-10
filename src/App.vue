@@ -21,10 +21,10 @@
 export default {
   name: 'app',
   components: {
-    Header: () => import('./Views/Header.vue'),
-    Aside: () => import('./Views/Aside.vue'),
-    Content: () => import('./Views/Content.vue'),
-    Footer: () => import('./Views/Footer.vue')
+    Header: () => import('./Components/Header.vue'),
+    Aside: () => import('./Components/Aside.vue'),
+    Content: () => import('./Components/Content.vue'),
+    Footer: () => import('./Components/Footer.vue')
   }
 };
 </script>

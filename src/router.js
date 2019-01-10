@@ -11,22 +11,22 @@ export default new Router({
       path: '/',
       alias: '/about',
       name: 'home',
-      component: () => import('./Views/About')
+      component: () => import('./Components/About/index.vue')
     },
     {
       path: '/programs',
       name: 'programs',
-      component: () => import('./Views/Programs')
+      component: () => import('./Components/Programs')
     },
     {
       path: '/notes',
       name: 'notes',
-      component: () => import('./Views/Notes')
+      component: () => import('./Components/Notes')
     },
     {
       path: '/daily',
       name: 'daily',
-      component: () => import('./Views/Daily')
+      component: () => import('./Components/Daily')
     }
   ]
 });

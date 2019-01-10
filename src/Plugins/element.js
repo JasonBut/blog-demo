@@ -9,7 +9,11 @@ import {
   Footer,
   Menu,
   MenuItem,
-  Card
+  Card,
+  Breadcrumb,
+  BreadcrumbItem,
+  Collapse,
+  CollapseItem
 } from 'element-ui';
 
 Vue.use(Container);
@@ -20,3 +24,7 @@ Vue.use(Footer);
 Vue.use(Menu);
 Vue.use(MenuItem);
 Vue.use(Card);
+Vue.use(Breadcrumb);
+Vue.use(BreadcrumbItem);
+Vue.use(Collapse);
+Vue.use(CollapseItem);

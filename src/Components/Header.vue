@@ -14,6 +14,7 @@ header{
   width: 80%;
   min-width: 40em;
   margin: 0.7em auto;
+
   h1{
     color: #ffffff;
     font-size: 3em;

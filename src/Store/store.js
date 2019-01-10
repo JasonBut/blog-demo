@@ -1,79 +1,12 @@
-<template>
-  <el-card id="about" header="Profile">
-    <div class="about-profile">
-      <el-card shadow="hover">
-        <h1>个人信息</h1>
-        <p
-            v-for="(info,index) of personalInfo"
-            :key="`info_${index}`"
-            v-html="info"
-        >
-        </p>
-        <details>
-          <summary>职业技能</summary>
-          <ul>
-            <li v-for="(cer,i) of certifications" :key="`cer_${i}`">{{cer}}</li>
-          </ul>
-        </details>
-        <details>
-          <summary>技术栈</summary>
-          <ul>
-            <li v-for="(skill,key) of skills" :key="`skill_${key}`">
-              {{key}}：{{skill}}
-            </li>
-          </ul>
-        </details>
-      </el-card>
-    </div>
-    <div class="about-experience">
-      <el-card shadow="always">
-        <h1>工作经历：</h1>
-        <el-card
-            v-for="(job, index) of jobs"
-            :key="`${job}_${index}`"
-            shadow="hover"
-        >
-          <details>
-          <summary>公司名称：{{job.company}}</summary>
-            <p>职位名称：{{job.title}}</p>
-            <p>在职时长：{{job.duration}}</p>
-            <p>工作内容：</p>
-            <ul>
-              <li v-for="(details, i) of job.details" :key="`details_${i}`">{{details}}</li>
-            </ul>
-          </details>
-        </el-card>
-      </el-card>
-      <el-card shadow="always">
-        <h1>项目经验：</h1>
-        <el-card
-            v-for="(item, index) of projects"
-            :key="`project_${index}`"
-            shadow="hover"
-        >
-          <details>
-            <summary>项目名称：{{item.name}}</summary>
-            <p>项目仓库：<span v-html="item.git"></span></p>
-            <p>在线演示：<span v-html="item.deploy"></span></p>
-            <p>技术栈：</p>
-            <ul>
-              <li v-for="(lib, i) of item.libs" :key="`lib_${i}`">{{lib}}</li>
-            </ul>
-            <p>介绍：</p>
-            <p v-html="item.introduction"></p>
-          </details>
-        </el-card>
-      </el-card>
-    </div>
-  </el-card>
-</template>
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-<script>
-export default {
-  name: 'About',
-  data () {
-    return {
-      personalInfo: {
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+  state: {
+    myInfo: {
+      personal: {
         name: '姓名：Jason But',
         sex: '性别：男',
         age: '年龄：27',
@@ -152,41 +85,16 @@ export default {
   这是一个基于react-redux的简易论坛程序，是本人学习完react和redux系列技术栈后做的一个demo。Demo功能比较简单，数据库是简单的一个JSON文件，用json-server搭建的，主要用于演示功能，之后会尝试加入真正的数据库。
 </p>
 <p>
-暂时实现的功能有意下几个：发帖、评论、编辑帖子、注册、登录等。
+暂时实现的功能有以下几个：发帖、评论、编辑帖子、注册、登录等。
 </p>`
         }
       ]
-    };
-  }
-};
-</script>
-
-<style lang="scss">
-.about-common-style{
-  float: left;
-  margin: 0 0 5% 2%;
-}
-#about{
-  margin: 5%;
-  min-width: 12em;
-  summary{
-    outline:none;
-    cursor: pointer;
-  }
-  a{
-    color: #000000
-  }
-  .about-profile{
-    width: 31%;
-    min-width: 12em;
-    @extend .about-common-style
-  }
-  .about-experience{
-    width: 65%;
-    @extend .about-common-style;
-    >.el-card{
-      margin-bottom: 2%;
     }
+  },
+  mutations: {
+
+  },
+  actions: {
+
   }
-}
-</style>
+});
