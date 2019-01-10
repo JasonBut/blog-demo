@@ -12,6 +12,7 @@ export default {
 header{
   background: #0C1021 url("../Assets/bg.png");
   width: 80%;
+  min-width: 40em;
   margin: 0.7em auto;
   h1{
     color: #ffffff;
