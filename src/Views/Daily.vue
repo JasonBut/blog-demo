@@ -1,11 +1,11 @@
 <template>
   <div>
-    programs
+    Daily
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Programs'
+  name: 'Daily'
 };
 </script>

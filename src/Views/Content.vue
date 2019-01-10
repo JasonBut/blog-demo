@@ -1,11 +1,9 @@
 <template>
-  <div>
-    programs
-  </div>
+  <router-view />
 </template>
 
 <script>
 export default {
-  name: 'Programs'
+  name: 'Content'
 };
 </script>

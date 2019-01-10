@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import '../Assets/style/element-variables.scss'
+import Vue from 'vue';
+import '../Assets/style/element-variables.scss';
 
 import {
   Container,
@@ -8,13 +8,15 @@ import {
   Main,
   Footer,
   Menu,
-  MenuItem
-} from 'element-ui'
+  MenuItem,
+  Card
+} from 'element-ui';
 
-Vue.use(Container)
-Vue.use(Header)
-Vue.use(Aside)
-Vue.use(Main)
-Vue.use(Footer)
-Vue.use(Menu)
-Vue.use(MenuItem)
+Vue.use(Container);
+Vue.use(Header);
+Vue.use(Aside);
+Vue.use(Main);
+Vue.use(Footer);
+Vue.use(Menu);
+Vue.use(MenuItem);
+Vue.use(Card);

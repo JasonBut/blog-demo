@@ -1,24 +1,14 @@
 <template>
   <div>
     <el-menu mode="vertical">
-      <el-menu-item index="a">
-        <router-link to="/programs">
-          <span>Prog</span><span>rams</span>
-        </router-link>
-      </el-menu-item>
-      <el-menu-item index="b">
-        <router-link to="notes">
-          <span>No</span><span>tes</span>
-        </router-link>
-      </el-menu-item>
-      <el-menu-item index="c">
-        <router-link to="daily">
-          <span>Da</span><span>ily</span>
-        </router-link>
-      </el-menu-item>
-      <el-menu-item index="d">
-        <router-link to="about">
-          <span>Abou</span><span>t Me</span>
+      <el-menu-item
+          v-for="subject of splitSubjectName(subjectList)"
+          :key="subject.path"
+          :index="subject.path"
+      >
+        <router-link :to="subject.path">
+          <span>{{subject.first}}</span>
+          <span>{{subject.last}}</span>
         </router-link>
       </el-menu-item>
     </el-menu>
@@ -27,8 +17,42 @@
 
 <script>
 export default {
-  name: 'Aside'
-}
+  name: 'Aside',
+  data () {
+    return {
+      subjectList: [
+        {
+          name: 'Programs',
+          path: 'programs'
+        },
+        {
+          name: 'Notes',
+          path: 'notes'
+        },
+        {
+          name: 'Daily',
+          path: 'daily'
+        },
+        {
+          name: 'About Me',
+          path: 'about'
+        }
+      ]
+    };
+  },
+  methods: {
+    splitSubjectName (subjects) {
+      return subjects.map((item) => {
+        const name = item.name;
+        const splitName = name.split('');
+        const nameFirstPart = Number.parseInt(splitName.length / 2);
+        const first = name.slice(0, nameFirstPart);
+        const last = name.slice(nameFirstPart, splitName.length);
+        return { ...item, first, last };
+      });
+    }
+  }
+};
 </script>
 
 <style lang="scss">

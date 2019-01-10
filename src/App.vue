@@ -8,7 +8,7 @@
         <Aside />
       </el-aside>
       <el-main>
-        <router-view />
+        <Content />
       </el-main>
     </el-container>
     <el-footer>
@@ -23,9 +23,10 @@ export default {
   components: {
     Header: () => import('./Views/Header.vue'),
     Aside: () => import('./Views/Aside.vue'),
+    Content: () => import('./Views/Content.vue'),
     Footer: () => import('./Views/Footer.vue')
   }
-}
+};
 </script>
 
 <style lang="scss">
