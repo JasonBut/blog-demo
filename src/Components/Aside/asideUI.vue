@@ -1,13 +1,13 @@
 <template>
   <div>
     <el-menu
-        :default-active="$route.path"
+        :default-active="path"
         :router="true"
         mode="vertical"
         text-color="#0F192A"
     >
       <el-menu-item
-          v-for="subject of splitCategoryName"
+          v-for="subject of categories"
           :key="subject.path"
           :index="subject.path"
       >
@@ -24,7 +24,7 @@
 export default {
   name: 'asideUI',
   props: {
-    category: Object,
+    categories: Array,
     path: String
   }
 };

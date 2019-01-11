@@ -1,6 +1,6 @@
 <template>
   <asideUI
-      :category="splitCategoryName"
+      :categories="splitCategoryName"
       :path="$route.path"
   />
 </template>

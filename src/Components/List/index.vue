@@ -1,26 +1,8 @@
 <template>
-  <el-card>
-    <el-table
-        :data="list"
-        :header-cell-style="formStyles"
-        :header-row-style="formStyles"
-        :row-style="formStyles"
-        border
-    >
-      <el-table-column
-          prop="title"
-          label="标题"
-          header-align="center"
-      >
-      </el-table-column>
-      <el-table-column
-          prop="date"
-          label="发布日期"
-          header-align="center"
-      >
-      </el-table-column>
-    </el-table>
-  </el-card>
+  <listUI
+      :list="list"
+      :formStyles="formStyles"
+  />
 </template>
 
 <script>
@@ -29,9 +11,15 @@ import { Constants } from '@/Store';
 
 export default {
   name: 'Programs',
+
   props: {
     categoryName: String
   },
+
+  components: {
+    listUI: () => import('./listUI')
+  },
+
   computed: {
     ...mapState({
       list (state) {
