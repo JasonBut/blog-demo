@@ -22,7 +22,7 @@ export default {
   name: 'app',
   components: {
     Header: () => import('./Components/Header.vue'),
-    Aside: () => import('./Components/Aside.vue'),
+    Aside: () => import('./Components/Aside/index.vue'),
     Content: () => import('./Components/Content.vue'),
     Footer: () => import('./Components/Footer.vue')
   }
@@ -30,7 +30,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./Assets/style/style";
 #app{
   .content{
     width: 70%;

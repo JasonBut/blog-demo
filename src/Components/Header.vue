@@ -14,6 +14,7 @@ header{
   width: 80%;
   min-width: 40em;
   margin: 0.7em auto;
+  @include opacity-border(0,0,8%);
 
   h1{
     color: #ffffff;

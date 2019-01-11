@@ -1,7 +1,4 @@
 module.exports = {
-  "presets": [
-    "@vue/app"
-  ],
   "plugins": [
     [
       "component",
@@ -9,6 +6,10 @@ module.exports = {
         "libraryName": "element-ui",
         "styleLibraryName": "theme-chalk"
       }
-    ]
+    ],
+    "@babel/plugin-proposal-export-default-from"
+  ],
+  "presets": [
+    "@vue/app"
   ]
 }

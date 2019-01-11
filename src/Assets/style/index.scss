@@ -33,9 +33,12 @@ body{
 
     .el-table {
         @include opacity-background(0.25);
+        @include opacity-border(0,0,5%)
     }
 
-
+    .el-collapse-item [role='tab']{
+        @include opacity-item-hover;
+    }
 
     .icon {
         width: 1em;

@@ -1,6 +1,6 @@
 export default {
-  splitSubjectName (state) {
-    return state.asideSubject.map((item) => {
+  splitCategoryName (state) {
+    return state.categories.map((item) => {
       const name = item.name;
       const splitName = name.split('');
       const nameFirstPart = Number.parseInt(splitName.length / 2);

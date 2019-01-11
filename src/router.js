@@ -11,22 +11,25 @@ export default new Router({
       path: '/',
       alias: '/about',
       name: 'home',
-      component: () => import('./Components/About/index.vue')
+      component: () => import('./Components/About/')
     },
     {
-      path: '/programs',
-      name: 'programs',
-      component: () => import('./Components/Programs')
-    },
-    {
-      path: '/notes',
-      name: 'notes',
-      component: () => import('./Components/Notes')
-    },
-    {
-      path: '/daily',
-      name: 'daily',
-      component: () => import('./Components/Daily')
+      path: '/:categoryName',
+      name: 'postList',
+      props: true,
+      component: () => import('./Components/List/')
     }
+    //    {
+    //      path: '/notes',
+    //      name: 'notes',
+    //      props: true,
+    //      component: () => import('./Components/List')
+    //    },
+    //    {
+    //      path: '/daily',
+    //      name: 'daily',
+    //      props: true,
+    //      component: () => import('./Components/List')
+    //    }
   ]
 });

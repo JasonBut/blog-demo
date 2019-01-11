@@ -1,23 +1,27 @@
 <template>
-  <aboutUI :infos="myInfo" />
+  <aboutUI
+      :infos="myInfo"
+  />
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import { Constants } from '@/Store';
+
 export default {
   name: 'About',
   components: {
     aboutUI: () => import('./aboutUI')
   },
   computed: {
-    ...mapState(['myInfo'])
+    ...mapState({
+      myInfo: Constants.myInfo
+    })
   }
 };
 </script>
 
 <style lang="scss">
-@import "../../Assets/style/style";
-
 @mixin about-common-style{
   float: left;
   margin: 0 0 5% 2%;
@@ -31,10 +35,9 @@ export default {
   ul{
     list-style-position: inside;
     list-style-type: square;
-  }
-
-  .el-collapse-item{
-    @include opacity-item-hover
+    li{
+      margin-left: -2em
+    }
   }
 
   .about-profile{

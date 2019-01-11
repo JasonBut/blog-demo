@@ -25,24 +25,22 @@
 
 <script>
 import { mapState } from 'vuex';
+import { Constants } from '@/Store';
+
 export default {
   name: 'Programs',
-  data () {
-    return {
-      formStyles: {
-        background: `rgba(0,0,0,0.35)`
-      }
-    };
+  props: {
+    categoryName: String
   },
   computed: {
     ...mapState({
-      list: (state) => state.postList.reverse()
+      list (state) {
+        return state.postList
+          .filter((item) => item.category === this.categoryName)
+          .reverse();
+      },
+      formStyles: Constants.formStyles
     })
   }
 };
 </script>
-
-<style lang="scss">
-@import "../Assets/style/style";
-
-</style>

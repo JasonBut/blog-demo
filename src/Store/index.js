@@ -7,6 +7,8 @@ import Actions from './Actions';
 
 Vue.use(Vuex);
 
+export Constants from './Constants';
+
 export default new Vuex.Store({
   state: {
     ...States
