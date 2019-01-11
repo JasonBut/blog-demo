@@ -2,6 +2,9 @@
   <el-card>
     <el-table
         :data="list"
+        :header-cell-style="formStyles"
+        :header-row-style="formStyles"
+        :row-style="formStyles"
         border
     >
       <el-table-column
@@ -24,6 +27,13 @@
 import { mapState } from 'vuex';
 export default {
   name: 'Programs',
+  data () {
+    return {
+      formStyles: {
+        background: `rgba(0,0,0,0.35)`
+      }
+    };
+  },
   computed: {
     ...mapState({
       list: (state) => state.postList.reverse()

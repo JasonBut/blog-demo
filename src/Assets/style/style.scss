@@ -31,6 +31,10 @@ body{
         @include opacity-background(0.25);
     }
 
+    .el-table {
+        @include opacity-background(0.25);
+    }
+
 
 
     .icon {
