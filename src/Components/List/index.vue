@@ -1,11 +1,13 @@
 <template>
   <listUI
-      :list="list"
+      :list="list(categoryName)"
+      :params="categoryName"
   />
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
+import { Constants } from '@/Store';
 
 export default {
   name: 'List',
@@ -19,13 +21,13 @@ export default {
   },
 
   computed: {
-    ...mapState({
-      list (state) {
-        return state.postList
-          .filter((item) => item.category === this.categoryName)
-          .reverse();
-      }
+    ...mapGetters({
+      list: Constants.filterPostList
     })
+  },
+
+  beforeRouteUpdate (to, from, next) {
+    next();
   }
 };
 </script>

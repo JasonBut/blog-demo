@@ -8,20 +8,26 @@
         border
     >
       <el-table-column
-          prop="title"
           label="标题"
           header-align="center"
           align="center"
-          width="680em"
-          min-width="300em"
+          width="600%"
+          min-width="200%"
       >
+        <template slot-scope="scope">
+          <router-link
+              :to="`${params}/${scope.row.id}`"
+          >{{ scope.row.title }}
+          </router-link>
+        </template>
+
       </el-table-column>
       <el-table-column
           prop="date"
           label="发布日期"
           header-align="center"
           align="center"
-          min-width="100em"
+          min-width="200%"
       >
       </el-table-column>
     </el-table>
@@ -32,8 +38,10 @@
 export default {
   name: 'listUI',
   props: {
-    list: Array
+    list: Array,
+    params: String
   },
+
   data () {
     return {
       formStyles: {

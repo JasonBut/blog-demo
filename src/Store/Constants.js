@@ -5,7 +5,8 @@ const STATES = {
 };
 
 const GETTERS = {
-  splitCategoryName: 'splitCategoryName'
+  splitCategoryName: 'splitCategoryName',
+  filterPostList: 'filterPostList'
 };
 
 const MUTATIONS = {

@@ -8,5 +8,11 @@ export default {
       const last = name.slice(nameFirstPart, splitName.length);
       return { ...item, first, last };
     });
+  },
+
+  filterPostList: (state) => (categoryName) => {
+    return state.postList
+      .filter((item) => item.category === categoryName)
+      .reverse();
   }
 };

@@ -19,17 +19,5 @@ export default new Router({
       props: true,
       component: () => import('./Components/List/')
     }
-    //    {
-    //      path: '/notes',
-    //      name: 'notes',
-    //      props: true,
-    //      component: () => import('./Components/List')
-    //    },
-    //    {
-    //      path: '/daily',
-    //      name: 'daily',
-    //      props: true,
-    //      component: () => import('./Components/List')
-    //    }
   ]
 });
