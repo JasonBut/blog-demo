@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       formStyles: {
-        background: `rgba(0,0,0,0.35)`
+        background: `rgba(0,0,0,0.2)`
       }
     };
   }
