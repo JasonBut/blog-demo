@@ -1,16 +1,14 @@
 <template>
   <listUI
       :list="list"
-      :formStyles="formStyles"
   />
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import { Constants } from '@/Store';
 
 export default {
-  name: 'Programs',
+  name: 'List',
 
   props: {
     categoryName: String
@@ -26,8 +24,7 @@ export default {
         return state.postList
           .filter((item) => item.category === this.categoryName)
           .reverse();
-      },
-      formStyles: Constants.formStyles
+      }
     })
   }
 };

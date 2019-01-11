@@ -13,6 +13,10 @@
     background: rgba(0,0,0,$opacity);
 }
 
+@mixin content-el-card-margin () {
+    margin: 5%;
+}
+
 body{
     box-sizing: border-box;
     width: 100%;

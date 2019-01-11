@@ -187,8 +187,5 @@ export default {
       title: 'Test2 in Daily',
       content: 'This is a simple test.'
     }
-  ],
-  formStyles: {
-    background: `rgba(0,0,0,0.35)`
-  }
+  ]
 };

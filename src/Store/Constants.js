@@ -1,8 +1,7 @@
 const STATES = {
   myInfo: 'myInfo',
   categories: 'Categories',
-  postList: 'postList',
-  formStyles: 'formStyles'
+  postList: 'postList'
 };
 
 const GETTERS = {
