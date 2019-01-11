@@ -89,11 +89,44 @@ export default new Vuex.Store({
 </p>`
         }
       ]
+    },
+    subjectList: [
+      {
+        name: 'Programs',
+        path: '/programs'
+      },
+      {
+        name: 'Notes',
+        path: '/notes'
+      },
+      {
+        name: 'Daily',
+        path: '/daily'
+      },
+      {
+        name: 'About Me',
+        path: '/'
+      }
+    ]
+  },
+
+  getters: {
+    splitSubjectName (state) {
+      return state.subjectList.map((item) => {
+        const name = item.name;
+        const splitName = name.split('');
+        const nameFirstPart = Number.parseInt(splitName.length / 2);
+        const first = name.slice(0, nameFirstPart);
+        const last = name.slice(nameFirstPart, splitName.length);
+        return { ...item, first, last };
+      });
     }
   },
+
   mutations: {
 
   },
+
   actions: {
 
   }

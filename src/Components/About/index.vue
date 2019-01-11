@@ -10,9 +10,7 @@ export default {
     aboutUI: () => import('./aboutUI')
   },
   computed: {
-    ...mapState({
-      myInfo: 'myInfo'
-    })
+    ...mapState(['myInfo'])
   }
 };
 </script>
