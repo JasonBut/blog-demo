@@ -1,5 +1,5 @@
 <template>
-  <el-card id="about" header="Profile">
+  <el-card id="about">
 
     <div class="about-profile">
       <el-card shadow="hover">

@@ -13,7 +13,9 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   Collapse,
-  CollapseItem
+  CollapseItem,
+  Table,
+  TableColumn
 } from 'element-ui';
 
 Vue.use(Container);
@@ -28,3 +30,5 @@ Vue.use(Breadcrumb);
 Vue.use(BreadcrumbItem);
 Vue.use(Collapse);
 Vue.use(CollapseItem);
+Vue.use(Table);
+Vue.use(TableColumn);

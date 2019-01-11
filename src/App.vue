@@ -30,13 +30,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./Assets/style/style";
 #app{
   .content{
     width: 70%;
     min-width: 40em;
     margin: -12em auto 0 auto;
-    background: rgba(0,0,0,0.5);
-    border: rgba(0,0,0,0.1) 0.8em solid;
+    @include opacity-border(0.3, 0.5em, 2.5%);
+    @include opacity-background(0.5);
     .el-main{
       float: left;
       min-width: 20em;

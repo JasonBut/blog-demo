@@ -101,5 +101,49 @@ export default {
       name: 'About Me',
       path: '/'
     }
+  ],
+  postList: [
+    {
+      id: '1',
+      subject: 'Programs',
+      date: '2019/1/11 上午7:10:31',
+      title: 'Test in Programs',
+      content: 'This is a simple test.'
+    },
+    {
+      id: '2',
+      subject: 'Notes',
+      date: '2019/1/11 上午8:10:31',
+      title: 'Test in Notes',
+      content: 'This is a simple test.'
+    },
+    {
+      id: '3',
+      subject: 'Daily',
+      date: '2019/1/11 上午9:10:31',
+      title: 'Test in Daily',
+      content: 'This is a simple test.'
+    },
+    {
+      id: '4',
+      subject: 'Notes',
+      date: '2019/1/11 上午10:10:31',
+      title: 'Test2 in Notes',
+      content: 'This is a simple test.'
+    },
+    {
+      id: '5',
+      subject: 'Programs',
+      date: '2019/1/11 上午11:10:31',
+      title: 'Test2 in Programs',
+      content: 'This is a simple test.'
+    },
+    {
+      id: '6',
+      subject: 'Daily',
+      date: '2019/1/11 上午12:10:31',
+      title: 'Test2 in Daily',
+      content: 'This is a simple test.'
+    }
   ]
 };

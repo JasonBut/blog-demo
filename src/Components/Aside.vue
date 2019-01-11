@@ -33,30 +33,24 @@ export default {
 </script>
 
 <style lang="scss">
-.aside-menu-item{
-  background: rgba(11,133,204,0.35);
-}
-
+@import "../Assets/style/style.scss";
 .el-menu{
   height: 53.5em;
-  background: rgba(0,0,0,0.25);
   border: 0;
   text-align: right;
   font-weight: bold;
+  @include opacity-background(0.25);
+  @include opacity-border(0, 0, 3%);
 
   .el-menu-item{
-    background: rgba(0,0,0,0);
+    @include opacity-background(0);
+    @include opacity-item-hover;
+    @include opacity-border(0.9, 0.1em, 10%);
 
     span+span{
       color: rgb(11,133,204);
     }
 
-    &:hover{
-      @extend .aside-menu-item;
-    }
-    &:visited{
-      @extend .aside-menu-item;
-    }
   }
 }
 </style>

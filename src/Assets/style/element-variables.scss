@@ -1,3 +1,19 @@
 $--color-primary: #fdfdfd;
+$--color-text-regular: #fdfdfd;
+$--color-text-primary: #fdfdfd;
+
+$--link-color: #fdfdfd;
+
+$--collapse-header-fill: rgba(0, 0, 0, 0.35);
+$--collapse-content-fill: rgba(0,0,0,0.35);
+$--collapse-border-color: rgba(0,0,0,0.9);
+
+$--card-border-color: rgba(0,0,0,0.9);
+$--card-border-radius: 5%;
+
+$--table-border-color: rgba(0,0,0,0.9);
+$--table-row-hover-background: rgba(11,133,204,0.35);
+$--table-header-color: rgb(255, 209, 47);
+$--table-header-background: rgba(0, 0, 0, 0.35);
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "../../../node_modules/element-ui/packages/theme-chalk/src/index";
