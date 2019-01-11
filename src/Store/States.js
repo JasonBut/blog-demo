@@ -187,5 +187,35 @@ export default {
       title: 'Test2 in Daily',
       content: 'This is a simple test.'
     }
+  ],
+  commentList: [
+    {
+      id: 1,
+      post: 11,
+      username: 'Jack',
+      date: '2019/1/11 上午12:10:31',
+      content: 'Test'
+    },
+    {
+      id: 2,
+      post: 11,
+      username: 'Jack',
+      date: '2019/1/11 上午12:10:31',
+      content: 'Test2'
+    },
+    {
+      id: 3,
+      post: 11,
+      username: 'Jack',
+      date: '2019/1/11 上午12:10:31',
+      content: 'Test3'
+    },
+    {
+      id: 4,
+      post: 11,
+      username: 'Jack',
+      date: '2019/1/11 上午12:10:31',
+      content: 'Test4'
+    }
   ]
 };

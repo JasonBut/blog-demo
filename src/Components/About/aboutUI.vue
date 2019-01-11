@@ -87,7 +87,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @mixin about-common-style{
     float: left;
     margin: 0 0 5% 2%;

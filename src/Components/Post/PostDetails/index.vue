@@ -11,10 +11,12 @@ export default {
   components: {
     postDetailsUI: () => import('./postDetailsUI')
   },
+
   computed: {
     ...mapState({
       list: Constants.postList
     }),
+
     postDetails () {
       const [post] = this.list.filter((item) => {
         return item.id === this.$route.params.id;
