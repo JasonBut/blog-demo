@@ -11,13 +11,19 @@ export default new Router({
       path: '/',
       alias: '/about',
       name: 'home',
-      component: () => import('./Components/About/')
+      component: () => import('@/Components/About/')
     },
     {
       path: '/:categoryName',
       name: 'postList',
       props: true,
-      component: () => import('./Components/List/')
+      component: () => import('@/Components/List/')
+    },
+    {
+      path: '/:categoryName/:id',
+      name: 'post',
+      props: true,
+      component: () => import('@/Components/Post/')
     }
   ]
 });
