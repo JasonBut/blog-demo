@@ -7,7 +7,6 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { Constants } from '@/Store';
 
 export default {
   name: 'List',
@@ -22,7 +21,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      list: Constants.filterPostList
+      list: 'filterPostList'
     })
   },
 

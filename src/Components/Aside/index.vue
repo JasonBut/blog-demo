@@ -1,13 +1,13 @@
 <template>
   <AsideUI
-      :categories="splitCategoryName"
+      :categories="categories"
       :path="$route.path"
   />
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { Constants } from '@/Store';
+import { mapGetters, mapActions } from 'vuex';
+import { ACTIONS } from '@/Store/Constants';
 
 export default {
   name: 'Aside',
@@ -18,8 +18,20 @@ export default {
 
   computed: {
     ...mapGetters({
-      splitCategoryName: Constants.splitCategoryName
+      categories: 'splitCategoryName'
     })
+  },
+
+  methods: {
+    ...mapActions({
+      getData: ACTIONS.getData
+    })
+  },
+
+  created () {
+    this.getData({
+      type: 'categories'
+    });
   }
 
 };

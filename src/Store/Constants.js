@@ -1,26 +1,22 @@
-const STATES = {
-  myInfo: 'myInfo',
-  categories: 'Categories',
-  postList: 'postList',
-  commentList: 'commentList'
-};
-
-const GETTERS = {
+export const GETTERS = {
   splitCategoryName: 'splitCategoryName',
   filterPostList: 'filterPostList'
 };
 
-const MUTATIONS = {
-
+export const MUTATIONS = {
+  GET_CATEGORIES: 'GET_CATEGORIES',
+  REQUESTED_FAILED: 'REQUESTED_FAILED',
+  FETCH_START: 'FETCH_START',
+  FETCH_SUCCESS: 'FETCH_SUCCESS',
+  GET_LIST: 'GET_LIST'
 };
 
-const ACTIONS = {
-
+export const ACTIONS = {
+  getData: 'getData'
 };
 
 export default {
-  ...STATES,
-  ...GETTERS,
-  ...MUTATIONS,
-  ...ACTIONS
+  GETTERS,
+  MUTATIONS,
+  ACTIONS
 };

@@ -1,10 +1,11 @@
 <template>
-  <PostDetailsUI :details="postDetails" />
+  <PostDetailsUI
+      :details="postDetails"
+  />
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import { Constants } from '@/Store';
 
 export default {
   name: 'postDetails',
@@ -14,7 +15,7 @@ export default {
 
   computed: {
     ...mapState({
-      list: Constants.postList
+      list: 'list'
     }),
 
     postDetails () {

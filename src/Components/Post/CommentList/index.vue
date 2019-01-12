@@ -1,10 +1,11 @@
 <template>
-  <CommentListUI :commentList="commentList" />
+  <CommentListUI
+      :commentList="commentList"
+  />
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import { Constants } from '@/Store';
 
 export default {
   name: 'CommentList',
@@ -15,7 +16,7 @@ export default {
 
   computed: {
     ...mapState({
-      list: Constants.commentList
+      list: 'list'
     }),
     commentList () {
       return this.list.filter((item) => {

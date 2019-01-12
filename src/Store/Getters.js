@@ -1,6 +1,6 @@
 export default {
-  splitCategoryName (state) {
-    return state.categories.map((item) => {
+  splitCategoryName ({ categories }) {
+    return categories.map((item) => {
       const name = item.name;
       const splitName = name.split('');
       const nameFirstPart = Number.parseInt(splitName.length / 2);
@@ -10,8 +10,8 @@ export default {
     });
   },
 
-  filterPostList: (state) => (categoryName) => {
-    return state.postList
+  filterPostList: ({ list }) => (categoryName) => {
+    return list
       .filter((item) => item.category === categoryName)
       .reverse();
   }

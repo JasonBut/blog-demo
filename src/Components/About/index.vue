@@ -6,7 +6,6 @@
 
 <script>
 import { mapState } from 'vuex';
-import { Constants } from '@/Store';
 
 export default {
   name: 'About',
@@ -15,7 +14,7 @@ export default {
   },
   computed: {
     ...mapState({
-      myInfo: Constants.myInfo
+      myInfo: 'myInfo'
     })
   }
 };
