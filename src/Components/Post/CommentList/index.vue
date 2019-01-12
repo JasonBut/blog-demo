@@ -1,14 +1,14 @@
 <template>
-  <CommentListUI
-      :commentList="commentList"
-  />
+  <CommentListUI :commentList="list" />
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import GetDataMixins from '../../GetDataMixins';
 
 export default {
   name: 'CommentList',
+  mixins: [GetDataMixins('comments')],
 
   components: {
     CommentListUI: () => import('./CommentListUI')
@@ -17,12 +17,8 @@ export default {
   computed: {
     ...mapState({
       list: 'list'
-    }),
-    commentList () {
-      return this.list.filter((item) => {
-        return item.post === +this.$route.params.id;
-      });
-    }
+    })
   }
+
 };
 </script>

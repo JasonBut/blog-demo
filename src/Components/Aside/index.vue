@@ -1,13 +1,11 @@
 <template>
   <AsideUI
       :categories="categories"
-      :path="$route.path"
-  />
+      :path="$route.path"></AsideUI>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { ACTIONS } from '@/Store/Constants';
 
 export default {
   name: 'Aside',
@@ -24,13 +22,13 @@ export default {
 
   methods: {
     ...mapActions({
-      getData: ACTIONS.getData
+      getData: 'getData'
     })
   },
 
   created () {
     this.getData({
-      type: 'categories'
+      target: 'categories'
     });
   }
 

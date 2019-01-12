@@ -1,15 +1,17 @@
 <template>
   <ListUI
-      :list="list(categoryName)"
+      :list="list"
       :params="categoryName"
   />
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
+import GetDataMixins from '../GetDataMixins';
 
 export default {
   name: 'List',
+  mixins: [GetDataMixins('posts')],
 
   props: {
     categoryName: String
@@ -20,13 +22,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters({
-      list: 'filterPostList'
+    ...mapState({
+      list: ({ list }) => list.reverse()
     })
-  },
-
-  beforeRouteUpdate (to, from, next) {
-    next();
   }
 };
 </script>

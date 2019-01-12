@@ -1,29 +1,21 @@
 <template>
-  <PostDetailsUI
-      :details="postDetails"
-  />
+  <PostDetailsUI :details="post" />
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import GetDataMixins from '../../GetDataMixins';
 
 export default {
   name: 'postDetails',
+  mixins: [GetDataMixins('post')],
+
   components: {
     PostDetailsUI: () => import('./PostDetailsUI')
   },
 
   computed: {
-    ...mapState({
-      list: 'list'
-    }),
-
-    postDetails () {
-      const [post] = this.list.filter((item) => {
-        return item.id === this.$route.params.id;
-      });
-      return post;
-    }
+    ...mapState(['post'])
   }
 };
 </script>

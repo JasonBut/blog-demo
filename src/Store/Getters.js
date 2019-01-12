@@ -9,10 +9,4 @@ export default {
       return { ...item, first, last };
     });
   },
-
-  filterPostList: ({ list }) => (categoryName) => {
-    return list
-      .filter((item) => item.category === categoryName)
-      .reverse();
-  }
 };

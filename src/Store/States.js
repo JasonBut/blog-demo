@@ -86,6 +86,7 @@ export default {
   },
   categories: [],
   list: [],
+  post: {},
   err: '',
   loading: false
 };

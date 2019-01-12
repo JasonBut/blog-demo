@@ -14,10 +14,10 @@
           width="600%"
           min-width="200%"
       >
-        <template slot-scope="scope">
+        <template slot-scope="{ row }">
           <router-link
-              :to="`${params}/${scope.row.id}`"
-          >{{ scope.row.title }}
+              :to="`${params}/${row.id}`"
+          >{{ row.title }}
           </router-link>
         </template>
 

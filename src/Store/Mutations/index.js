@@ -1,24 +1,28 @@
-import { MUTATIONS } from '@/Store/Constants';
+import Types from '../Types';
 
 export default {
-  [MUTATIONS.FETCH_START] (state) {
+  [Types.REQUESTED_START] (state) {
     state.loading = true;
   },
 
-  [MUTATIONS.REQUESTED_FAILED] (state, err) {
-    state.err = err.toString();
+  [Types.REQUESTED_FAILED] (state, { err }) {
     console.log(err);
+    state.err = err.toString();
   },
 
-  [MUTATIONS.FETCH_SUCCESS] (state) {
+  [Types.REQUESTED_SUCCEEDED] (state) {
     state.loading = false;
   },
 
-  [MUTATIONS.GET_CATEGORIES] (state, { payload }) {
-    state.categories = payload;
+  [Types.GET_CATEGORIES] (state, { data }) {
+    state.categories = data;
   },
 
-  [MUTATIONS.GET_LIST] (state, { payload }) {
-    state.list = payload;
+  [Types.GET_LIST] (state, { data }) {
+    state.list = data;
+  },
+
+  [Types.GET_POST] (state, { data }) {
+    state.post = data;
   }
 };
