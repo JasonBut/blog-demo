@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'asideUI',
+  name: 'AsideUI',
   props: {
     categories: Array,
     path: String

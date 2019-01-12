@@ -1,5 +1,5 @@
 <template>
-  <listUI
+  <ListUI
       :list="list(categoryName)"
       :params="categoryName"
   />
@@ -17,7 +17,7 @@ export default {
   },
 
   components: {
-    listUI: () => import('./listUI')
+    ListUI: () => import('./ListUI')
   },
 
   computed: {

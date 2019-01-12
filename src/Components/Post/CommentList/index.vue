@@ -1,5 +1,5 @@
 <template>
-  <commentListUI :commentList="commentList" />
+  <CommentListUI :commentList="commentList" />
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
   name: 'CommentList',
 
   components: {
-    commentListUI: () => import('./commentListUI')
+    CommentListUI: () => import('./CommentListUI')
   },
 
   computed: {
@@ -19,7 +19,6 @@ export default {
     }),
     commentList () {
       return this.list.filter((item) => {
-        console.log(item.post);
         return item.post === +this.$route.params.id;
       });
     }

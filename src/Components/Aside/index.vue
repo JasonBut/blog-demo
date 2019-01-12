@@ -1,5 +1,5 @@
 <template>
-  <asideUI
+  <AsideUI
       :categories="splitCategoryName"
       :path="$route.path"
   />
@@ -13,7 +13,7 @@ export default {
   name: 'Aside',
 
   components: {
-    asideUI: () => import('./asideUI')
+    AsideUI: () => import('./AsideUI')
   },
 
   computed: {

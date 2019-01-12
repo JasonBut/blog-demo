@@ -1,7 +1,7 @@
 <template>
   <div class="post">
-    <postDetails />
-    <commentList />
+    <PostDetails />
+    <CommentList />
   </div>
 </template>
 
@@ -11,8 +11,8 @@ export default {
   name: 'post',
 
   components: {
-    postDetails: () => import('./PostDetails'),
-    commentList: () => import('./CommentList')
+    PostDetails: () => import('./PostDetails'),
+    CommentList: () => import('./CommentList')
   }
 };
 </script>

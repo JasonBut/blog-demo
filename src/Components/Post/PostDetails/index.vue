@@ -1,5 +1,5 @@
 <template>
-  <postDetailsUI :details="postDetails" />
+  <PostDetailsUI :details="postDetails" />
 </template>
 
 <script>
@@ -9,7 +9,7 @@ import { Constants } from '@/Store';
 export default {
   name: 'postDetails',
   components: {
-    postDetailsUI: () => import('./postDetailsUI')
+    PostDetailsUI: () => import('./PostDetailsUI')
   },
 
   computed: {

@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'listUI',
+  name: 'ListUI',
   props: {
     list: Array,
     params: String

@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'commentListUI',
+  name: 'CommentListUI',
   props: {
     commentList: Array
   }

@@ -1,5 +1,5 @@
 <template>
-  <aboutUI
+  <AboutUI
       :infos="myInfo"
   />
 </template>
@@ -11,7 +11,7 @@ import { Constants } from '@/Store';
 export default {
   name: 'About',
   components: {
-    aboutUI: () => import('./aboutUI')
+    AboutUI: () => import('./AboutUI')
   },
   computed: {
     ...mapState({
