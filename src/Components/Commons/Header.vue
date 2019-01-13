@@ -11,10 +11,10 @@ export default {
 <style lang="scss">
 header{
   background: #0C1021 url("../../Assets/bg.png");
-  width: 80%;
+  width: 90%;
   min-width: 40em;
   margin: 0.7em auto;
-  @include opacity-border(0,0,8%);
+  @include opacity-border(0,0,3%);
 
   h1{
     color: #ffffff;

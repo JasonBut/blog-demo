@@ -1,7 +1,7 @@
 <template>
   <div class="post">
     <PostDetails />
-    <CommentList />
+    <Comments />
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
 
   components: {
     PostDetails: () => import('./PostDetails'),
-    CommentList: () => import('./CommentList')
+    Comments: () => import('./Comments')
   }
 };
 </script>

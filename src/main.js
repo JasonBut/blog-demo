@@ -7,6 +7,11 @@ import '@/Assets/style/index.scss';
 
 Vue.config.productionTip = false;
 
+router.beforeEach((to, from, next) => {
+  store.getters.getBread(to);
+  next();
+});
+
 new Vue({
   router,
   store,

@@ -1,6 +1,6 @@
 <template>
   <el-container id="app">
-    <el-header height="18em">
+    <el-header height="23em">
       <Header/>
     </el-header>
     <el-container class="content">
@@ -34,7 +34,7 @@ export default {
   .content{
     width: 70%;
     min-width: 40em;
-    margin: -12em auto 0 auto;
+    margin: -18em auto 0 auto;
     @include opacity-border(0.3, 0.5em, 2.5%);
     @include opacity-background(0.5);
     .el-main{

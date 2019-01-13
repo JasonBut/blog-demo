@@ -4,15 +4,15 @@ $--color-text-primary: #fdfdfd;
 
 $--link-color: #fdfdfd;
 
-$--collapse-header-fill: rgba(0, 0, 0, 0.35);
-$--collapse-content-fill: rgba(0,0,0,0.35);
+$--collapse-header-fill: rgba(0, 0, 0, 0.30);
+$--collapse-content-fill: rgba(0,0,0,0.30);
 $--collapse-border-color: rgba(0,0,0,0.9);
 
 $--card-border-color: rgba(0,0,0,0.9);
 $--card-border-radius: 5%;
 
 $--table-border-color: rgba(0,0,0,1);
-$--table-row-hover-background: rgba(11,133,204,0.35);
+$--table-row-hover-background: rgba(29, 114, 201, 0.35);
 $--table-header-color: rgb(253, 253, 253);
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "../../../node_modules/element-ui/packages/theme-chalk/src/index";

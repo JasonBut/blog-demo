@@ -1,12 +1,20 @@
 export default {
+  // 将导航栏分类名字分隔开,用于双色效果
   splitCategoryName ({ categories }) {
-    return categories.map((item) => {
-      const name = item.name;
-      const splitName = name.split('');
-      const nameFirstPart = Number.parseInt(splitName.length / 2);
-      const first = name.slice(0, nameFirstPart);
-      const last = name.slice(nameFirstPart, splitName.length);
-      return { ...item, first, last };
+    return categories.map((category) => {
+      const name = category.name;
+      const halfLength = Number.parseInt(name.length / 2); // 获取分类名一半长度
+      const first = name.slice(0, halfLength);
+      const last = name.slice(halfLength, name.length);
+      return { ...category, first, last };
     });
+  },
+
+  getBread () {
+    return (route) => {
+      const currentPath = route.path;
+      const paths = currentPath.split('/');
+      console.log(paths);
+    };
   }
 };

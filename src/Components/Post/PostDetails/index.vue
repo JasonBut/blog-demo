@@ -4,7 +4,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import GetDataMixins from '../../GetDataMixins';
+import GetDataMixins from '../../Commons/GetDataMixins';
 
 export default {
   name: 'postDetails',
