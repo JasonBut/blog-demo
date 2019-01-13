@@ -72,7 +72,7 @@ export default {
         deploy: `<a href="https://jasonbut.github.io/forum-demo/" rel="forum-deply">https://jasonbut.github.io/forum-demo/</a>`,
         libs: [
           'React', 'Redux', 'React-Redux', 'Redux-Saga', 'React-Router', 'React-Loadable',
-          'Reselect', 'Braft-Editor', 'Antd', 'Less', 'Axios'
+          'Reselect', 'Braft-Editor', 'Antd', 'Less', 'Axios', 'Animate.css'
         ],
         introduction: `
 <p>

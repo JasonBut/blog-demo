@@ -1,5 +1,3 @@
-import { mapActions } from 'vuex';
-
 const getDataStrategies = function (route) {
   return {
     'posts': `${route.path.split('/')[1]}`,
@@ -10,11 +8,9 @@ const getDataStrategies = function (route) {
 
 export default (dataType) => ({
   methods: {
-    ...mapActions(['getData']),
-
-    getData (route = this.$route) {
+    async getData (route = this.$route) {
       const lowerCaseType = dataType.toLowerCase();
-      this.$store.dispatch('getData', {
+      await this.$store.dispatch('getData', {
         target: lowerCaseType,
         rule: getDataStrategies(route)[lowerCaseType]
       });
@@ -26,7 +22,7 @@ export default (dataType) => ({
   },
 
   beforeRouteUpdate (to, from, next) {
-    if (to.name === from.name && to.params !== from.params) {
+    if (to.name === from.name && to.path !== from.path) {
       this.getData(to);
       next();
     }

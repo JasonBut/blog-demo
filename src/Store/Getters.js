@@ -8,5 +8,5 @@ export default {
       const last = name.slice(nameFirstPart, splitName.length);
       return { ...item, first, last };
     });
-  },
+  }
 };

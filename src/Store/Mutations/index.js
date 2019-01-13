@@ -1,8 +1,11 @@
 import Types from '../Types';
 
 export default {
-  [Types.REQUESTED_START] (state) {
+  [Types.REQUESTED_START] (state, { target }) {
     state.loading = true;
+    if (target) {
+      state[target] = target === 'post' ? {} : [];
+    }
   },
 
   [Types.REQUESTED_FAILED] (state, { err }) {
@@ -14,15 +17,7 @@ export default {
     state.loading = false;
   },
 
-  [Types.GET_CATEGORIES] (state, { data }) {
-    state.categories = data;
-  },
-
-  [Types.GET_LIST] (state, { data }) {
-    state.list = data;
-  },
-
-  [Types.GET_POST] (state, { data }) {
-    state.post = data;
+  [Types.UPDATE_STORE] (state, { target, data }) {
+    state[target] = data;
   }
 };
