@@ -42,9 +42,9 @@ export default async function asyncFetch ({ mode, target, rule, data }) {
     throw new Error(`Invalid type: "${target}", excepted 'String'`);
   }
 
-  let lowerCaseMode = mode && mode.toLowerCase();
+  const lowerCaseMode = mode && mode.toLowerCase();
 
-  if (lowerCaseMode !== 'post' && lowerCaseMode !== 'get' && lowerCaseMode !== 'put') {
+  if (!(['get', 'post', 'put'].includes(lowerCaseMode))) {
     throw new Error(`Invalid mode : ${mode}, excepted "POST","GET" or "PUT"`);
   }
 
@@ -59,7 +59,6 @@ export default async function asyncFetch ({ mode, target, rule, data }) {
     const response = await axios[lowerCaseMode](`${URL}${path}`, data);
 
     path = null; // 解除filters引用
-    lowerCaseMode = null;
 
     if (!(response.status >= 200 && response.status < 300)) {
       throw new Error(response.statusText);
