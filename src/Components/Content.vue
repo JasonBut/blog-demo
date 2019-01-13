@@ -9,7 +9,13 @@
         {{ breadListFilters(item) }}
       </el-breadcrumb-item>
     </el-breadcrumb>
-    <router-view />
+
+    <transition
+        name="el-zoom-in-left"
+        mode="out-in"
+    >
+      <router-view :key="$route.path" />
+    </transition>
   </div>
 </template>
 

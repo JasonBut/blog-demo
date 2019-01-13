@@ -5,7 +5,7 @@
         v-for="comment in commentList"
         :key="comment.id"
     >
-      <h4>{{ comment.username }}：</h4>
+      <h5>{{ comment.username }}：</h5>
       <div v-html="comment.content"></div>
       <p>评论时间：{{ comment.date }}</p>
     </el-card>
@@ -33,19 +33,22 @@ export default {
     margin-top: 1em;
     .el-card{
       margin: 0 0 1em 0;
+      color: #00a8c6;
 
-      h4{
+      h5{
         margin: 0;
       }
 
       div{
         margin: 0;
         padding: 1em;
+        font-size: 0.1em;
       }
 
       p{
         text-align: right;
-        font-size: 0.5em;
+        font-size: 0.1em;
+        margin-bottom: 0;
 
         &:first-child{
           text-align: center;
