@@ -1,24 +1,25 @@
 <template>
   <div>
-    <!--<el-breadcrumb separator-class="el-icon-arrow-right">-->
-      <!--<el-breadcrumb-item-->
-          <!--v-for="(value,key) of toBreadCrumb($route.path)"-->
-          <!--:key="`path_${key}`"-->
-          <!--:to="{ path: `${key}` }"-->
-      <!--&gt;-->
-        <!--{{value}}-->
-      <!--</el-breadcrumb-item>-->
-    <!--</el-breadcrumb>-->
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb-item
+          v-for="item of breadList"
+          :key="item"
+          :to="{ path: item }"
+      >
+        {{ breadListFilters(item) }}
+      </el-breadcrumb-item>
+    </el-breadcrumb>
     <router-view />
   </div>
 </template>
 
 <script>
-
+import { mapState, mapGetters } from 'vuex';
 export default {
   name: 'Content',
-  created () {
-    this.$store.getters.getBread(this.$route);
+  computed: {
+    ...mapState(['breadList']),
+    ...mapGetters(['breadListFilters'])
   }
 };
 </script>

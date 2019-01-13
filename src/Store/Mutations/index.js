@@ -19,5 +19,9 @@ export default {
 
   [Types.UPDATE_STORE] (state, { target, data }) {
     state[target] = data;
+  },
+
+  [Types.UPDATE_BREAD_LIST] (state, { breadList }) {
+    state.breadList = breadList;
   }
 };

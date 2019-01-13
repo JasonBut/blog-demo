@@ -7,8 +7,8 @@ import '@/Assets/style/index.scss';
 
 Vue.config.productionTip = false;
 
-router.beforeEach((to, from, next) => {
-  store.getters.getBread(to);
+router.beforeEach(async (to, from, next) => {
+  await store.dispatch('getBreadList', to);
   next();
 });
 
