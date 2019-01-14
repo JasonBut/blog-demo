@@ -1,14 +1,21 @@
 <template>
-  <CommentListUI :commentList="list" />
+  <CommentListUI
+      :options="paginationOptions"
+      :list="list"
+      @onCurrentChange="handleCurrentChange"
+  />
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import GetDataMixins from '../../Commons/GetDataMixins';
+import { GetDataMixins, PaginationOptions } from '../../Commons';
 
 export default {
   name: 'CommentList',
-  mixins: [GetDataMixins('comments')],
+  mixins: [
+    GetDataMixins('comments'),
+    PaginationOptions
+  ],
 
   components: {
     CommentListUI: () => import('./CommentsUI')

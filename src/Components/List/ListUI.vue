@@ -63,10 +63,5 @@ export default {
 <style lang="scss" scoped>
 .el-card{
   @include content-el-card-margin;
-
-  .el-pagination{
-    @include opacity-background(0.35);
-    text-align: right;
-  }
 }
 </style>

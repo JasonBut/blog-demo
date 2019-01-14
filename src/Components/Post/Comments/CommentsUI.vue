@@ -1,14 +1,22 @@
 <template>
 
-  <el-card class="comment-list" v-if="commentList.length > 0">
+  <el-card class="comment-list" v-if="options.data.length > 0">
     <el-card
-        v-for="comment in commentList"
+        v-for="comment in options.data"
         :key="comment.id"
     >
       <h5>{{ comment.username }}：</h5>
       <div v-html="comment.content"></div>
       <p>评论时间：{{ comment.date }}</p>
     </el-card>
+    <el-pagination
+        :page-size="options.pageSize"
+        :total="options.total"
+        :current-page="options.currentPage"
+        layout="prev,pager,next"
+        @current-change="$emit('onCurrentChange',$event)"
+        small
+    />
   </el-card>
 
   <el-card class="comment-list" v-else>
@@ -23,7 +31,8 @@
 export default {
   name: 'CommentListUI',
   props: {
-    commentList: Array
+    options: Object,
+    list: Array
   }
 };
 </script>

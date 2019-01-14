@@ -44,6 +44,11 @@ body{
         @include opacity-item-hover;
     }
 
+    .el-pagination{
+        @include opacity-background(0.35);
+        text-align: right;
+    }
+
     .icon {
         width: 1em;
         height: 1em;
