@@ -1,29 +1,25 @@
-# blog-demo
+# Demo for a Vue-base blog
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
 ```
-npm run serve
+phone : 13650700330
+email : Jason.But@yahoo.com
+QQ    : 153436677
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Run your tests
-```
-npm run test
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+简介：
+>   这是是本人学习完vue相关知识后做的一个一个基于vue的博客程序。Demo做得比较简单，之后会尝试继续优化。数据库只是简单的一个JSON文件，用json-server搭建的，主要用于演示功能。
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+主要用到：
+* Vue
+* Vuex
+* Vue-router
+* Element
+* Scss
+* Axios
+
+
+[踩坑记录](./UPDATE.md)
