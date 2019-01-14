@@ -7,8 +7,8 @@ import '@/Assets/style/index.scss';
 
 Vue.config.productionTip = false;
 
-router.beforeEach(async (to, from, next) => {
-  await store.commit('UPDATE_BREAD_LIST', to);
+router.beforeEach((to, from, next) => {
+  store.commit('UPDATE_BREAD_LIST', to);
   next();
 });
 

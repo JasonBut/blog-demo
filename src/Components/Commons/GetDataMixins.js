@@ -6,25 +6,20 @@ const getDataStrategies = function (route) {
   };
 };
 
-export default (dataType) => ({
-  methods: {
-    async getData (route = this.$route) {
-      const lowerCaseType = dataType.toLowerCase();
-      await this.$store.dispatch('getData', {
-        target: lowerCaseType,
-        rule: getDataStrategies(route)[lowerCaseType]
-      });
-    }
-  },
+export default (dataType) => {
+  const lowerCaseType = dataType.toLowerCase();
+  return {
+    methods: {
+      async getData (route = this.$route) {
+        await this.$store.dispatch('getData', {
+          target: lowerCaseType,
+          rule: getDataStrategies(route)[lowerCaseType]
+        });
+      }
+    },
 
-  created () {
-    this.getData();
-  },
-
-  beforeRouteUpdate (to, from, next) {
-    if (to.name === from.name && to.path !== from.path) {
-      this.getData(to);
-      next();
+    created () {
+      this.getData();
     }
-  }
-});
+  };
+};
