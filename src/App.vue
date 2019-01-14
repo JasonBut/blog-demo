@@ -1,6 +1,6 @@
 <template>
   <el-container id="app">
-    <el-header height="23em">
+    <el-header height="5em">
       <Header/>
     </el-header>
     <el-container class="content">
@@ -31,10 +31,14 @@ export default {
 
 <style lang="scss">
 #app{
+  background: #0C1021 url("./Assets/bg.png");
+  margin: 1%;
+  border: rgba(0,0,0,0.9) 0.5em solid;
+  border-radius: 2%;
   .content{
     width: 70%;
     min-width: 40em;
-    margin: -18em auto 0 auto;
+    margin: 2em auto 0 auto;
     @include opacity-border(0.3, 0.5em, 2.5%);
     @include opacity-background(0.5);
     .el-main{
