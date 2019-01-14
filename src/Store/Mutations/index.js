@@ -21,7 +21,16 @@ export default {
     state[target] = data;
   },
 
-  [Types.UPDATE_BREAD_LIST] (state, { breadList }) {
-    state.breadList = breadList;
+  [Types.UPDATE_BREAD_LIST] (state, route) {
+    const currentPath = route.path;
+    const paths = currentPath.split('/');
+    state.breadList = paths.map((item, i, arr) => {
+      if (i > 0 && !item) {
+        return;
+      }
+      return i > 0
+        ? (arr.slice(0, i + 1).join('/'))
+        : `/`;
+    });
   }
 };
