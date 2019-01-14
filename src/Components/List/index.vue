@@ -1,8 +1,10 @@
 <template>
   <div>
     <ListUI
+        :options="paginationOptions"
         :list="list"
-        :params="categoryName"
+        :postPath="$route.path"
+        @onCurrentChange="handleCurrentChange"
     />
   </div>
 
@@ -10,14 +12,24 @@
 
 <script>
 import { mapState } from 'vuex';
-import GetDataMixins from '../Commons/GetDataMixins';
+import { GetDataMixins, PaginationOptions } from '../Commons';
 
 export default {
   name: 'List',
-  mixins: [GetDataMixins('posts')],
-
-  props: {
-    categoryName: String
+  mixins: [
+    GetDataMixins('posts'),
+    PaginationOptions
+  ],
+  data () {
+    return {
+      paginationOptions: {
+        path: this.$route.params.categoryName,
+        pageSize: 3,
+        currentPage: 1,
+        total: null,
+        data: []
+      }
+    };
   },
 
   components: {
@@ -28,6 +40,24 @@ export default {
     ...mapState({
       list: ({ list }) => list.reverse()
     })
+  },
+
+  methods: {
+    updateOptions () {
+      const { list, paginationOptions } = this;
+      const { currentPage, pageSize } = this.paginationOptions;
+      paginationOptions.total = list.length;
+      paginationOptions.data = list.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    },
+
+    handleCurrentChange (currentPage) {
+      this.paginationOptions.currentPage = currentPage;
+      this.updateOptions();
+    }
+  },
+
+  updated () {
+    this.updateOptions();
   }
 };
 </script>

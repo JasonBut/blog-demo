@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <el-table
-        :data="list"
+        :data="options.data"
         :header-cell-style="formStyles"
         :header-row-style="formStyles"
         :row-style="formStyles"
@@ -16,7 +16,7 @@
       >
         <template slot-scope="{ row }">
           <router-link
-              :to="`${params}/${row.id}`"
+              :to="`${postPath}/${row.id}`"
           >{{ row.title }}
           </router-link>
         </template>
@@ -31,6 +31,14 @@
       >
       </el-table-column>
     </el-table>
+    <el-pagination
+        :page-size="options.pageSize"
+        :total="options.total"
+        :current-page="options.currentPage"
+        layout="prev,pager,next"
+        @current-change="$emit('onCurrentChange',$event)"
+        small
+    />
   </el-card>
 </template>
 
@@ -38,8 +46,8 @@
 export default {
   name: 'ListUI',
   props: {
-    list: Array,
-    params: String
+    options: Object,
+    postPath: String
   },
 
   data () {
@@ -54,6 +62,11 @@ export default {
 
 <style lang="scss" scoped>
 .el-card{
-  @include content-el-card-margin
+  @include content-el-card-margin;
+
+  .el-pagination{
+    @include opacity-background(0.35);
+    text-align: right;
+  }
 }
 </style>
