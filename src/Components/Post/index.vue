@@ -2,6 +2,7 @@
   <div class="post">
     <PostDetails />
     <Comments />
+    <Editor :comment="true" />
   </div>
 </template>
 
@@ -12,7 +13,8 @@ export default {
 
   components: {
     PostDetails: () => import('./PostDetails'),
-    Comments: () => import('./Comments')
+    Comments: () => import('./Comments'),
+    Editor: () => import('../Editor')
   },
 
   // 离开当前详情页时清理state中post内容,避免面包屑导航中文章标题项抖动
