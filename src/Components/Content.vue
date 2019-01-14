@@ -3,10 +3,10 @@
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item
           v-for="item of breadList"
-          :key="item"
+          :key="`${item}`"
           :to="{ path: item }"
       >
-        {{ breadListFilters(item) }}
+        {{ breadListFilters(item, $store) }}
       </el-breadcrumb-item>
     </el-breadcrumb>
 
