@@ -18,7 +18,7 @@ export default async ({ commit }, payload) => {
     target = targetToState[target];
 
     if (!target) {
-      throw new Error(`${target} is not a valid state`);
+      throw new Error(`Cannot found ${target} in store`);
     }
 
     /*
@@ -27,7 +27,7 @@ export default async ({ commit }, payload) => {
     * 会造成评论列表明显的抖动,因此在发起请求时先清理原有的数据
     * 这个commit顺便也清理了帖子内容post的数据
     * 至于分类categories,由于加载后就不会变动
-    * 因此即使这里加入清理也不会影响性能
+    * 因此即使这里加入清理也不会影响
     */
     commit({ type: Types.REQUESTED_START, target });
 

@@ -15,7 +15,8 @@ import {
   Collapse,
   CollapseItem,
   Table,
-  TableColumn
+  TableColumn,
+  Pagination
 } from 'element-ui';
 
 Vue.use(Container);
@@ -32,3 +33,4 @@ Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Pagination);

@@ -10,7 +10,7 @@ export default {
     });
   },
 
-  breadListFilters: () => (bread) => {
+  breadListFilters: () => (bread, store) => {
     switch (bread) {
       case '/':
         return '首页';
@@ -28,7 +28,7 @@ export default {
         break;
 
       default:
-        return '文章详情';
+        return store.state.post.title;
     }
   }
 };
