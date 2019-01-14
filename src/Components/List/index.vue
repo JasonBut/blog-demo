@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <ListUI
-        :options="paginationOptions"
-        :list="list"
-        :postPath="$route.path"
-        @onCurrentChange="handleCurrentChange"
-    />
-  </div>
-
+  <ListUI
+      :options="paginationOptions"
+      :list="list"
+      :postPath="$route.path"
+      @onCurrentChange="handleCurrentChange"
+  />
 </template>
 
 <script>
