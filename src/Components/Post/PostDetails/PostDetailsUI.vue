@@ -21,7 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 .post-details{
-  @include opacity-border(1,1px,8%);
+  @include transparent-border(1,1px,8%);
   margin: 0;
   .el-card{
     margin: 0;
@@ -47,7 +47,7 @@ export default {
       margin-top: 0.6em;
     }
 
-    @include opacity-background(0.35)
+    @include transparent-background(0.35)
   }
 }
 </style>

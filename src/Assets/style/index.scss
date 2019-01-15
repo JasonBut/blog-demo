@@ -1,15 +1,15 @@
-@mixin opacity-item-hover () {
+@mixin transparent-item-hover() {
     &:hover{
         background: rgba(29, 114, 201, 0.35);
     }
 }
 
-@mixin opacity-border ($opacity,$size,$radius) {
+@mixin transparent-border($opacity,$size,$radius) {
     border: rgba(0,0,0,$opacity) $size solid;
     border-radius: $radius;
 }
 
-@mixin opacity-background ($opacity) {
+@mixin transparent-background($opacity) {
     background: rgba(0,0,0,$opacity);
 }
 
@@ -37,30 +37,29 @@ body{
     }
 
     .el-card{
-        @include opacity-background(0.25);
+        @include transparent-background(0.25);
     }
 
     .el-table {
-        @include opacity-background(0.2);
-        @include opacity-border(0,0,5%)
+        @include transparent-background(0.2);
+        @include transparent-border(0,0,5%)
     }
 
     .el-collapse-item [role='tab']{
-        @include opacity-item-hover;
+        @include transparent-item-hover;
     }
 
     .el-pagination{
-        @include opacity-background(0.35);
         text-align: right;
     }
 
     .el-button{
         position: relative;
         margin-top: 5%;
-        @include opacity-background(0.35);
-        @include opacity-item-hover();
+        @include transparent-background(0.35);
+        @include transparent-item-hover();
         &:focus{
-            @include opacity-background(0);
+            @include transparent-background(0);
         }
     }
 

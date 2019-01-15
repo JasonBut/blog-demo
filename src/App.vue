@@ -39,6 +39,7 @@ export default {
 <style lang="scss">
 #app{
   background: #0C1021 url("./Assets/bg.png");
+  min-height: calc(95vh);
   margin: 1%;
   border: rgba(0,0,0,0.9) 0.5em solid;
   border-radius: 2%;
@@ -46,8 +47,8 @@ export default {
     width: 70%;
     min-width: 40em;
     margin: 2em auto 0 auto;
-    @include opacity-border(0.3, 0.5em, 2.5%);
-    @include opacity-background(0.5);
+    @include transparent-border(0.3, 0.5em, 2.5%);
+    @include transparent-background(0.5);
     .el-main{
       float: left;
       min-width: 20em;

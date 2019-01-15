@@ -95,7 +95,7 @@ export default {
 
   #about{
     min-width: 12em;
-    @include opacity-background(0.25);
+    @include transparent-background(0.25);
     @include content-el-card-margin();
 
     ul{

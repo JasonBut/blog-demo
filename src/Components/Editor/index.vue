@@ -79,7 +79,7 @@ export default {
 .el-card{
   margin-top: 5%;
   #myEditor{
-    @include opacity-background(0.35);
+    @include transparent-background(0.35);
   }
   .el-button{
     @include button-position(2%)
