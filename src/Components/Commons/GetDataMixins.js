@@ -1,8 +1,8 @@
 const getDataStrategies = function (route) {
   return {
-    'posts': `${route.path.split('/')[1]}`,
-    'comments': `${route.params.id}`,
-    'post': `${route.params.id}`
+    'posts': `${route.path.split('/')[1]}`, // eg. /programs 的 programs
+    'comments': `${route.params.id}`, // eg. /programs/01 的 01
+    'post': `${route.params.id}` // 同上
   };
 };
 

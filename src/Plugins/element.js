@@ -17,7 +17,10 @@ import {
   Table,
   TableColumn,
   Pagination,
-  Button
+  Button,
+  Form,
+  FormItem,
+  Input
 } from 'element-ui';
 
 Vue.use(Container);
@@ -36,3 +39,6 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Pagination);
 Vue.use(Button);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Input);

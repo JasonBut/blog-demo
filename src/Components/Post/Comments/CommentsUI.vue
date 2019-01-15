@@ -5,7 +5,7 @@
           v-for="comment in options.data"
           :key="comment.id"
       >
-        <h5>{{ comment.username }}：</h5>
+        <h5>{{ comment.guestName }}：</h5>
         <div v-html="comment.content"></div>
         <p>评论时间：{{ comment.date }}</p>
       </el-card>

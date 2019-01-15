@@ -2,7 +2,7 @@ export default {
   data () {
     return {
       paginationOptions: {
-        pageSize: 3,
+        pageSize: 5,
         currentPage: 1,
         total: null,
         data: []

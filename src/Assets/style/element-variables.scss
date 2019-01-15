@@ -11,6 +11,8 @@ $--collapse-border-color: rgba(0,0,0,0.9);
 $--card-border-color: rgba(0,0,0,0.9);
 $--card-border-radius: 5%;
 
+$--input-fill: rgba(0, 0, 0, 0.30);
+
 $--pagination-fill: rgba(0, 0, 0, 0.30);
 $--pagination-border-radius: 10%;
 $--pagination-hover-fill: rgba(29, 114, 201, 0.35);
@@ -18,6 +20,6 @@ $--pagination-button-disabled-fill: rgba(0, 0, 0, 0.30);
 
 $--table-border-color: rgba(0,0,0,1);
 $--table-row-hover-background: rgba(29, 114, 201, 0.35);
-$--table-header-color: rgb(253, 253, 253);
+$--table-header-color: #fdfdfd;
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "../../../node_modules/element-ui/packages/theme-chalk/src/index";
