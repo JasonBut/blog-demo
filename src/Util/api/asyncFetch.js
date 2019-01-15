@@ -8,28 +8,31 @@ const filters = (rule, mode) => {
   // 将不同的返回数据存在同一处, 增加独立性
   const pool = {
     post: new Map([
-
+      [`comment`, `comments`],
+      [`post`, `posts`]
     ]),
 
     get: new Map([
       [`categories`, `categories`],
       [`posts`, `posts?category=${rule}`],
       [`comments`, `comments?post=${rule}`],
-      [`post`, `posts/${rule}`]
+      [`post`, `posts/${rule}`],
+      [`latest_post`, `posts?_sort=id&&_order=desc&&_end=1`],
+      [`latest_comment`, `comments?_sort=id&&_order=desc&&_end=1`]
     ]),
 
     put: new Map([
-
+      [`post`, `posts/${rule}`]
     ])
   };
   return pool[mode];
 };
 
 /*
- * mode = "GET" / "POST" / "PUT" axios的get/post/put方法                         必须
- * type = 读取或发送的数据的类型, 如"boards","posts"等, 详细看filters的key       必须
- * rule = 读取数据时提供的id值或其他数据值,用于filters生成路径                   可选
- * body = 发送给服务器的数据内容                                                 可选
+ * 必须 mode = "GET" / "POST" / "PUT" axios的get/post/put方法
+ * 必须 type = 读取或发送的数据的类型, 如"boards","posts"等, 详细看filters的key
+ * 可选 rule = 读取数据时提供的id值或其他数据值,用于filters生成路径
+ * 可选 body = 发送给服务器的数据内容
  */
 
 // 三个静态方法, 方便调用
