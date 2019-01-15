@@ -1,22 +1,18 @@
 <template>
   <div>
-    <el-button
-        icon="el-icon-edit"
-        plain
-        @click="active = !active"
-    >
+    <el-button icon="el-icon-edit" @click="active = !active" plain>
       {{ active ? '取消' : ( comment ? '评论' : '发表' ) }}
     </el-button>
-    <transition
-        name="el-zoom-in-top"
-    >
+
+    <transition name="el-zoom-in-top">
       <el-card v-if="active">
-        <VueEditor
-            id="myEditor"
-            v-model="value"
-        />
+        <VueEditor id="myEditor" v-model="value" />
+        <el-button icon="el-icon-edit"  plain>
+          {{ comment ? '评论发表' : '发表博文' }}
+        </el-button>
       </el-card>
     </transition>
+
   </div>
 </template>
 <script>
@@ -78,19 +74,15 @@ export default {
 
 <style lang="scss" scoped>
 .el-button{
-  position: relative;
-  left: 80%;
-  margin-top: 5%;
-  @include opacity-background(0.35);
-  @include opacity-item-hover();
-  &:focus{
-    @include opacity-background(0);
-  }
+  @include button-position(80%)
 }
 .el-card{
   margin-top: 5%;
   #myEditor{
     @include opacity-background(0.35);
+  }
+  .el-button{
+    @include button-position(2%)
   }
 }
 </style>

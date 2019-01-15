@@ -17,6 +17,10 @@
     margin: 3%;
 }
 
+@mixin button-position ($position) {
+    left: $position;
+}
+
 body{
     box-sizing: border-box;
     width: 100%;
@@ -50,6 +54,16 @@ body{
         text-align: right;
     }
 
+    .el-button{
+        position: relative;
+        margin-top: 5%;
+        @include opacity-background(0.35);
+        @include opacity-item-hover();
+        &:focus{
+            @include opacity-background(0);
+        }
+    }
+
     .icon {
         width: 1em;
         height: 1em;
@@ -57,4 +71,5 @@ body{
         fill: currentColor;
         overflow: hidden;
     }
+
 }
