@@ -1,14 +1,16 @@
 <template>
-
   <el-card class="comment-list" v-if="options.data.length > 0">
-    <el-card
-        v-for="comment in options.data"
-        :key="comment.id"
-    >
-      <h5>{{ comment.username }}：</h5>
-      <div v-html="comment.content"></div>
-      <p>评论时间：{{ comment.date }}</p>
-    </el-card>
+    <ListFadeIn :duration="1000">
+      <el-card
+          v-for="comment in options.data"
+          :key="comment.id"
+      >
+        <h5>{{ comment.username }}：</h5>
+        <div v-html="comment.content"></div>
+        <p>评论时间：{{ comment.date }}</p>
+      </el-card>
+    </ListFadeIn>
+
     <el-pagination
         :page-size="options.pageSize"
         :total="options.total"
@@ -33,6 +35,9 @@ export default {
   props: {
     options: Object,
     list: Array
+  },
+  components: {
+    ListFadeIn: () => import('../../Commons/ListFadeIn')
   }
 };
 </script>
@@ -40,6 +45,7 @@ export default {
 <style lang="scss" scoped>
   .comment-list{
     margin-top: 1em;
+
     .el-card{
       margin: 0 0 1em 0;
       color: #00a8c6;

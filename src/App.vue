@@ -1,19 +1,26 @@
 <template>
   <el-container id="app">
+
     <el-header height="5em">
       <Header/>
     </el-header>
+
     <el-container class="content">
+
       <el-aside width="12em">
         <Aside />
       </el-aside>
+
       <el-main>
         <Content />
       </el-main>
+
     </el-container>
+
     <el-footer>
       <Footer />
     </el-footer>
+
   </el-container>
 </template>
 

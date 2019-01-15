@@ -7,12 +7,16 @@
     >
       {{ active ? '取消' : ( comment ? '评论' : '发表' ) }}
     </el-button>
-    <el-card v-if="active">
-      <VueEditor
-          id="myEditor"
-          v-model="value"
-      />
-    </el-card>
+    <transition
+        name="el-zoom-in-top"
+    >
+      <el-card v-if="active">
+        <VueEditor
+            id="myEditor"
+            v-model="value"
+        />
+      </el-card>
+    </transition>
   </div>
 </template>
 <script>
