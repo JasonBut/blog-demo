@@ -14,7 +14,7 @@ export default {
   name: 'CommentList',
   mixins: [
     GetDataMixins('comments'),
-    PaginationOptions
+    PaginationOptions()
   ],
 
   components: {

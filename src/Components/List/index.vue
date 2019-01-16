@@ -15,7 +15,7 @@ export default {
   name: 'List',
   mixins: [
     GetDataMixins('posts'),
-    PaginationOptions
+    PaginationOptions()
   ],
 
   components: {

@@ -1,29 +1,36 @@
-export default {
-  data () {
-    return {
-      paginationOptions: {
-        pageSize: 5,
-        currentPage: 1,
-        total: null,
-        data: []
+export default function (
+  { pageSize, currentPage } = { pageSize: 5, currentPage: 1 }
+) {
+  if (typeof pageSize !== 'number' || typeof currentPage !== 'number') {
+    throw new Error(`Invalid arguments, expected Number `);
+  }
+  return {
+    data () {
+      return {
+        paginationOptions: {
+          pageSize: pageSize,
+          currentPage: currentPage,
+          total: null,
+          data: []
+        }
+      };
+    },
+    methods: {
+      updateOptions () {
+        const { list, paginationOptions } = this;
+        const { currentPage, pageSize } = paginationOptions;
+        paginationOptions.total = list.length;
+        paginationOptions.data = list.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+      },
+
+      handleCurrentChange (currentPage) {
+        this.paginationOptions.currentPage = currentPage;
+        this.updateOptions();
       }
-    };
-  },
-  methods: {
-    updateOptions () {
-      const { list, paginationOptions } = this;
-      const { currentPage, pageSize } = this.paginationOptions;
-      paginationOptions.total = list.length;
-      paginationOptions.data = list.slice((currentPage - 1) * pageSize, currentPage * pageSize);
     },
 
-    handleCurrentChange (currentPage) {
-      this.paginationOptions.currentPage = currentPage;
+    updated () {
       this.updateOptions();
     }
-  },
-
-  updated () {
-    this.updateOptions();
-  }
-};
+  };
+} ;
