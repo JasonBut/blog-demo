@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'Content',
+  name: 'FrontContent',
   components: {
     BreadCrumb: () => import('../Commons/BreadCrumb')
   }

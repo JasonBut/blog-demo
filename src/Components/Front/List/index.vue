@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: 'FrontList',
   components: {
     ListUI: () => import('./ListUI'),
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')

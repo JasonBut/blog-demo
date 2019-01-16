@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'postDetails',
+  name: 'FrontPostDetails',
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
     PostDetailsUI: () => import('./PostDetailsUI')

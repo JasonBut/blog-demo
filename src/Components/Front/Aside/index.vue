@@ -9,7 +9,7 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: 'Aside',
+  name: 'FrontAside',
 
   components: {
     AsideUI: () => import('./AsideUI')
@@ -32,7 +32,6 @@ export default {
       getData: 'getData'
     })
   }
-
 
 };
 </script>

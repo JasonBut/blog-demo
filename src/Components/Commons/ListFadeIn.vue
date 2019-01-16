@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'list-fade-transition',
+  name: 'ListFadeIn',
   props: {
     name: {
       type: String,

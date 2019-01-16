@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'CommentList',
+  name: 'FrontCommentList',
 
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),

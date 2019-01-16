@@ -9,7 +9,7 @@
 <script>
 import { Types } from '@/Store';
 export default {
-  name: 'post',
+  name: 'FrontPost',
 
   components: {
     PostDetails: () => import('./PostDetails'),

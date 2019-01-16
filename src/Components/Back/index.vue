@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import '@/Assets/style/back.scss';
 export default {
   name: 'Back',
   components: {
@@ -24,7 +25,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-@import "../../Assets/style/back.scss";
-</style>
