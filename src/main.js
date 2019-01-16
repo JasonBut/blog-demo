@@ -3,7 +3,6 @@ import App from '@/App.vue';
 import router from '@/router';
 import store from '@/Store';
 import '@/Plugins';
-import '@/Assets/style/index.scss';
 
 Vue.config.productionTip = false;
 

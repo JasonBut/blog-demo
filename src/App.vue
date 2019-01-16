@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import '@/Assets/style/front.scss';
 export default {
   name: 'app',
   components: {
@@ -36,7 +37,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app{
   background: #0C1021 url("./Assets/bg.png");
   min-height: calc(95vh);
