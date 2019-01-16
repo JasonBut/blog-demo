@@ -1,3 +1,20 @@
-body{
-    background: #ffffff
+#back {
+    color: #000000;
+
+    a {
+        color: #000000;
+        text-decoration: none;
+
+        &:visited,
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        @include footer-layout(#fdfdfd, 0.45);
+    }
 }

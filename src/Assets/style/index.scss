@@ -1,0 +1,43 @@
+@mixin transparent-item-hover() {
+    &:hover{
+        background: rgba(29, 114, 201, 0.35);
+    }
+}
+
+@mixin transparent-border($opacity,$size,$radius) {
+    border: rgba(0,0,0,$opacity) $size solid;
+    border-radius: $radius;
+}
+
+@mixin transparent-background($opacity) {
+    background: rgba(0,0,0,$opacity);
+}
+
+@mixin content-el-card-margin () {
+    margin: 3%;
+}
+
+@mixin button-position ($position) {
+    left: $position;
+}
+
+@mixin footer-layout ($color, $opacity) {
+    background: rgba(0,0,0,$opacity);
+    font-size: 0.9em;
+    text-align: center;
+    color: $color;
+    margin-top: 1%;
+    border-top: #065b9c 0.2em solid;
+
+    div{
+        margin-top: 1em;
+
+        svg{
+            margin: 0 0.5em 0 2em;
+        }
+
+        span{
+            font-weight: bold;
+        }
+    }
+}

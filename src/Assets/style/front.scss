@@ -1,32 +1,10 @@
-@mixin transparent-item-hover() {
-    &:hover{
-        background: rgba(29, 114, 201, 0.35);
-    }
-}
-
-@mixin transparent-border($opacity,$size,$radius) {
-    border: rgba(0,0,0,$opacity) $size solid;
-    border-radius: $radius;
-}
-
-@mixin transparent-background($opacity) {
-    background: rgba(0,0,0,$opacity);
-}
-
-@mixin content-el-card-margin () {
-    margin: 3%;
-}
-
-@mixin button-position ($position) {
-    left: $position;
-}
-
 #front{
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 5px 0 10px 0;
     background: #111111;
+    color: #fdfdfd;
 
     a{
         text-decoration: none;
@@ -69,4 +47,9 @@
             @include transparent-background(0);
         }
     }
+
+    footer{
+        @include footer-layout(#fdfdfd, 0.45);
+    }
+
 }

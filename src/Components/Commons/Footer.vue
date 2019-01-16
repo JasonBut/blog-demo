@@ -29,26 +29,3 @@ export default {
   name: 'Footer'
 };
 </script>
-
-<style lang="scss">
-footer{
-  background: rgba(0,0,0,0.45);
-  font-size: 0.9em;
-  text-align: center;
-  color: #fdfdfd;
-  margin-top: 1%;
-  border-top: #065b9c 0.2em solid;
-
-  div{
-    margin-top: 1em;
-
-    svg{
-      margin: 0 0.5em 0 2em;
-    }
-
-    span{
-      font-weight: bold;
-    }
-  }
-}
-</style>
