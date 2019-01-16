@@ -11,7 +11,7 @@
 export default {
   name: 'Content',
   components: {
-    BreadCrumb: () => import('./Commons/BreadCrumb')
+    BreadCrumb: () => import('../Commons/BreadCrumb')
   }
 };
 </script>
