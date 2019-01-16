@@ -4,7 +4,7 @@ const idGenerator = function (type) {
     while (true) {
       yield type
         ? `${type}_${++id}`
-        : (id > 0 && id < 9)
+        : (id >= 0 && id < 9)
           ? `0${++id}`
           : ++id;
     }

@@ -22,5 +22,6 @@ export default {
 .list-leave-active{
   opacity: 0;
   position: absolute;
+  transition: opacity 0s;
 }
 </style>

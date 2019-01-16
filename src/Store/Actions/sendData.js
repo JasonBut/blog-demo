@@ -30,17 +30,22 @@ export default async ({ dispatch, commit }, payload) => {
     const fetchMode = isAmend ? 'put' : 'post'; // 判断编辑模式选择使用'POST'还是'PUT'
     const fetchTarget = isComment ? 'comment' : 'post'; // 判断要提交的内容是评论还是文章
     let latestId = null;
-    let newId;
+    let newId = null;
 
     if (fetchMode === 'post') {
       // 获取最新的文章/评论内容
       latestId = await asyncFetch.get({
         target: `latest_${fetchTarget}`
       });
+
+      // 如没有返回数据,表示还没有内容
+      if (latestId.length === 0) {
+        latestId = [{ id: 0 }];
+      }
+
       // 生成新id
       newId = idGenerator()(latestId[0].id).next().value;
     }
-    console.log(newId)
 
     // 上传到数据库的评论字段
     const commentOptions = { post: postId, guestName };
@@ -62,8 +67,6 @@ export default async ({ dispatch, commit }, payload) => {
         ? commentOptions
         : postOptions
       ));
-
-    console.log(fetchOptions);
 
     await asyncFetch[fetchMode]({
       target: fetchTarget,
