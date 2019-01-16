@@ -21,21 +21,12 @@
     left: $position;
 }
 
-
-html,body {
-    margin: 0 0 0 0;
-    padding: 0;
-}
-
-
 #front{
-    box-sizing: border-box;
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 5px;
+    padding: 5px 0 10px 0;
     background: #111111;
-    font-family: Tahoma, Arial, Helvetica, sans-serif,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 
     a{
         text-decoration: none;
@@ -48,7 +39,7 @@ html,body {
     pre{
         @include transparent-background(0.5);
         @include transparent-border(0.9,1px,5%);
-        color: green;
+        color: #018031;
         padding: 2em;
     }
 
@@ -78,13 +69,4 @@ html,body {
             @include transparent-background(0);
         }
     }
-
-    .icon {
-        width: 1em;
-        height: 1em;
-        vertical-align: -0.15em;
-        fill: currentColor;
-        overflow: hidden;
-    }
-
 }
