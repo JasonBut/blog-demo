@@ -1,7 +1,7 @@
 import Types from '../Types';
 import { asyncFetch } from '@/Util';
 
-const targetToState = {
+const mapTarget = {
   categories: 'categories',
   post: 'post',
   comments: 'list',
@@ -14,11 +14,11 @@ export default async ({ commit }, payload) => {
       throw new Error(`The payload which got ${payload} is invalid `);
     }
 
-    let { target } = payload;
-    target = targetToState[target];
+    const { target } = payload;
+    const targetToState = mapTarget[target];
 
-    if (!target) {
-      throw new Error(`Cannot found ${target} in store`);
+    if (!targetToState) {
+      throw new Error(`Cannot found ${targetToState} in store`);
     }
 
     /*
@@ -29,11 +29,20 @@ export default async ({ commit }, payload) => {
     * 至于分类categories,由于加载后就不会变动
     * 因此即使这里加入清理也不会影响
     */
-    commit({ type: Types.REQUESTED_START, target });
+    commit({ type: Types.REQUESTED_START, target: targetToState });
 
-    const data = await asyncFetch.get(payload); // 调用封装好的axios方法去获取数据
+    let data = await asyncFetch.get(payload); // 调用封装好的axios方法去获取数据
 
-    commit({ type: Types.UPDATE_STORE, target, data });
+    if (!Array.isArray(data) && typeof data !== 'object') {
+      throw new Error(`Wrong data returned, got ${typeof data}, expected 'Object' or 'Array'`);
+    }
+
+    // 博文列表倒序排列
+    if (target === 'posts' && data.length > 0) {
+      data = data.reverse();
+    }
+
+    commit({ type: Types.UPDATE_STORE, target: targetToState, data });
 
     commit({ type: Types.REQUESTED_SUCCEEDED });
   } catch (err) {

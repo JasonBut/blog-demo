@@ -1,31 +1,22 @@
 <template>
-  <CommentListUI
-      :options="paginationOptions"
-      :list="list"
-      @onCurrentChange="handleCurrentChange"
-  />
+  <DataDisplayHOC target="comments">
+    <template slot-scope="scope">
+      <CommentListUI
+          :options="scope.options"
+          :list="scope.list"
+          @onCurrentChange="scope.handleCurrentChange"
+      />
+    </template>
+  </DataDisplayHOC>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { GetDataMixins, PaginationOptions } from '../../Commons';
-
 export default {
   name: 'CommentList',
-  mixins: [
-    GetDataMixins('comments'),
-    PaginationOptions()
-  ],
 
   components: {
+    DataDisplayHOC: () => import('../../Commons/DataDisplayHOC'),
     CommentListUI: () => import('./CommentsUI')
-  },
-
-  computed: {
-    ...mapState({
-      list: 'list'
-    })
   }
-
 };
 </script>

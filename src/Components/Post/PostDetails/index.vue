@@ -1,20 +1,19 @@
 <template>
-  <PostDetailsUI :details="post" />
+  <DataDisplayHOC target="post">
+    <template slot-scope="scope">
+      <PostDetailsUI :details="scope.post" />
+    </template>
+  </DataDisplayHOC>
+
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import GetDataMixins from '../../Commons/GetDataMixins';
 export default {
   name: 'postDetails',
-  mixins: [GetDataMixins('post')],
-
   components: {
+    DataDisplayHOC: () => import('../../Commons/DataDisplayHOC'),
     PostDetailsUI: () => import('./PostDetailsUI')
-  },
-
-  computed: {
-    ...mapState(['post'])
   }
+
 };
 </script>
