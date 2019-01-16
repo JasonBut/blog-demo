@@ -23,6 +23,11 @@ export default {
     return {
       managements: [
         {
+          name: 'home',
+          cname: '博客首页',
+          path: '/'
+        },
+        {
           name: 'categories',
           cname: '管理分类',
           path: '/admin/categories'
@@ -36,11 +41,6 @@ export default {
           name: 'comments',
           cname: '访客回复',
           path: '/admin/comments'
-        },
-        {
-          name: 'about',
-          cname: '关于',
-          path: '/'
         }
       ]
     };
