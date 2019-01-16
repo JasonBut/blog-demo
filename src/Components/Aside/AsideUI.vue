@@ -32,6 +32,8 @@ export default {
 
 <style lang="scss">
   .el-menu{
+    position: fixed;
+    width: 10em;
     border: 0;
     text-align: right;
     font-weight: bold;
