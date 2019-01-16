@@ -12,20 +12,25 @@
 
 <script>
 import { mapState } from 'vuex';
-import { PaginationOptions } from '.';
+import PaginationOptions from './PaginationOptions';
 
 export default {
   name: 'GetData',
-  props: {
-    target: String
-  },
 
   mixins: [
     PaginationOptions()
   ],
 
+  props: {
+    target: String
+  },
+
   computed: {
     ...mapState(['list', 'post'])
+  },
+
+  created () {
+    this.getData();
   },
 
   methods: {
@@ -44,10 +49,6 @@ export default {
         rule: this.getDataStrategies(route)[lowerCaseType]
       });
     }
-  },
-
-  created () {
-    this.getData();
   }
 
 };

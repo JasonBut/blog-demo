@@ -21,17 +21,18 @@ export default {
     })
   },
 
-  methods: {
-    ...mapActions({
-      getData: 'getData'
-    })
-  },
-
   created () {
     this.getData({
       target: 'categories'
     });
+  },
+
+  methods: {
+    ...mapActions({
+      getData: 'getData'
+    })
   }
+
 
 };
 </script>

@@ -15,22 +15,26 @@ export default function (
         }
       };
     },
+
+    updated () {
+      this.updateOptions();
+    },
+
     methods: {
       updateOptions () {
         const { list, paginationOptions } = this;
         const { currentPage, pageSize } = paginationOptions;
         paginationOptions.total = list.length;
-        paginationOptions.data = list.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+        paginationOptions.data = list.slice(
+          (currentPage - 1) * pageSize,
+          currentPage * pageSize
+        );
       },
 
       handleCurrentChange (currentPage) {
         this.paginationOptions.currentPage = currentPage;
         this.updateOptions();
       }
-    },
-
-    updated () {
-      this.updateOptions();
     }
   };
 } ;

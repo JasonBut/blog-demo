@@ -1,7 +1,7 @@
 <template>
   <transition-group
-      :name="name || `el-fade-in-linear`"
-      :duration="duration || 600"
+      :name="name"
+      :duration="duration"
       leave-active-class="list-leave-active"
   >
     <slot></slot>
@@ -12,8 +12,14 @@
 export default {
   name: 'list-fade-transition',
   props: {
-    name: String,
-    duration: Number
+    name: {
+      type: String,
+      default: 'el-fade-in-linear'
+    },
+    duration: {
+      type: Number,
+      default: 600
+    }
   }
 };
 </script>
