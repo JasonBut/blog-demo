@@ -36,6 +36,13 @@ body{
         }
     }
 
+    pre{
+        @include transparent-background(0.5);
+        @include transparent-border(0.9,1px,5%);
+        color: green;
+        padding: 2em;
+    }
+
     .el-card{
         @include transparent-background(0.25);
     }
