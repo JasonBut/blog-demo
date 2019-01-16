@@ -11,7 +11,7 @@
 export default {
   name: 'postDetails',
   components: {
-    DataDisplayHOC: () => import('../../Commons/DataDisplayHOC'),
+    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
     PostDetailsUI: () => import('./PostDetailsUI')
   }
 

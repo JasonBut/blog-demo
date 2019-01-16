@@ -15,7 +15,7 @@
 export default {
   components: {
     ListUI: () => import('./ListUI'),
-    DataDisplayHOC: () => import('../Commons/DataDisplayHOC')
+    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
   }
 };
 </script>

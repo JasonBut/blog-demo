@@ -37,7 +37,7 @@ export default {
     list: Array
   },
   components: {
-    ListFadeIn: () => import('../../Commons/ListFadeIn')
+    ListFadeIn: () => import('@/Components/Commons/ListFadeIn')
   }
 };
 </script>

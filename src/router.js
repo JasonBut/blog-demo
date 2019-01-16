@@ -8,22 +8,35 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/admin',
+      name: 'admin',
+      props: true,
+      component: () => import('@/Components/Back/')
+    },
+    {
       path: '/',
-      alias: '/about',
       name: 'home',
-      component: () => import('@/Components/About/')
-    },
-    {
-      path: '/:categoryName',
-      name: 'postList',
-      props: true,
-      component: () => import('@/Components/List/')
-    },
-    {
-      path: '/:categoryName/:id',
-      name: 'post',
-      props: true,
-      component: () => import('@/Components/Post/')
+      component: () => import('@/Components/Front/'),
+      children: [
+        {
+          path: '/',
+          alias: '/about',
+          name: 'about',
+          component: () => import('@/Components/Front/About')
+        },
+        {
+          path: '/:categoryName',
+          name: 'postList',
+          props: true,
+          component: () => import('@/Components/Front/List/')
+        },
+        {
+          path: '/:categoryName/:id',
+          name: 'post',
+          props: true,
+          component: () => import('@/Components/Front/Post/')
+        }
+      ]
     }
   ]
 });

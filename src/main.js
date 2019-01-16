@@ -7,7 +7,7 @@ import '@/Plugins';
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
-  store.commit('UPDATE_BREAD_LIST', to);
+  store.commit('UPDATE_BREAD_LIST', to); // 控制面包屑导航的显示
   next();
 });
 

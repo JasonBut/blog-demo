@@ -14,7 +14,7 @@ export default {
   components: {
     PostDetails: () => import('./PostDetails'),
     Comments: () => import('./Comments'),
-    Editor: () => import('../Editor')
+    Editor: () => import('@/Components/Commons/Editor')
   },
 
   // 离开当前详情页时清理state中post内容,避免面包屑导航中文章标题项抖动

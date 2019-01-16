@@ -21,10 +21,19 @@
     left: $position;
 }
 
-body{
+
+html,body {
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+
+#front{
     box-sizing: border-box;
+    height: 100%;
     width: 100%;
     margin: 0;
+    padding: 5px;
     background: #111111;
     font-family: Tahoma, Arial, Helvetica, sans-serif,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 

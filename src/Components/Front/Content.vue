@@ -3,6 +3,7 @@
     <BreadCrumb />
     <transition name="el-zoom-in-left" mode="out-in">
       <router-view :key="$route.path" />
+      <router-view name="about"/>
     </transition>
   </div>
 </template>

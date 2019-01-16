@@ -15,7 +15,7 @@ export default {
   name: 'CommentList',
 
   components: {
-    DataDisplayHOC: () => import('../../Commons/DataDisplayHOC'),
+    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
     CommentListUI: () => import('./CommentsUI')
   }
 };
