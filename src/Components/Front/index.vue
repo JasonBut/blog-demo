@@ -41,7 +41,7 @@ export default {
 
 <style lang="scss">
 #front-app{
-  background: #0C1021 url("../../Assets/bg.png");
+  background: $front-content-background-color url("../../Assets/bg.png");
   min-height: calc(95vh);
   margin: 1%;
   @include transparent-border(0.9,0.5em,2%);

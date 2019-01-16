@@ -1,17 +1,21 @@
 <template>
 <div id="back">
   <el-container>
+
     <el-container>
-      <el-aside>
-        Aside
+      <el-aside width="12em">
+        <Aside />
       </el-aside>
+
       <el-main>
-        main
+        <Content />
       </el-main>
     </el-container>
+
     <el-footer>
-      <Footer />
+      <Footer class="back-footer" />
     </el-footer>
+
   </el-container>
 </div>
 </template>
@@ -21,7 +25,15 @@ import '@/Assets/style/back.scss';
 export default {
   name: 'Back',
   components: {
-    Footer: () => import('../Commons/Footer.vue')
+    Aside: () => import('./Aside'),
+    Footer: () => import('../Commons/Footer'),
+    Content: () => import('./Content')
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.el-main{
+  background: $back-content-background-color;
+}
+</style>

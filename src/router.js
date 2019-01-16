@@ -11,17 +11,34 @@ export default new Router({
       path: '/admin',
       name: 'admin',
       props: true,
-      component: () => import('@/Components/Back/')
+      component: () => import('@/Components/Back/'),
+      children: [
+        {
+          path: 'categories',
+          name: 'manage-categories',
+          component: () => import('@/Components/Back/Category')
+        },
+        {
+          path: 'posts',
+          alias: '/admin',
+          name: 'manage-posts',
+          component: () => import('@/Components/Back/Posts')
+        },
+        {
+          path: 'comments',
+          name: 'manage-comments',
+          component: () => import('@/Components/Back/Comments')
+        }
+      ]
     },
     {
       path: '/',
-      name: 'home',
       component: () => import('@/Components/Front/'),
       children: [
         {
           path: '/',
           alias: '/about',
-          name: 'about',
+          name: 'home',
           component: () => import('@/Components/Front/About')
         },
         {

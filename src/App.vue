@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <router-view />
-    <router-view name="admin" />
-  </div>
+  <transition-group name="el-fade-in-linear">
+    <router-view key="backend" />
+    <router-view key="frontend" name="admin" />
+  </transition-group>
 </template>
 
 <script>

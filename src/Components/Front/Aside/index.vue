@@ -1,7 +1,6 @@
 <template>
   <AsideUI
       :categories="categories"
-      :path="$route.path"
   />
 </template>
 

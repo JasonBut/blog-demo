@@ -48,7 +48,7 @@ export default {
 
     .el-card{
       margin: 0 0 1em 0;
-      color: #00a8c6;
+      color: $front-comment-color;
 
       h5{
         margin: 0;

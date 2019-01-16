@@ -3,12 +3,12 @@
     width: 100%;
     margin: 0;
     padding: 5px 0 10px 0;
-    background: #111111;
-    color: #fdfdfd;
+    background: $front-body-background-color;
+    color: $front-text-primary;
 
     a{
         text-decoration: none;
-        color: #fdfdfd;
+        color: $front-text-primary;
         &:hover {
             text-decoration: underline;
         }
@@ -42,7 +42,7 @@
     }
 
     footer{
-        @include footer-layout(#fdfdfd, 0.45);
+        @include footer-layout($front-text-primary, 0.45);
     }
 
 }

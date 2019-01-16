@@ -8,27 +8,5 @@ export default {
       const last = name.slice(halfLength, name.length);
       return { ...category, first, last };
     });
-  },
-
-  breadListFilters: () => (bread, store) => {
-    switch (bread) {
-      case '/':
-        return '首页';
-
-      case '/daily':
-        return '日常生活';
-
-      case '/programs':
-        return '项目记录';
-
-      case '/notes':
-        return '学习笔记';
-
-      case undefined:
-        break;
-
-      default:
-        return store.state.post.title;
-    }
   }
 };

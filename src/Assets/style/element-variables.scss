@@ -1,25 +1,25 @@
-$--color-primary: #fdfdfd;
-$--color-text-regular: #fdfdfd;
-$--color-text-primary: #fdfdfd;
+$--color-primary: $front-text-primary;
+$--color-text-regular: $front-text-primary;
+$--color-text-primary: $front-text-primary;
 
-$--link-color: #fdfdfd;
+$--link-color: $front-text-primary;
 
-$--collapse-header-fill: rgba(0, 0, 0, 0.30);
-$--collapse-content-fill: rgba(0,0,0,0.30);
-$--collapse-border-color: rgba(0,0,0,0.9);
+$--collapse-header-fill: $front-transparent-background;
+$--collapse-content-fill: $front-transparent-background;
+$--collapse-border-color: $front-transparent-border;
 
-$--card-border-color: rgba(0,0,0,0.9);
+$--card-border-color: $front-transparent-border;
 $--card-border-radius: 5%;
 
-$--input-fill: rgba(0, 0, 0, 0.30);
+$--input-fill: $front-transparent-background;
 
-$--pagination-fill: rgba(0, 0, 0, 0.30);
+$--pagination-fill: $front-transparent-background;
 $--pagination-border-radius: 10%;
-$--pagination-hover-fill: rgba(29, 114, 201, 0.35);
-$--pagination-button-disabled-fill: rgba(0, 0, 0, 0.30);
+$--pagination-hover-fill: $front-item-hover-fill;
+$--pagination-button-disabled-fill: $front-transparent-background;
 
-$--table-border-color: rgba(0,0,0,1);
-$--table-row-hover-background: rgba(29, 114, 201, 0.35);
+$--table-border-color: $front-transparent-border;
+$--table-row-hover-background: $front-item-hover-fill;
 $--table-header-color: #fdfdfd;
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "../../../node_modules/element-ui/packages/theme-chalk/src/index";

@@ -1,8 +1,9 @@
 #back {
-    color: #000000;
+    color: $back-text-secondary;
+    background: $back-body-background-color;
 
     a {
-        color: #000000;
+        color: $back-text-secondary;
         text-decoration: none;
 
         &:visited,
@@ -15,6 +16,16 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        @include footer-layout(#fdfdfd, 0.45);
+        a{
+            color: $back-text-light;
+        }
+        @include footer-layout($back-text-light, 0.45);
+    }
+
+    .el-breadcrumb__item{
+        .el-breadcrumb__inner,
+        .is-link{
+            color: $back-text-secondary;
+        }
     }
 }

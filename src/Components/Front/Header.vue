@@ -16,7 +16,7 @@ header{
   @include transparent-border(0,0,3%);
 
   h1{
-    color: #ffffff;
+    color: $front-text-primary;
     font-size: 3em;
     margin: 1% 0 3% 10%;
   }

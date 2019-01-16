@@ -1,0 +1,67 @@
+$common-footer-border: #065b9c;                         // 页脚线
+$common-pre-color: #018031;                             // 富文本per标签内容颜色
+
+// 前台
+$front-body-background-color: #111111;                  // body背景色
+$front-content-background-color: #0C1021;               // 布局区底色
+$front-text-primary: #fdfdfd;                           // 主要文字颜色
+$front-aside-item-second: #0B85CC;                      // 边栏长亮色
+$front-item-hover-fill: rgba(29, 114, 201, 0.35);       // 边栏,表格及下拉框的hover颜色
+$front-comment-color: #00a8c6;                          // 评论颜色
+$front-transparent-border: rgba(0,0,0,0.9);             // 透明效果边框
+$front-transparent-background: rgba(0, 0, 0, 0.30);     // 透明效果背景
+
+// 后台
+$back-body-background-color: #304156;                   // body背景色
+$back-content-background-color: #e3e5e8;                // 内容区背景色
+$back-aside-background: #304156;                        // 边框背景色
+$back-menu-item-hover-fill: #202b40;                    // 边栏hover颜色
+$back-menu-item-active-color: #00a8c6;                  // 边框当前项颜色
+$back-text-secondary: #414141;                          // 内容区域次要文字颜色
+$back-text-light: #fdfdfd;                              // 边栏及页脚文字色
+
+
+// 前台透明hover
+@mixin transparent-item-hover() {
+    &:hover{
+        background: $front-item-hover-fill;
+    }
+}
+
+// 透明边框
+@mixin transparent-border($opacity,$size,$radius) {
+    border: rgba(0,0,0,$opacity) $size solid;
+    border-radius: $radius;
+}
+
+// 透明背景
+@mixin transparent-background($opacity) {
+    background: rgba(0,0,0,$opacity);
+}
+
+// card 统一margin
+@mixin content-el-card-margin () {
+    margin: 3%;
+}
+
+// 复用的页脚样式
+@mixin footer-layout ($color, $opacity) {
+    background: rgba(0,0,0,$opacity);
+    font-size: 0.9em;
+    text-align: center;
+    color: $color;
+    margin-top: 1%;
+    border-top: $common-footer-border 0.2em solid;
+
+    div{
+        margin-top: 1em;
+
+        svg{
+            margin: 0 0.5em 0 2em;
+        }
+
+        span{
+            font-weight: bold;
+        }
+    }
+}

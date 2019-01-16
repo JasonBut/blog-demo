@@ -103,7 +103,7 @@ export default {
 
 <style lang="scss" scoped>
   .el-button{
-    @include button-position(80%)
+    left: 80%;
   }
 
   .el-card{
@@ -112,7 +112,7 @@ export default {
       @include transparent-background(0.25);
     }
     .el-button{
-      @include button-position(2%)
+      left: 2%;
     }
     .el-input.name{
       width: 130px;
