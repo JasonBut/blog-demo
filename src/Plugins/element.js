@@ -20,7 +20,8 @@ import {
   Button,
   Form,
   FormItem,
-  Input
+  Input,
+  Loading
 } from 'element-ui';
 
 Vue.use(Container);
@@ -42,3 +43,4 @@ Vue.use(Button);
 Vue.use(Form);
 Vue.use(FormItem);
 Vue.use(Input);
+Vue.use(Loading);

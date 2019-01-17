@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <div
+      v-loading="$store.state.loading"
+      element-loading-spinner="el-icon-loading"
+      element-loading-text="Loading..."
+  >
     <BreadCrumb />
     <transition name="el-fade-in-linear" mode="out-in">
       <router-view :key="$route.path" />
