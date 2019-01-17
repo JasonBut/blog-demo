@@ -46,8 +46,7 @@
         .cell{
             @include transparent-background(0);
             @include autoBreak;
-            padding: 0 1em;
-            max-height: 2em;
+            max-height: 7em;
             text-overflow: ellipsis;
         }
 
