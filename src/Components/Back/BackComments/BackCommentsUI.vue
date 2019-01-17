@@ -32,7 +32,7 @@
           align="center"
           min-width="15%"
       >
-        <template slot-scope="maintain">
+        <template slot-scope="scope">
           <el-button size="mini">查看文章</el-button>
           <el-button size="mini">编辑</el-button>
           <el-button size="mini">删除</el-button>
@@ -40,10 +40,10 @@
       </el-table-column>
     </el-table>
     <el-pagination
-        :total="options.total"
         :page-size="options.pageSize"
+        :total="options.total"
         :current-page="options.currentPage"
-        layout="prve, pager, next"
+        layout="prev,pager,next"
         @current-change="$emit('onCurrentChange',$event)"
         small
     />
@@ -54,7 +54,8 @@
 export default {
   name: 'BackCommentsUI',
   props: {
-    options: Object
+    options: Object,
+    list: Array
   }
 };
 </script>

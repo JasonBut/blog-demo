@@ -2,8 +2,8 @@
   <DataDisplayHOC target="all_comments">
     <template slot-scope="scope">
       <BackCommentsUI
-          :list="scope.list"
           :options="scope.options"
+          :list="scope.list"
           @onCurrentChange="scope.handleCurrentChange"
       />
     </template>

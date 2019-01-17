@@ -2,7 +2,7 @@
   <el-card>
     <el-table
         text
-        :data="options.data"
+        :data="list"
     >
       <el-table-column
           prop="cname"
@@ -32,14 +32,6 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-        :page-size="options.pageSize"
-        :total="options.total"
-        :current-page="options.currentPage"
-        layout="prev,pager,next"
-        @current-change="$emit('onCurrentChange',$event)"
-        small
-    />
   </el-card>
 </template>
 
@@ -47,8 +39,7 @@
 export default {
   name: 'BackCategoryUI',
   props: {
-    list: Array,
-    options: Object
+    list: Array
   }
 };
 </script>

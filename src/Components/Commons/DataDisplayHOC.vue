@@ -2,6 +2,7 @@
   <div>
     <slot
         :options="paginationOptions"
+        :categories="categories"
         :list="list"
         :postPath="$route.path"
         :handleCurrentChange="handleCurrentChange"
@@ -26,7 +27,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['list', 'post'])
+    ...mapState(['list', 'post', 'categories'])
   },
 
   created () {

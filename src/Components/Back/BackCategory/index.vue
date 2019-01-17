@@ -3,8 +3,6 @@
     <template slot-scope="scope">
       <BackCategoryUI
           :list="categoryFilter(scope.categories)"
-          :options="scope.options"
-          @onCurrentChange="scope.handleCurrentChange"
       />
     </template>
   </DataDisplayHOC>

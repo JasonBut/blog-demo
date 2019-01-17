@@ -24,6 +24,7 @@
 
     .el-table{
         color: $back-text-primary;
+        background: rgba(255, 255, 255, 0.6);
         font-weight: bold;
         @include transparent-border(0.2, 1px, 5px);
 
