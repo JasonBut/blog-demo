@@ -1,12 +1,16 @@
 <template>
-  <el-card class="post-details" >
+  <el-card class="post-details" v-if="details.content" >
     <el-card><h1>{{  details.title  }}</h1></el-card>
-
     <el-card>
       <div v-html="details.content"></div>
       <p>发表日期：{{ details.date }}</p>
     </el-card>
+  </el-card>
 
+  <el-card class="post-details" v-else>
+    <el-card>
+      <p>文章不存在</p>
+    </el-card>
   </el-card>
 </template>
 
@@ -41,6 +45,12 @@ export default {
       text-align: right;
       font-size: 0.5em;
       margin-top: 3em;
+
+      &:first-child{
+        margin: 0;
+        font-size: 1em;
+        text-align: center;
+      }
     }
 
     &:nth-child(2){
