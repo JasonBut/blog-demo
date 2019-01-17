@@ -70,3 +70,9 @@ $back-text-light: #fdfdfd;                              // 边栏及页脚文字
         }
     }
 }
+
+// 文本自动换行
+@mixin autoBreak () {
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}

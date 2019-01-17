@@ -7,14 +7,17 @@
           label="访客"
           prop="guestName"
           min-width="10%"
+
       >
       </el-table-column>
 
       <el-table-column
           label="内容"
-          prop="content"
           min-width="40%"
       >
+        <template slot-scope="{ row }">
+          <div v-html="htmlToText(row.content)"></div>
+        </template>
       </el-table-column>
 
       <el-table-column
@@ -52,6 +55,12 @@ export default {
   props: {
     options: Object,
     list: Array
+  },
+
+  methods: {
+    htmlToText (html) {
+      return html.replace(/<.+?>/g, '');
+    }
   }
 };
 </script>

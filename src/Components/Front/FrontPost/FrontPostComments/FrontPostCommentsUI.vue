@@ -45,6 +45,7 @@ export default {
 <style lang="scss" scoped>
   .comment-list{
     margin-top: 1em;
+    @include autoBreak;
 
     .el-card{
       margin: 0 0 1em 0;

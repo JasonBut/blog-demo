@@ -43,11 +43,21 @@
             border-left: none;
         }
 
+        .cell{
+            @include transparent-background(0);
+            @include autoBreak;
+            padding: 0 1em;
+            max-height: 2em;
+            text-overflow: ellipsis;
+        }
+
         .el-table__row {
             @include transparent-background(0);
             @include transparent-item-hover($back-table-row-hover-fill);
+            height: 3em;
             td{
                 @include transparent-border(0.05, 1px, 0);
+
                 background: $back-table-body-background;
                 border-top: none;
                 border-left: none;

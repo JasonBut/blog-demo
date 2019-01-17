@@ -57,7 +57,8 @@ export default {
       margin-top: 0.6em;
     }
 
-    @include transparent-background(0.35)
+    @include transparent-background(0.35);
+    @include autoBreak;
   }
 }
 </style>

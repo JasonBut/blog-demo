@@ -11,14 +11,7 @@
       <el-table-column
           label="标题"
           prop="title"
-          min-width="10%"
-      >
-      </el-table-column>
-
-      <el-table-column
-          label="内容简要"
-          prop="content"
-          min-width="30%"
+          min-width="20%"
       >
       </el-table-column>
 
