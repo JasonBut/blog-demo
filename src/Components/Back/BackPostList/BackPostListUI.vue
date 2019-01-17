@@ -1,32 +1,37 @@
 <template>
   <el-card>
-    <el-table
-        :data="options.data"
-    >
+    <el-table :data="options.data" >
       <el-table-column
-          label="访客"
-          prop="guestName"
-          min-width="10%"
+          label="标题"
+          prop="title"
+          min-width="10"
       >
       </el-table-column>
 
       <el-table-column
-          label="内容"
+          label="分类"
+          prop="category"
+          min-width="10"
+      >
+      </el-table-column>
+
+      <el-table-column
+          label="内容简要"
           prop="content"
-          min-width="40%"
+          min-width="10"
       >
       </el-table-column>
 
       <el-table-column
           label="日期"
           prop="date"
-          min-width="15%"
+          min-width="10"
       >
       </el-table-column>
 
       <el-table-column
           label="操作"
-          min-width="15%"
+          min-width="10"
       >
         <template slot-scope="maintenance">
           <el-button size="mini">查看文章</el-button>
@@ -35,23 +40,14 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-        :page-size="options.pageSize"
-        :total="options.total"
-        :current-page="options.currentPage"
-        layout="prev,pager,next"
-        @current-change="$emit('onCurrentChange',$event)"
-        small
-    />
   </el-card>
 </template>
 
 <script>
 export default {
-  name: 'BackCommentsUI',
+  name: 'BackPostListUI',
   props: {
-    options: Object,
-    list: Array
+    options: Object
   }
 };
 </script>

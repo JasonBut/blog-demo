@@ -1,7 +1,11 @@
 <template>
   <DataDisplayHOC target="all_posts">
     <template slot-scope="scope">
-      <div>{{ scope.list }}</div>
+      <BackPostListUI
+          :list="scope.list"
+          :options="scope.options"
+          @onCurrentChange="handleCurrentChange"
+      />
     </template>
   </DataDisplayHOC>
 </template>
@@ -10,7 +14,8 @@
 export default {
   name: 'BackList',
   components: {
-    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
+    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
+    BackPostListUI: () => import('./BackPostListUI')
   }
 };
 </script>

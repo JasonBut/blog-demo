@@ -25,6 +25,7 @@
     .el-table{
         color: $back-text-primary;
         background: rgba(255, 255, 255, 0.6);
+        font-size: 0.5em;
         font-weight: bold;
         @include transparent-border(0.2, 1px, 5px);
 
@@ -34,8 +35,9 @@
 
         thead tr,
         th{
-            color: $back-text-secondary;
             background: $back-table-body-background;
+            color: $back-text-secondary;
+            text-align: center;
             @include transparent-border(0.05, 1px, 0);
             border-top: none;
             border-left: none;
@@ -49,6 +51,7 @@
                 background: $back-table-body-background;
                 border-top: none;
                 border-left: none;
+                text-align: center;
             }
         }
     }
