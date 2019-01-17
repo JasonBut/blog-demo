@@ -102,20 +102,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .el-button{
-    left: 80%;
-  }
+.el-button{
+  left: 80%;
+  @include transparent-item-hover($front-item-hover-fill);
+}
 
-  .el-card{
-    margin-top: 5%;
-    .editor{
-      @include transparent-background(0.25);
-    }
-    .el-button{
-      left: 2%;
-    }
-    .el-input.name{
-      width: 130px;
-    }
+.el-card{
+  margin-top: 5%;
+  .editor{
+    @include transparent-background(0.25);
   }
+  .el-button{
+    left: 2%;
+  }
+  .el-input.name{
+    width: 130px;
+  }
+}
 </style>

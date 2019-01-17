@@ -6,7 +6,7 @@ html,body {
 
     pre{
         @include transparent-background(0.5);
-        @include transparent-border(0.9,1px,5%);
+        @include transparent-border(0.9,1px,10px);
         color: $common-pre-color;
         padding: 2em;
     }

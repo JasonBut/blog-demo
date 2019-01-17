@@ -44,13 +44,13 @@ export default {
   background: $front-content-background-color url("../../Assets/bg.png");
   min-height: calc(95vh);
   margin: 1%;
-  @include transparent-border(0.9,0.5em,2%);
+  @include transparent-border(0.9,0.5em,20px);
 }
 .content{
   width: 70%;
   min-width: 40em;
   margin: 2em auto 0 auto;
-  @include transparent-border(0.3, 0.5em, 2.5%);
+  @include transparent-border(0.3, 0.5em, 20px);
   @include transparent-background(0.5);
 
   .el-main{

@@ -25,7 +25,7 @@
     .el-table{
         color: $back-text-primary;
         font-weight: bold;
-        @include transparent-border(0.2, 1px, 0);
+        @include transparent-border(0.2, 1px, 5px);
 
         &:before{
             @include transparent-background(0)
@@ -57,7 +57,7 @@
         background: $back-card-background-color;
         min-width: 24em;
         margin: 3% 10%;
-        @include transparent-border(0.2, 1px, 15px);
+        @include transparent-border(0.2, 1px, 5px);
     }
 
     .el-breadcrumb__item{
@@ -65,5 +65,12 @@
         .is-link{
             color: $back-text-secondary;
         }
+    }
+
+    .el-button{
+        margin: 0 2%;
+        color: $back-text-secondary;
+        border-radius: 5px;
+        @include transparent-background(0);
     }
 }

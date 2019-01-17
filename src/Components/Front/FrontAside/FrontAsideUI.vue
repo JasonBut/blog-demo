@@ -36,13 +36,12 @@ export default {
   border: 0;
   text-align: right;
   font-weight: bold;
-  @include transparent-background(0.25);
-  @include transparent-border(0, 0, 3%);
+  @include transparent-background(0);
 
   .el-menu-item{
-    @include transparent-background(0);
+    @include transparent-background(0.30);
     @include transparent-item-hover($front-item-hover-fill);
-    @include transparent-border(0.9, 0.1em, 10%);
+    @include transparent-border(0.9, 0.1em, 10px);
 
     span+span{
       color: $front-aside-item-second;

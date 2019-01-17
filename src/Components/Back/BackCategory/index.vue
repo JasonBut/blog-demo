@@ -27,8 +27,10 @@
               align="center"
               min-width="50%"
           >
-            <template>
-              查看
+            <template slot-scope="scope">
+              <el-button size="mini">查看文章</el-button>
+              <el-button size="mini">编辑</el-button>
+              <el-button size="mini">删除</el-button>
             </template>
           </el-table-column>
 
