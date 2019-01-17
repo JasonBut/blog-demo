@@ -4,7 +4,7 @@
       <ListUI
           :options="scope.options"
           :list="scope.list"
-          :postPath="$route.path"
+          :postPath="scope.postPath"
           @onCurrentChange="scope.handleCurrentChange"
       />
     </template>

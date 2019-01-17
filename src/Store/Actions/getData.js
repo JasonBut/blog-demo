@@ -47,7 +47,7 @@ export default async ({ commit }, payload) => {
     }
 
     // 博文列表倒序排列
-    if (target.indexOf('posts') !== -1 && data.length > 0) {
+    if ((target.indexOf('posts') > -1 || target.indexOf('all_') > -1) && data.length > 0) {
       data = data.reverse();
     }
 

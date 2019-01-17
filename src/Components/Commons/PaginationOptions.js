@@ -29,6 +29,7 @@ export default function (
           (currentPage - 1) * pageSize,
           currentPage * pageSize
         );
+        console.log(this.list);
       },
 
       handleCurrentChange (currentPage) {
