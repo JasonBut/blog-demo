@@ -65,7 +65,22 @@
         }
     }
 
-
+    .el-pagination{
+        text-align: right;
+        .number{
+            font-weight: normal;
+            &:hover:not(.active){
+                transform: scale(1.5);
+            }
+        }
+        .active{
+            font-weight: bold;
+        }
+        *{
+            @include transparent-background(0);
+            color: $back-text-secondary;
+        }
+    }
 
     .el-card{
         background: $back-card-background-color;
