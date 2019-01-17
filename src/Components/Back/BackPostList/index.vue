@@ -4,7 +4,7 @@
       <BackPostListUI
           :list="scope.list"
           :options="scope.options"
-          @onCurrentChange="handleCurrentChange"
+          @onCurrentChange="scope.handleCurrentChange"
       />
     </template>
   </DataDisplayHOC>
