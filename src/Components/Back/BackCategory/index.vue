@@ -1,19 +1,16 @@
 <template>
   <DataDisplayHOC target="categories">
-    <AsideUI :categories="splitCategoryName" />
+    <template slot-scope="scope">
+      <div>{{ scope.categories }}</div>
+    </template>
   </DataDisplayHOC>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 export default {
-  name: 'FrontAside',
+  name: 'BackCategory',
   components: {
-    AsideUI: () => import('./AsideUI'),
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
-  },
-  computed: {
-    ...mapGetters(['splitCategoryName'])
   }
 };
 </script>

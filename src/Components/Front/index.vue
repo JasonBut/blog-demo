@@ -31,15 +31,15 @@ import '@/Assets/style/front.scss';
 export default {
   name: 'Front',
   components: {
-    Header: () => import('./Header.vue'),
-    Aside: () => import('./Aside/index.vue'),
-    Content: () => import('./Content.vue'),
+    Header: () => import('./FrontHeader.vue'),
+    Aside: () => import('./FrontAside/index.vue'),
+    Content: () => import('./FrontContent.vue'),
     Footer: () => import('../Commons/Footer.vue')
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #front-app{
   background: $front-content-background-color url("../../Assets/bg.png");
   min-height: calc(95vh);

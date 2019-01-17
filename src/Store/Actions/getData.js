@@ -1,11 +1,20 @@
 import Types from '../Types';
 import { asyncFetch } from '@/Util';
 
-const mapTarget = {
-  categories: 'categories',
-  post: 'post',
-  comments: 'list',
-  posts: 'list'
+const mapTarget = function (target) {
+  switch (target) {
+    case 'categories':
+      return `categories`;
+
+    case 'comments':
+    case 'all_comments':
+    case 'posts':
+    case 'all_posts':
+      return 'list';
+
+    default:
+      return 'post';
+  }
 };
 
 export default async ({ commit }, payload) => {
@@ -15,7 +24,7 @@ export default async ({ commit }, payload) => {
     }
 
     const { target } = payload;
-    const targetToState = mapTarget[target];
+    const targetToState = mapTarget(target);
 
     if (!targetToState) {
       throw new Error(`Cannot found ${targetToState} in store`);
@@ -38,7 +47,7 @@ export default async ({ commit }, payload) => {
     }
 
     // 博文列表倒序排列
-    if (target === 'posts' && data.length > 0) {
+    if (target.indexOf('posts') !== -1 && data.length > 0) {
       data = data.reverse();
     }
 

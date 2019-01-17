@@ -1,7 +1,9 @@
 <template>
-  <div class="back-content">
+  <div>
     <BreadCrumb />
-    <router-view />
+    <transition name="el-fade-in-linear" mode="out-in">
+      <router-view :key="$route.path" />
+    </transition>
   </div>
 </template>
 

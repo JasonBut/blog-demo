@@ -1,6 +1,6 @@
 <template>
   <el-menu
-      :default-active="$route.path === '/about' ? '/' : $route.path"
+      :default-active="currentTab"
       :router="true"
       id="front-aside"
       mode="vertical"
@@ -23,7 +23,8 @@
 export default {
   name: 'AsideUI',
   props: {
-    categories: Array
+    categories: Array,
+    currentTab: String
   }
 };
 </script>

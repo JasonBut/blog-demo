@@ -16,18 +16,18 @@ export default new Router({
         {
           path: 'categories',
           name: 'manage-categories',
-          component: () => import('@/Components/Back/Category')
+          component: () => import('@/Components/Back/BackCategory')
         },
         {
           path: 'posts',
           alias: '/admin',
           name: 'manage-posts',
-          component: () => import('@/Components/Back/Posts')
+          component: () => import('@/Components/Back/BackPostList')
         },
         {
           path: 'comments',
           name: 'manage-comments',
-          component: () => import('@/Components/Back/Comments')
+          component: () => import('@/Components/Back/BackComments')
         }
       ]
     },
@@ -39,19 +39,19 @@ export default new Router({
           path: '/',
           alias: '/about',
           name: 'home',
-          component: () => import('@/Components/Front/About')
+          component: () => import('@/Components/Front/FrontAbout')
         },
         {
           path: '/:categoryName',
           name: 'postList',
           props: true,
-          component: () => import('@/Components/Front/List/')
+          component: () => import('@/Components/Front/FrontList')
         },
         {
           path: '/:categoryName/:id',
           name: 'post',
           props: true,
-          component: () => import('@/Components/Front/Post/')
+          component: () => import('@/Components/Front/FrontPost')
         }
       ]
     }

@@ -12,8 +12,8 @@ export default {
   name: 'FrontPost',
 
   components: {
-    PostDetails: () => import('./PostDetails'),
-    Comments: () => import('./Comments'),
+    PostDetails: () => import('./FrontPostDetails'),
+    Comments: () => import('./FrontPostComments'),
     Editor: () => import('@/Components/Commons/Editor')
   },
 

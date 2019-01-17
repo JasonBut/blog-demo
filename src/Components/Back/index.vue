@@ -27,7 +27,7 @@ export default {
   components: {
     Aside: () => import('./Aside'),
     Footer: () => import('../Commons/Footer'),
-    Content: () => import('./Content')
+    Content: () => import('./BackContent')
   }
 };
 </script>

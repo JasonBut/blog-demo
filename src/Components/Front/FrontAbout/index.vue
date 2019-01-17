@@ -10,7 +10,7 @@ import { mapState } from 'vuex';
 export default {
   name: 'About',
   components: {
-    AboutUI: () => import('./AboutUI')
+    AboutUI: () => import('./FrontAboutUI')
   },
   computed: {
     ...mapState({

@@ -1,10 +1,9 @@
 <template>
-  <DataDisplayHOC target="posts">
+  <DataDisplayHOC target="comments">
     <template slot-scope="scope">
-      <ListUI
+      <CommentListUI
           :options="scope.options"
           :list="scope.list"
-          :postPath="$route.path"
           @onCurrentChange="scope.handleCurrentChange"
       />
     </template>
@@ -13,10 +12,11 @@
 
 <script>
 export default {
-  name: 'FrontList',
+  name: 'FrontCommentList',
+
   components: {
-    ListUI: () => import('./ListUI'),
-    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
+    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
+    CommentListUI: () => import('./FrontPostCommentsUI')
   }
 };
 </script>

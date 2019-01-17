@@ -14,6 +14,8 @@ const filters = (rule, mode) => {
 
     get: new Map([
       [`categories`, `categories`],
+      [`all_posts`, `posts`],
+      [`all_comments`, `comments`],
       [`posts`, `posts?category=${rule}`],
       [`comments`, `comments?post=${rule}`],
       [`post`, `posts/${rule}`],

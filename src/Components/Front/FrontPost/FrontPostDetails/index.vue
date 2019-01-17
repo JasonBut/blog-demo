@@ -12,7 +12,7 @@ export default {
   name: 'FrontPostDetails',
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
-    PostDetailsUI: () => import('./PostDetailsUI')
+    PostDetailsUI: () => import('./FrongPostDetailsUI')
   }
 
 };
