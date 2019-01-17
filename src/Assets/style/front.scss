@@ -20,11 +20,20 @@
 
     .el-table {
         @include transparent-background(0.2);
-        @include transparent-border(0,0,5%)
+        @include transparent-border(0,0,5%);
+
+        thead tr,
+        th{
+            @include transparent-background(0.2);
+        }
+
+        .el-table__row{
+            @include transparent-background(0.2);
+        }
     }
 
     .el-collapse-item [role='tab']{
-        @include transparent-item-hover;
+        @include transparent-item-hover($front-item-hover-fill);
     }
 
     .el-pagination{
@@ -35,7 +44,7 @@
         position: relative;
         margin-top: 5%;
         @include transparent-background(0.35);
-        @include transparent-item-hover();
+        @include transparent-item-hover($front-item-hover-fill);
         &:focus{
             @include transparent-background(0);
         }

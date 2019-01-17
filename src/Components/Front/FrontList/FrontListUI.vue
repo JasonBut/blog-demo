@@ -2,22 +2,17 @@
   <el-card>
     <el-table
         :data="options.data"
-        :header-cell-style="formStyles"
-        :header-row-style="formStyles"
-        :row-style="formStyles"
         border
     >
       <el-table-column
           label="标题"
           header-align="center"
           align="center"
-          width="600%"
-          min-width="200%"
+          min-width="60%"
       >
         <template slot-scope="{ row }">
-          <router-link
-              :to="`${postPath}/${row.id}`"
-          >{{ row.title }}
+          <router-link :to="`${postPath}/${row.id}`">
+            {{ row.title }}
           </router-link>
         </template>
 
@@ -27,7 +22,7 @@
           label="发布日期"
           header-align="center"
           align="center"
-          min-width="200%"
+          min-width="40%"
       >
       </el-table-column>
     </el-table>

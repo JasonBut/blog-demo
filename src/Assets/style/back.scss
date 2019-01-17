@@ -22,6 +22,44 @@
         @include footer-layout($back-text-light, 0.45);
     }
 
+    .el-table{
+        color: $back-text-primary;
+        font-weight: bold;
+        @include transparent-border(0.2, 1px, 0);
+
+        &:before{
+            @include transparent-background(0)
+        }
+
+        thead tr,
+        th{
+            color: $back-text-secondary;
+            background: $back-table-body-background;
+            @include transparent-border(0.05, 1px, 0);
+            border-top: none;
+            border-left: none;
+        }
+
+        .el-table__row {
+            @include transparent-item-hover($back-table-row-hover-fill);
+            td{
+                @include transparent-border(0.05, 1px, 0);
+                background: $back-table-body-background;
+                border-top: none;
+                border-left: none;
+            }
+        }
+    }
+
+
+
+    .el-card{
+        background: $back-card-background-color;
+        min-width: 24em;
+        margin: 3% 10%;
+        @include transparent-border(0.2, 1px, 15px);
+    }
+
     .el-breadcrumb__item{
         .el-breadcrumb__inner,
         .is-link{

@@ -25,7 +25,7 @@ import '@/Assets/style/back.scss';
 export default {
   name: 'Back',
   components: {
-    Aside: () => import('./Aside'),
+    Aside: () => import('./BackAside'),
     Footer: () => import('../Commons/Footer'),
     Content: () => import('./BackContent')
   }

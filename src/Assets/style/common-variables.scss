@@ -1,5 +1,5 @@
 $common-footer-border: #065b9c;                         // 页脚线
-$common-pre-color: #018031;                             // 富文本per标签内容颜色
+$common-pre-color: #018031;                             // 富文本pre标签内容颜色
 
 // 前台
 $front-body-background-color: #111111;                  // body背景色
@@ -17,14 +17,18 @@ $back-content-background-color: #e3e5e8;                // 内容区背景色
 $back-aside-background: #304156;                        // 边框背景色
 $back-menu-item-hover-fill: #202b40;                    // 边栏hover颜色
 $back-menu-item-active-color: #00a8c6;                  // 边框当前项颜色
+$back-table-body-background: rgba(110,110,110,0.1);     // 表格背景色
+$back-table-row-hover-fill: rgba(217, 217, 217, 0.17);  // 表格hover颜色
+$back-card-background-color: rgba(239, 237, 237, 0.5);  // card组件背景色
+$back-text-primary: #292929;                            // 主要颜色
 $back-text-secondary: #414141;                          // 内容区域次要文字颜色
 $back-text-light: #fdfdfd;                              // 边栏及页脚文字色
 
 
-// 前台透明hover
-@mixin transparent-item-hover() {
+// 前台透明item-hover
+@mixin transparent-item-hover($color) {
     &:hover{
-        background: $front-item-hover-fill;
+        background: $color;
     }
 }
 

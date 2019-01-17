@@ -41,7 +41,7 @@ export default {
 
   .el-menu-item{
     @include transparent-background(0);
-    @include transparent-item-hover;
+    @include transparent-item-hover($front-item-hover-fill);
     @include transparent-border(0.9, 0.1em, 10%);
 
     span+span{
