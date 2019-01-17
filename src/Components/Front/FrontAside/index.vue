@@ -1,23 +1,34 @@
 <template>
-  <DataDisplayHOC target="categories">
-    <AsideUI :categories="splitCategoryName" :currentTab="currentTab" />
-  </DataDisplayHOC>
+  <AsideUI :categories="categories" :currentTab="currentTab" />
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'FrontAside',
   components: {
-    AsideUI: () => import('./FrontAsideUI'),
-    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
+    AsideUI: () => import('./FrontAsideUI')
   },
   computed: {
-    ...mapGetters(['splitCategoryName']),
+    ...mapGetters({
+      categories: 'splitCategoryName'
+    }),
     currentTab () {
       const currentCategory = this.$route.path.split('/')[1];
       return currentCategory === '/about' ? '/' : `/${currentCategory}`;
     }
+  },
+
+  created () {
+    this.getData({
+      target: 'categories'
+    });
+  },
+
+  methods: {
+    ...mapActions({
+      getData: 'getData'
+    })
   }
 };
 </script>
