@@ -16,7 +16,7 @@
 
           <el-table-column
               prop="name"
-              label="边栏名"
+              label="边栏显示"
               align="center"
               min-width="25%"
           >

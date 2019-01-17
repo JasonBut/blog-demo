@@ -41,6 +41,7 @@
         }
 
         .el-table__row {
+            @include transparent-background(0);
             @include transparent-item-hover($back-table-row-hover-fill);
             td{
                 @include transparent-border(0.05, 1px, 0);
