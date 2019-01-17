@@ -1,36 +1,19 @@
 <template>
-  <AsideUI
-      :categories="categories"
-  />
+  <DataDisplayHOC target="categories">
+    <AsideUI :categories="splitCategoryName" />
+  </DataDisplayHOC>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-
+import { mapGetters } from 'vuex';
 export default {
   name: 'FrontAside',
-
   components: {
-    AsideUI: () => import('./AsideUI')
+    AsideUI: () => import('./AsideUI'),
+    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
   },
-
   computed: {
-    ...mapGetters({
-      categories: 'splitCategoryName'
-    })
-  },
-
-  created () {
-    this.getData({
-      target: 'categories'
-    });
-  },
-
-  methods: {
-    ...mapActions({
-      getData: 'getData'
-    })
+    ...mapGetters(['splitCategoryName'])
   }
-
 };
 </script>

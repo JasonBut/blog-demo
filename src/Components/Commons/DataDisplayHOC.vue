@@ -1,11 +1,11 @@
 <template>
   <div>
     <slot
-        :options="paginationOptions"
         :list="list"
-        :postPath="$route.path"
-        :handleCurrentChange="handleCurrentChange"
         :post="post"
+        :categories="categories"
+        :options="paginationOptions"
+        :handleCurrentChange="handleCurrentChange"
     />
   </div>
 </template>
@@ -16,23 +16,18 @@ import PaginationOptions from './PaginationOptions';
 
 export default {
   name: 'GetData',
-
   mixins: [
     PaginationOptions()
   ],
-
   props: {
     target: String
   },
-
   computed: {
-    ...mapState(['list', 'post'])
+    ...mapState(['list', 'post', 'categories'])
   },
-
   created () {
     this.getData();
   },
-
   methods: {
     getDataStrategies (route) {
       return {
@@ -41,7 +36,6 @@ export default {
         'post': `${route.params.id}` // 同上
       };
     },
-
     async getData (route = this.$route) {
       const lowerCaseType = this.target.toLowerCase();
       await this.$store.dispatch('getData', {
@@ -50,6 +44,5 @@ export default {
       });
     }
   }
-
 };
 </script>
