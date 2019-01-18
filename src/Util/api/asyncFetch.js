@@ -47,7 +47,7 @@ export default async function asyncFetch ({ mode, target, rule, data }) {
     throw new Error(`Invalid type: "${target}", expected 'String'`);
   }
 
-  const lowerCaseMode = mode && mode.toLowerCase();
+  const lowerCaseMode = !!mode && mode.toLowerCase();
 
   if (!(['get', 'post', 'put'].includes(lowerCaseMode))) {
     throw new Error(`Invalid mode : ${mode}, expected "POST","GET" or "PUT"`);

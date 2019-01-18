@@ -46,8 +46,8 @@ export default async ({ commit }, payload) => {
       throw new Error(`Wrong data returned, got ${typeof data}, expected 'Object' or 'Array'`);
     }
 
-    // 博文列表倒序排列
-    if ((target.indexOf('posts') > -1 || target.indexOf('all_') > -1) && data.length > 0) {
+    // 博文列表和后台评论列表倒序排列
+    if (!!(target.indexOf('posts') > -1 || target.indexOf('all_') > -1) && data.length > 0) {
       data = data.reverse();
     }
 
