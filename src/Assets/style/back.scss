@@ -171,6 +171,9 @@
             @extend .el-form;
             border: none;
             padding: 0;
+            .ql-editor{
+                min-height: 20em;
+            }
         }
         .el-form-item__label{
             color: $back-text-secondary;
