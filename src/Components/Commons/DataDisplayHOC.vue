@@ -2,17 +2,15 @@
   <div>
     <slot
         :options="paginationOptions"
-        :categories="categories"
         :list="list"
-        :postPath="$route.path"
-        :handleCurrentChange="handleCurrentChange"
         :post="post"
+        :handleCurrentChange="handleCurrentChange"
     />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import PaginationOptions from './PaginationOptions';
 
 export default {
@@ -27,14 +25,15 @@ export default {
   },
 
   computed: {
-    ...mapState(['list', 'post', 'categories'])
+    ...mapState(['list', 'post'])
   },
 
   created () {
-    this.getData();
+    this.requestGetData();
   },
 
   methods: {
+    ...mapActions(['getData']),
     getDataStrategies (route) {
       return {
         'posts': `${route.path.split('/')[1]}`, // eg. /programs 的 programs
@@ -43,9 +42,9 @@ export default {
       };
     },
 
-    async getData (route = this.$route) {
+    async requestGetData (route = this.$route) {
       const lowerCaseType = this.target.toLowerCase();
-      await this.$store.dispatch('getData', {
+      await this.getData({
         target: lowerCaseType,
         rule: this.getDataStrategies(route)[lowerCaseType]
       });
