@@ -1,8 +1,6 @@
 <template>
   <DataDisplayHOC target="categories">
-    <BackCategoryUI
-        :list="categoryWithoutAbout"
-    />
+    <BackCategoryUI :list="categoryWithoutAbout" />
   </DataDisplayHOC>
 </template>
 
@@ -14,7 +12,6 @@ export default {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
     BackCategoryUI: () => import('./BackCategoryUI')
   },
-
   computed: {
     ...mapGetters(['categoryWithoutAbout'])
   }

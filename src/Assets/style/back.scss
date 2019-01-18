@@ -22,6 +22,7 @@
         @include footer-layout($back-text-light, 0.45);
     }
 
+    // 表格样式
     .el-table{
         color: $back-text-primary;
         background: rgba(255, 255, 255, 0.6);
@@ -65,6 +66,7 @@
         }
     }
 
+    // 分页器样式
     .el-pagination{
         text-align: right;
         .number{
@@ -82,6 +84,7 @@
         }
     }
 
+    // 卡片样式
     .el-card{
         background: $back-card-background-color;
         min-width: 24em;
@@ -89,6 +92,7 @@
         @include transparent-border(0.2, 1px, 5px);
     }
 
+    // 面包屑样式
     .el-breadcrumb__item{
         .el-breadcrumb__inner,
         .is-link{
@@ -96,6 +100,7 @@
         }
     }
 
+    // 按钮样式
     .el-button{
         margin: 0 2%;
         color: $back-text-secondary;
@@ -110,6 +115,7 @@
         }
     }
 
+    // 选项卡样式
     .el-tabs{
         width: 100%;
         margin: 1.5% auto;
@@ -139,6 +145,7 @@
         }
     }
 
+    // loading样式
     .el-loading-mask{
         background: $back-card-background-color;
         *{
@@ -146,6 +153,7 @@
         }
     }
 
+    // 表单样式
     .el-form{
         background: $back-tab-content-background;
         color: $back-text-primary;

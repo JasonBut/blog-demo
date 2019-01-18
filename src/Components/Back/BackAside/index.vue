@@ -5,11 +5,9 @@
 <script>
 export default {
   name: 'BackAside',
-
   components: {
     BackAsideUI: () => import('./BackAsideUI')
   },
-
   data () {
     return {
       categoryList: [

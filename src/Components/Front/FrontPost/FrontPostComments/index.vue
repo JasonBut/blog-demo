@@ -13,7 +13,6 @@
 <script>
 export default {
   name: 'FrontCommentList',
-
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
     CommentListUI: () => import('./FrontPostCommentsUI')

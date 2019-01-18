@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--评论模式下才渲染此按键-->
     <el-button
         v-if="comment"
         icon="el-icon-edit"
@@ -9,9 +10,11 @@
     </el-button>
 
     <transition name="el-zoom-in-top">
-      <el-card v-if="post || active">
+      <!--非文章模式下需要根据active状态判断是否渲染-->
+      <el-card v-if="!!( post || amend ) || active">
         <el-form ref="publishForm" :model="formData" :rules="rules">
 
+          <!--文章模式渲染分组选择器-->
           <el-form-item v-if="!comment" prop="selectedCategory" label="分组 ：">
             <el-select
                 :value="selectedCategory"
@@ -27,6 +30,7 @@
             </el-select>
           </el-form-item>
 
+          <!--文章模式渲染标题文本框-->
           <el-form-item v-if="!comment" prop="title" label="标题 ：">
             <el-input
                 :value="title"
@@ -36,6 +40,7 @@
             />
           </el-form-item>
 
+          <!--编辑模式渲染访客名文本框-->
           <el-form-item v-else label="访客名字 ：" prop="guestName" autofocus>
             <el-input
                 class="name"
@@ -94,15 +99,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.el-button{
+  left: 80%;
+  @include transparent-item-hover($front-item-hover-fill);
+}
+.el-card{
+  margin-top: 5%;
   .el-button{
-    left: 80%;
-    @include transparent-item-hover($front-item-hover-fill);
+    left: 2%;
   }
-
-  .el-card{
-    margin-top: 5%;
-    .el-button{
-      left: 2%;
-    }
-  }
+}
 </style>

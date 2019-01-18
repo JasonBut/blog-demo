@@ -4,7 +4,6 @@
       <PostDetailsUI :details="scope.post" />
     </template>
   </DataDisplayHOC>
-
 </template>
 
 <script>
@@ -12,8 +11,7 @@ export default {
   name: 'FrontPostDetails',
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
-    PostDetailsUI: () => import('./FrongPostDetailsUI')
+    PostDetailsUI: () => import('./FrontPostDetailsUI')
   }
-
 };
 </script>

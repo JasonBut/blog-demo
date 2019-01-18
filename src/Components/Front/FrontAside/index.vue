@@ -20,15 +20,11 @@ export default {
   },
 
   created () {
-    this.getData({
-      target: 'categories'
-    });
+    this.getData({ target: 'categories' });
   },
 
   methods: {
-    ...mapActions({
-      getData: 'getData'
-    })
+    ...mapActions({ getData: 'getData' })
   }
 };
 </script>

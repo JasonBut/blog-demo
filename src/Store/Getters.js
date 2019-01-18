@@ -9,6 +9,7 @@ export default {
       return { ...category, first, last };
     });
   },
+  // 用于返回给后台的分类列表,过滤掉About分类
   categoryWithoutAbout ({ categories }) {
     return categories.filter((item) => item && item.cname);
   }

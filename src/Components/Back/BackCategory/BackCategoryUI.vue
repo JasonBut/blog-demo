@@ -1,8 +1,6 @@
 <template>
   <el-card>
-    <el-table
-        :data="list"
-    >
+    <el-table :data="list">
       <el-table-column
           prop="cname"
           label="名称"
