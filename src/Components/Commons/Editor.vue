@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-button v-if="!!comment" icon="el-icon-edit" @click="active = !active" plain>
+    <el-button v-if="comment" icon="el-icon-edit" @click="active = !active" plain>
       {{ active ? '取消' :  '评论' }}
     </el-button>
 
@@ -8,21 +8,21 @@
       <el-card v-if="post || active">
         <el-form ref="publishForm" :model="formData" :rules="rules">
 
-          <el-form-item v-if="!comment" prop="selectedCategory" label="分组">
+          <el-form-item v-if="!comment" prop="selectedCategory" label="分组 ：">
             <el-select
                 v-model="formData.selectedCategory"
                 placeholder="请选择分组"
             >
               <el-option
-                  v-for="option of categoryOptions"
-                  :key="option.value"
-                  :label="option.name"
-                  :value="option.value"
+                  v-for="option of categoryWithoutAbout"
+                  :key="option.name"
+                  :label="option.cname"
+                  :value="option.path"
               />
             </el-select>
           </el-form-item>
 
-          <el-form-item v-if="!comment" prop="title" label="标题">
+          <el-form-item v-if="!comment" prop="title" label="标题 ：">
             <el-input
                 v-model="formData.title"
                 placeholder="请输入标题"
@@ -34,7 +34,7 @@
             <el-input
                 class="name"
                 v-model="formData.guestName"
-                placeholder="请输入用户名"
+                placeholder="请输入访客名称"
                 size="small"
                 autofocus
             />
@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Editor',
 
@@ -83,7 +84,7 @@ export default {
       },
       rules: {
         selectedCategory: [
-          { required: true, message: '请选择分组', trigger: 'submit' }
+          { required: true, message: '请选择分组!', trigger: 'submit' }
         ],
         title: [
           { required: true, message: '请输入标题!', trigger: 'blur' },
@@ -106,19 +107,40 @@ export default {
     };
   },
 
+  computed: {
+    ...mapGetters(['categoryWithoutAbout'])
+  },
+
+  created () {
+    const { post, amend, categoryWithoutAbout } = this;
+    if (!!(post || amend) && categoryWithoutAbout.length < 1) {
+      this.getData({
+        target: 'categories'
+      });
+    }
+  },
+
   methods: {
+    ...mapActions(['getData', 'sendData']),
     handlePublish () {
       this.$refs.publishForm.validate((valid) => {
-        const [, category, postId] = this.$route.path.split('/');
+        let [, category, postId] = this.$route.path.split('/');
+
+        if (!this.isComment) {
+          category = this.formData.selectedCategory.split('/')[1];
+          postId = null;
+        }
+
         if (valid) {
           const payload = {
-            isAmend: !!this.amend,
-            isComment: !!this.comment,
+            isAmend: this.amend,
+            isComment: this.comment,
             data: this.formData,
             category,
             postId
           };
-          this.$store.dispatch('sendData', payload);
+          console.log(payload);
+          this.sendData(payload);
         }
       });
     }
@@ -136,9 +158,6 @@ export default {
   margin-top: 5%;
   .el-button{
     left: 2%;
-  }
-  .el-form-item__label{
-    display: inline-block;
   }
 }
 </style>
