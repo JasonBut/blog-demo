@@ -6,12 +6,13 @@
 
     <transition name="el-zoom-in-top">
       <el-card v-if="post || active">
-        <el-form ref="publishForm" :model="formData" :rules="rules" autofocus>
+        <el-form ref="publishForm" :model="formData" :rules="rules">
 
           <el-form-item v-if="!comment" prop="title">
             <el-input
                 v-model="formData.title"
                 placeholder="请输入标题"
+                autofocus
             />
           </el-form-item>
 
@@ -52,18 +53,9 @@ export default {
 
   props: {
     id: String,
-    comment: {
-      type: Boolean,
-      default: false
-    },
-    amend: {
-      type: Boolean,
-      default: false
-    },
-    post: {
-      type: Boolean,
-      default: false
-    }
+    comment: Boolean,
+    amend: Boolean,
+    post: Boolean
   },
 
   data () {
