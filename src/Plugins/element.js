@@ -21,7 +21,9 @@ import {
   Form,
   FormItem,
   Input,
-  Loading
+  Loading,
+  Tabs,
+  TabPane
 } from 'element-ui';
 
 Vue.use(Container);
@@ -44,3 +46,5 @@ Vue.use(Form);
 Vue.use(FormItem);
 Vue.use(Input);
 Vue.use(Loading);
+Vue.use(Tabs);
+Vue.use(TabPane);

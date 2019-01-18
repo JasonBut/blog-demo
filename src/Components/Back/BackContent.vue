@@ -1,12 +1,13 @@
 <template>
-  <div
-      v-loading="$store.state.loading"
-      element-loading-spinner="el-icon-loading"
-      element-loading-text="Loading..."
-  >
+  <div>
     <BreadCrumb />
     <transition name="el-fade-in-linear" mode="out-in">
-      <router-view :key="$route.path" />
+      <router-view
+          :key="$route.path"
+          v-loading="$store.state.loading"
+          element-loading-spinner="el-icon-loading"
+          element-loading-text="Loading..."
+      />
     </transition>
   </div>
 </template>

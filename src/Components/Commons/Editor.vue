@@ -1,11 +1,11 @@
 <template>
   <div>
-    <el-button icon="el-icon-edit" @click="active = !active" plain>
-      {{ active ? '取消' : ( comment ? '评论' : '发表' ) }}
+    <el-button v-if="!!comment" icon="el-icon-edit" @click="active = !active" plain>
+      {{ active ? '取消' :  '评论' }}
     </el-button>
 
     <transition name="el-zoom-in-top">
-      <el-card v-if="active">
+      <el-card v-if="post || active">
         <el-form ref="publishForm" :model="formData" :rules="rules" autofocus>
 
           <el-form-item v-if="!comment" prop="title">
@@ -52,8 +52,18 @@ export default {
 
   props: {
     id: String,
-    comment: Boolean,
-    amend: Boolean
+    comment: {
+      type: Boolean,
+      default: false
+    },
+    amend: {
+      type: Boolean,
+      default: false
+    },
+    post: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data () {
@@ -109,9 +119,6 @@ export default {
 
 .el-card{
   margin-top: 5%;
-  .editor{
-    @include transparent-background(0.25);
-  }
   .el-button{
     left: 2%;
   }

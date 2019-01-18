@@ -2,7 +2,7 @@
   <div class="post">
     <PostDetails />
     <Comments />
-    <Editor :comment="true" />
+    <Editor comment />
   </div>
 </template>
 

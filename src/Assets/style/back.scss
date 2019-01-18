@@ -85,7 +85,7 @@
     .el-card{
         background: $back-card-background-color;
         min-width: 24em;
-        margin: 3% 10%;
+        margin: 3% 5%;
         @include transparent-border(0.2, 1px, 5px);
     }
 
@@ -99,7 +99,62 @@
     .el-button{
         margin: 0 2%;
         color: $back-text-secondary;
+        border: $back-table-body-background 1px solid;
         border-radius: 5px;
-        @include transparent-background(0);
+        @include transparent-background(0.06);
+        &:hover{
+            background: $back-button-hover-fill;
+        }
+        &:active{
+            background: $back-button-active-fill;
+        }
+    }
+
+    .el-tabs{
+        width: 100%;
+        margin: 1.5% auto;
+        @include transparent-border(0.15,1px,5px);
+
+        .el-tabs__header{
+            background: $back-table-body-background;
+            border-bottom: $back-table-body-background 1px solid;
+            margin: 0;
+            .el-tabs__item{
+                color: $back-text-secondary;
+                border-right: $back-tab-item-background 1px solid;
+            }
+            .is-active{
+                background: $back-tab-item-active-background;
+                border-bottom: $back-tab-item-active-background 1px solid;
+            }
+        }
+
+        .el-tabs__content{
+            background: $back-tab-content-background;
+            min-height: 47em;
+        }
+
+        .el-tab-pane{
+            margin: -2%;
+        }
+    }
+
+    .el-loading-mask{
+        background: $back-card-background-color;
+        *{
+            color: $back-text-secondary
+        }
+    }
+
+    .el-form{
+        background: $back-tab-content-background;
+        color: $back-text-primary;
+        .el-input__inner{
+            @extend .el-form;
+            @include transparent-border(0.1,1px,5px);
+        }
+        .editor{
+            @extend .el-form;
+        }
     }
 }

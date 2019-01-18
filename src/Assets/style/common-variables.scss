@@ -24,6 +24,11 @@ $back-card-background-color: rgba(228, 226, 226, 0.6);  // card组件背景色
 $back-text-primary: #292929;                            // 主要颜色
 $back-text-secondary: #565656;                          // 内容区域次要文字颜色 (表头颜色)
 $back-text-light: #fdfdfd;                              // 边栏及页脚文字色
+$back-tab-content-background: #dcdee1;                  // tab背景色
+$back-tab-item-background: #BBBBBB;                     // tab按键色
+$back-tab-item-active-background: #dcdee1;              // tab按键active
+$back-button-hover-fill: #d7d7d7;                       // 按钮hover
+$back-button-active-fill: #bbbbbb;                      // 按钮active
 
 
 // 前台透明item-hover
@@ -57,17 +62,10 @@ $back-text-light: #fdfdfd;                              // 边栏及页脚文字
     color: $color;
     margin-top: 1%;
     border-top: $common-footer-border 0.2em solid;
-
     div{
         margin-top: 1em;
-
-        svg{
-            margin: 0 0.5em 0 2em;
-        }
-
-        span{
-            font-weight: bold;
-        }
+        svg{ margin: 0 0.5em 0 2em; }
+        span{ font-weight: bold; }
     }
 }
 
