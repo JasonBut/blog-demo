@@ -23,7 +23,9 @@ import {
   Input,
   Loading,
   Tabs,
-  TabPane
+  TabPane,
+  Select,
+  Option
 } from 'element-ui';
 
 Vue.use(Container);
@@ -48,3 +50,5 @@ Vue.use(Input);
 Vue.use(Loading);
 Vue.use(Tabs);
 Vue.use(TabPane);
+Vue.use(Select);
+Vue.use(Option);

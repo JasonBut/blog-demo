@@ -4,12 +4,19 @@ $--color-text-primary: $front-text-primary;
 
 $--link-color: $front-text-primary;
 
+$--select-dropdown-background: $back-table-body-background;
+
 $--collapse-header-fill: $front-transparent-background;
 $--collapse-content-fill: $front-transparent-background;
 $--collapse-border-color: $front-transparent-border;
 
 $--card-border-color: $front-transparent-border;
 $--card-border-radius: 5%;
+
+$--select-dropdown-background: $select-dropdown-background;
+$--select-option-hover-background: $select-options-hover-background;
+$--select-option-color: $back-text-light;
+$--select-option-selected: $select-option-selected-color;
 
 $--input-fill: $front-transparent-background;
 

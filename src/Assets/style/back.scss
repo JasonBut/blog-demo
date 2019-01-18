@@ -149,12 +149,23 @@
     .el-form{
         background: $back-tab-content-background;
         color: $back-text-primary;
+        padding: 0.5em;
+        @include transparent-border(0.1,1px,5px);
+        .el-input{
+            display: inline;
+        }
         .el-input__inner{
             @extend .el-form;
-            @include transparent-border(0.1,1px,5px);
+            padding-left: 1em;
+            width: 60%;
         }
         .editor{
             @extend .el-form;
+            border: none;
+            padding: 0;
+        }
+        .el-form-item__label{
+            color: $back-text-secondary;
         }
     }
 }

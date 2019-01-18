@@ -54,8 +54,14 @@
         @include footer-layout($front-text-primary, 0.45);
     }
 
-    .editor{
-        @include transparent-background(0.25);
+    .el-form{
+        .el-input.name{
+            width: 130px;
+        }
+
+        .editor{
+            @include transparent-background(0.25);
+        }
     }
 
 }
