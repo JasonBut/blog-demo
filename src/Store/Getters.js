@@ -8,5 +8,8 @@ export default {
       const last = name.slice(halfLength, name.length);
       return { ...category, first, last };
     });
+  },
+  categoryWithoutAbout ({ categories }) {
+    return categories.filter((item) => item && item.cname);
   }
 };
