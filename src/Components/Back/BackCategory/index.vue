@@ -1,14 +1,13 @@
 <template>
   <DataDisplayHOC target="categories">
-    <template slot-scope="scope">
-      <BackCategoryUI
-          :list="categoryFilter(scope.categories)"
-      />
-    </template>
+    <BackCategoryUI
+        :list="categoryWithoutAbout"
+    />
   </DataDisplayHOC>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'BackCategory',
   components: {
@@ -17,9 +16,7 @@ export default {
   },
 
   computed: {
-    categoryFilter () {
-      return (list) => list.filter((item) => item && item.cname);
-    }
+    ...mapGetters(['categoryWithoutAbout'])
   }
 };
 </script>
