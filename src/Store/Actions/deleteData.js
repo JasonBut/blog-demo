@@ -2,7 +2,6 @@ import Types from '../Types';
 import { asyncFetch } from '@/Util';
 
 export default ({ commit }, payload) => {
-  console.log(payload);
   if (!payload) {
     throw new Error(`No valid data in payload - ${payload}`);
   }
