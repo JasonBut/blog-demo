@@ -10,7 +10,7 @@ import { mapGetters, mapActions } from 'vuex';
 import { DeleteDataMixin } from '@/Components/Commons';
 export default {
   name: 'BackCategory',
-  mixins: [DeleteDataMixin],
+  mixins: [ DeleteDataMixin ],
   components: {
     BackCategoryUI: () => import('./BackCategoryUI')
   },

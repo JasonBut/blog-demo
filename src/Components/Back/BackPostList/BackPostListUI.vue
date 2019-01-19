@@ -5,6 +5,8 @@
           label="分类"
           prop="category"
           min-width="5%"
+          :filters="filters.filter"
+          :filter-method="filters.method"
       >
       </el-table-column>
 
@@ -19,6 +21,7 @@
           label="日期"
           prop="date"
           min-width="10%"
+          sortable
       >
       </el-table-column>
 
@@ -59,7 +62,8 @@
 export default {
   name: 'BackPostListUI',
   props: {
-    options: Object
+    options: Object,
+    filters: Object
   }
 };
 </script>

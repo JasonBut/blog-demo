@@ -24,6 +24,7 @@
           label="日期"
           prop="date"
           min-width="15%"
+          sortable
       >
       </el-table-column>
 

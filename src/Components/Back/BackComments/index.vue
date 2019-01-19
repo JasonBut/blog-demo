@@ -15,7 +15,7 @@
 import { DeleteDataMixin } from '@/Components/Commons';
 export default {
   name: 'BackComments',
-  mixins: [DeleteDataMixin],
+  mixins: [ DeleteDataMixin ],
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
     BackCommentsUI: () => import('./BackCommentsUI')

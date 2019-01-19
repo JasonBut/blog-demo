@@ -16,5 +16,12 @@ export default {
   // 从保存在state树中的list状态提取已有文章信息
   postFilterFromList ({ list }) {
     return (id) => list.filter((item) => item.id === id && !!item.title);
+  },
+  // 后台PostList组件的分类过去项
+  categoryFilters (state, { categoryWithoutAbout }) {
+    return categoryWithoutAbout.map(({ name }) => ({
+      text: name.toLowerCase(),
+      value: name.toLowerCase()
+    }));
   }
 };
