@@ -9,6 +9,7 @@ const filters = (rule, mode) => {
   // 将不同的返回数据存在同一处, 增加独立性
   const pool = {
     post: new Map([
+      [`category`, `categories`],
       [`comment`, `comments`],
       [`post`, `posts`]
     ]),
