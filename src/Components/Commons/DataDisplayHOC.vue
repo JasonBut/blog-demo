@@ -24,7 +24,14 @@ export default {
 
   computed: {
     ...mapState(['list', 'post']),
-    ...mapGetters(['postFilterFromList'])
+    ...mapGetters(['postFilterFromList']),
+    getDataStrategies () {
+      return (route) => ({
+        'posts': `${route.path.split('/')[1]}`, // eg. /programs 的 programs
+        'comments': `${route.params.id}`, // eg. /programs/01 的 01
+        'post': `${route.params.id}` // 同上
+      });
+    }
   },
 
   created () {
@@ -33,17 +40,7 @@ export default {
 
   methods: {
     ...mapActions(['getData']),
-    ...mapMutations({
-      updateStore: Types.UPDATE_STORE
-    }),
-
-    getDataStrategies (route) {
-      return {
-        'posts': `${route.path.split('/')[1]}`, // eg. /programs 的 programs
-        'comments': `${route.params.id}`, // eg. /programs/01 的 01
-        'post': `${route.params.id}` // 同上
-      };
-    },
+    ...mapMutations({ updateStore: Types.UPDATE_STORE }),
 
     async requestGetData (route = this.$route) {
       const lowerCaseType = this.target.toLowerCase();
