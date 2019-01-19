@@ -14,8 +14,9 @@ $front-transparent-background: rgba(0, 0, 0, 0.30);         // 透明效果背�
 // 后台
 $back-body-background-color: #304156;                       // body背景色
 $back-content-background-color: #e3e5e8;                    // 内容区背景色
-$back-aside-background: #304156;                            // 边框背景色
-$back-menu-item-hover-fill: #202b40;                        // 边栏hover颜色
+$back-aside-background: #304156;                            // 边栏背景色
+$back-menu-item-border: rgba(220, 222, 225, 0.2);           // 边栏边框色
+$back-menu-item-hover-fill: #23344b;                        // 边栏hover颜色
 $back-menu-item-active-color: #00a8c6;                      // 边框当前项颜色
 $back-table-basic-background: rgba(255, 255, 255, 0.6);     // 表格基础背景色
 $back-table-body-background: rgba(110,110,110,0.1);         // 表格背景色

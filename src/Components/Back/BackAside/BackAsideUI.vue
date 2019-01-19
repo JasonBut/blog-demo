@@ -33,10 +33,12 @@ export default {
 
     .el-menu-item{
       text-align: center;
-      vertical-align: center;
       font-weight: bold;
-      height: 5em;
-      padding-top: 0.5em;
+      height: 3em;
+      line-height: 3em;
+      margin: 0.5em;
+      border: $back-menu-item-border 0.5px solid;
+      border-radius: 10px;
       @include transparent-background(0);
 
       &:first-child{
