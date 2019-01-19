@@ -11,6 +11,10 @@ html,body {
         padding: 2em;
     }
 
+    .el-table-filter{
+        @include transparent-background(0.5);
+    }
+
     .icon {
         width: 1em;
         height: 1em;

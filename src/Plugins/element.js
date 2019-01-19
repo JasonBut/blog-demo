@@ -25,7 +25,8 @@ import {
   Tabs,
   TabPane,
   Select,
-  Option
+  Option,
+  Scrollbar
 } from 'element-ui';
 
 Vue.use(Container);
@@ -52,3 +53,4 @@ Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Select);
 Vue.use(Option);
+Vue.use(Scrollbar);

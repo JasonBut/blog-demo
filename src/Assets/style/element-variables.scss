@@ -27,6 +27,8 @@ $--pagination-button-disabled-fill: $front-transparent-background;
 
 $--table-border-color: $front-transparent-border;
 $--table-row-hover-background: $front-item-hover-fill;
-$--table-header-color: #fdfdfd;
+
+$--checkbox-checked-icon-color: $back-text-secondary;
+$--checkbox-checked-text-color: $back-tab-item-background;
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "../../../node_modules/element-ui/packages/theme-chalk/src/index";
