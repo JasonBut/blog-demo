@@ -1,21 +1,25 @@
 {
   "categories": [
     {
+      "id": "01",
       "name": "Programs",
       "cname": "项目记录",
       "path": "/programs"
     },
     {
+      "id": "02",
       "name": "Notes",
       "cname": "学习笔记",
       "path": "/notes"
     },
     {
+      "id": "03",
       "name": "Daily",
       "cname": "日常生活",
       "path": "/daily"
     },
     {
+      "id": "04",
       "name": "About Me",
       "path": "/"
     }

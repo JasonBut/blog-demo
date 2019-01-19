@@ -26,10 +26,14 @@
           label="操作"
           min-width="15%"
       >
-        <template slot-scope="maintenance">
-          <el-button size="mini">查看文章</el-button>
+        <template slot-scope="{ row }">
+          <el-button size="mini">
+            <router-link :to="{ name: 'post', params: { categoryName: row.category, id: row.id } }">
+              查看文章
+            </router-link>
+          </el-button>
           <el-button size="mini">编辑</el-button>
-          <el-button size="mini">删除</el-button>
+          <el-button size="mini" @click="$emit('onDelete',row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

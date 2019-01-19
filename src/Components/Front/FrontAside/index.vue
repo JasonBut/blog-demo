@@ -18,11 +18,12 @@ export default {
       return currentCategory === '/about' ? '/' : `/${currentCategory}`;
     }
   },
-
   created () {
-    this.getData({ target: 'categories' });
+    // 加载组件时如没有分类列表信息才发起请求
+    if (this.categories.length < 1) {
+      this.getData({ target: 'categories' });
+    }
   },
-
   methods: {
     ...mapActions({ getData: 'getData' })
   }

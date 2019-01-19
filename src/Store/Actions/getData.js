@@ -18,18 +18,15 @@ const mapTarget = function (target) {
 };
 
 export default async ({ commit }, payload) => {
+  if (!payload) {
+    throw new Error(`The payload which got ${payload} is invalid `);
+  }
+  const { target } = payload;
+  const targetToState = mapTarget(target);
+  if (!targetToState) {
+    throw new Error(`Cannot found ${targetToState} in store`);
+  }
   try {
-    if (!payload) {
-      throw new Error(`The payload which got ${payload} is invalid `);
-    }
-
-    const { target } = payload;
-    const targetToState = mapTarget(target);
-
-    if (!targetToState) {
-      throw new Error(`Cannot found ${targetToState} in store`);
-    }
-
     /*
     * 由于评论列表和帖子列表共享state树中的list状态
     * 从帖子列表页进入到详情页时,由于list依然存有帖子列表的数据
@@ -52,7 +49,6 @@ export default async ({ commit }, payload) => {
     }
 
     commit({ type: Types.UPDATE_STORE, target: targetToState, data });
-
     commit({ type: Types.REQUESTED_SUCCEEDED });
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });

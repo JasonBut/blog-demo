@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const URL = `http://localhost:4000/`;
+axios.defaults.baseURL = `http://localhost:4000/`;
+axios.defaults.timeout = 1000;
 
 // 过滤条件
 const filters = (rule, mode) => {
@@ -25,6 +26,12 @@ const filters = (rule, mode) => {
 
     put: new Map([
       [`post`, `posts/${rule}`]
+    ]),
+
+    delete: new Map([
+      [`post`, `posts/${rule}`],
+      [`comment`, `comments/${rule}`],
+      [`category`, `categories/${rule}`]
     ])
   };
   return pool[mode];
@@ -40,6 +47,7 @@ const filters = (rule, mode) => {
 // 三个静态方法, 方便调用
 asyncFetch.get = ({ target, rule }) => asyncFetch({ mode: 'GET', target, rule });
 asyncFetch.post = ({ target, data }) => asyncFetch({ mode: 'POST', target, data });
+asyncFetch.delete = ({ target, rule }) => asyncFetch({ mode: 'DELETE', target, rule });
 asyncFetch.put = ({ target, rule, data }) => asyncFetch({ mode: 'PUT', target, rule, data });
 
 export default async function asyncFetch ({ mode, target, rule, data }) {
@@ -49,8 +57,8 @@ export default async function asyncFetch ({ mode, target, rule, data }) {
 
   const lowerCaseMode = !!mode && mode.toLowerCase();
 
-  if (!(['get', 'post', 'put'].includes(lowerCaseMode))) {
-    throw new Error(`Invalid mode : ${mode}, expected "POST","GET" or "PUT"`);
+  if (!(['get', 'post', 'put', 'delete'].includes(lowerCaseMode))) {
+    throw new Error(`Invalid mode : ${mode}, expected "POST", "GET", "DELETE or "PUT"`);
   }
 
   let path = filters(rule, lowerCaseMode).get(target.toLowerCase()); // 通过过滤函数获取路径
@@ -61,7 +69,7 @@ export default async function asyncFetch ({ mode, target, rule, data }) {
 
   try {
     // 这句代码是根据传入的参数去调整axios的get/post/put方法,并填入对应路径及数据
-    const response = await axios[lowerCaseMode](`${URL}${path}`, data);
+    const response = await axios[lowerCaseMode](`${path}`, data);
 
     path = null; // 解除filters引用
 

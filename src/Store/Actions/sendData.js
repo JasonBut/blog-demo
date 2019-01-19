@@ -12,25 +12,26 @@ import { asyncFetch, idGenerator } from '@/Util';
 //  postId: String, eg. '08'
 // }
 
-export default async ({ dispatch, commit }, payload) => {
+export default async ({ commit }, payload) => {
+  if (!payload) {
+    throw new Error(`No valid data in payload - ${payload}`);
+  }
+
+  const { data, category, postId, isComment, isAmend } = payload;
+  const { guestName, content, title } = data;
+
+  if (!content) {
+    throw new Error(`Cannot get content in ${data}, seems it's an unexpected object`);
+  }
+
+  const fetchMode = isAmend ? 'put' : 'post'; // 判断编辑模式选择使用'POST'还是'PUT'
+  const fetchTarget = isComment ? 'comment' : 'post'; // 判断要提交的内容是评论还是文章
+
   try {
-    if (!payload) {
-      throw new Error(`No valid data in payload - ${payload}`);
-    }
-
-    const { data, category, postId, isComment, isAmend } = payload;
-    const { guestName, content, title } = data;
-
-    if (!content) {
-      throw new Error(`Cannot get content in ${data}, seems it's an unexpected object`);
-    }
-
-    commit({ type: Types.REQUESTED_START });
-
-    const fetchMode = isAmend ? 'put' : 'post'; // 判断编辑模式选择使用'POST'还是'PUT'
-    const fetchTarget = isComment ? 'comment' : 'post'; // 判断要提交的内容是评论还是文章
     let latestId = null;
     let newId = null;
+
+    commit({ type: Types.REQUESTED_START });
 
     if (fetchMode === 'post') {
       // 获取最新的文章/评论内容

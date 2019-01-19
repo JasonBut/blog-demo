@@ -81,7 +81,7 @@ export default {
       ref.validate((valid) => {
         let [, category, postId] = this.$route.path.split('/');
 
-        // 非评论模式更改分类名在路径中分割的位置
+        // 非评论模式从路径中不同位置获取分类和id
         if (!this.isComment) {
           category = this.formData.selectedCategory.split('/')[1];
           postId = null;

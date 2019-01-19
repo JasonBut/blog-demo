@@ -5,3 +5,4 @@ export DataDisplayHOC from './DataDisplayHOC';
 
 // Mixins
 export PaginationOptions from './PaginationOptions';
+export DeleteDataMixin from './DeleteDataMixin';
