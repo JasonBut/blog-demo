@@ -20,7 +20,19 @@
           min-width="50%"
       >
         <template slot-scope="{ row }">
-          <el-button size="mini">查看文章</el-button>
+          <router-link
+              :to="{
+                name: 'postList',
+                params: {
+                  categoryName: row.name.toLowerCase()
+                  }
+                }
+            ">
+            <el-button size="mini">
+              查看文章
+            </el-button>
+          </router-link>
+
           <el-button size="mini">编辑</el-button>
           <el-button size="mini" @click="$emit('onDelete', row)">删除</el-button>
         </template>
