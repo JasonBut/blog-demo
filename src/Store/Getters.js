@@ -15,11 +15,6 @@ export default {
   },
   // 从保存在state树中的list状态提取已有文章信息
   postFilterFromList ({ list }) {
-    return (id) => {
-      console.log(id);
-      return list.filter((item) => {
-        return item.id === id && !!item.title;
-      });
-    };
+    return (id) => list.filter((item) => item.id === id && !!item.title);
   }
 };
