@@ -12,5 +12,14 @@ export default {
   // 用于返回给后台的分类列表,过滤掉About分类
   categoryWithoutAbout ({ categories }) {
     return categories.filter((item) => item && item.cname);
+  },
+  // 从保存在state树中的list状态提取已有文章信息
+  postFilterFromList ({ list }) {
+    return (id) => {
+      console.log(id);
+      return list.filter((item) => {
+        return item.id === id && !!item.title;
+      });
+    };
   }
 };

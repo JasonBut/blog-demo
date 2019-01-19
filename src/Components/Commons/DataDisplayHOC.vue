@@ -1,31 +1,30 @@
 <template>
   <div>
     <slot
-        :options="paginationOptions"
         :list="list"
         :post="post"
+        :options="paginationOptions"
         :handleCurrentChange="handleCurrentChange"
     />
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
+import { Types } from '@/Store';
 import PaginationOptions from './PaginationOptions';
-
 export default {
   name: 'GetData',
-
   mixins: [
     PaginationOptions()
   ],
-
   props: {
     target: String
   },
 
   computed: {
-    ...mapState(['list', 'post'])
+    ...mapState(['list', 'post']),
+    ...mapGetters(['postFilterFromList'])
   },
 
   created () {
@@ -34,6 +33,10 @@ export default {
 
   methods: {
     ...mapActions(['getData']),
+    ...mapMutations({
+      updateStore: Types.UPDATE_STORE
+    }),
+
     getDataStrategies (route) {
       return {
         'posts': `${route.path.split('/')[1]}`, // eg. /programs 的 programs
@@ -44,12 +47,20 @@ export default {
 
     async requestGetData (route = this.$route) {
       const lowerCaseType = this.target.toLowerCase();
-      await this.getData({
-        target: lowerCaseType,
-        rule: this.getDataStrategies(route)[lowerCaseType]
-      });
+      const rule = this.getDataStrategies(route)[lowerCaseType];
+      const hasPostListInStore = !!(this.list.length > 0 && this.list[0].title);
+
+      /*
+      * 如果从列表页跳转到详情页,因为state树中已存有博文的信息
+      * 可以从list状态中直接提取,不需要向服务器发送请求
+      */
+      if (lowerCaseType === 'post' && hasPostListInStore) {
+        const [ data ] = this.postFilterFromList(rule);
+        this.updateStore({ target: 'post', data });
+        return;
+      }
+      await this.getData({ target: lowerCaseType, rule });
     }
   }
-
 };
 </script>
