@@ -5,23 +5,31 @@ export default ({ commit }, payload) => {
   if (!payload) {
     throw new Error(`No valid data in payload - ${payload}`);
   }
-  if (!confirm('确定是否删除?')) {
+  if (!confirm('确定是否删除？')) {
     return false;
   }
   /*
-  * 分类有cname值
-  * 博文有title
-  * 没有此两项则为评论
+  * cname判断可删除分类
+  * title判断博文
+  * guestName判断评论
+  * 并且需要确保传入的payload对象格式正确
+  * 必须包含上面提到的其中一项
   */
-  const { id, cname, title } = payload;
-  const type = (!!cname && 'category') || (title ? 'post' : 'comment');
+  const { id, cname, title, guestName } = payload;
+  const target =
+    (!!cname && 'category') ||
+    (!!title && 'post') ||
+    (!!guestName && 'comment');
 
+  if (!target || !id) {
+    throw new Error(`Invalid target '${target}' or id '${id}'`);
+  }
   try {
     commit({ type: Types.REQUESTED_START });
 
     // 调用封装好的axios方法去获取数据
     asyncFetch.delete({
-      target: type,
+      target,
       rule: id
     });
     commit({ type: Types.REQUESTED_SUCCEEDED });
