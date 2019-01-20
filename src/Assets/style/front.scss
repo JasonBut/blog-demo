@@ -50,6 +50,10 @@
         }
     }
 
+    .ql-snow .ql-tooltip{
+        @include transparent-background(0.25);
+    }
+
     footer{
         @include footer-layout($front-text-primary, 0.45);
     }

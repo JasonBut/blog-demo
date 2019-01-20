@@ -15,6 +15,11 @@ html,body {
         @include transparent-background(0.5);
     }
 
+    .ql-tooltip,
+    .ql-editing{
+        left: 5em !important;
+    }
+
     .icon {
         width: 1em;
         height: 1em;
