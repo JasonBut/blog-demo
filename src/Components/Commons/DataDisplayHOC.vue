@@ -3,11 +3,11 @@
     <!--判断子组件请求获取的是store中的list还是post-->
     <!--然后根据类型再分配合适的数据-->
     <slot
-        :list="!isPost && list"
-        :post="isPost && post"
-        :options="!isPost && paginationOptions"
-        :to="!!(lowerCaseType === 'posts') && linkGenerator"
-        :handleCurrentChange="!isPost && handleCurrentChange"
+        :list="list"
+        :post="post"
+        :options="paginationOptions"
+        :to="linkGenerator"
+        :handleCurrentChange="handleCurrentChange"
     />
   </div>
 </template>
@@ -47,12 +47,8 @@ export default {
       });
     },
 
-    lowerCaseType () {
+    lowerCaseTarget () {
       return this.target.toLowerCase();
-    },
-
-    isPost () {
-      return !!(this.lowerCaseType === 'post');
     }
   },
 
@@ -65,9 +61,9 @@ export default {
     ...mapMutations({ updateStore: Types.UPDATE_STORE }),
 
     async requestGetData () {
-      const { $route, lowerCaseType, list, fetchRuleStrategies, getData } = this;
+      const { $route, lowerCaseTarget, list, fetchRuleStrategies, getData } = this;
       // 根据不同的请求目标返回asyncFetch方法的rule
-      const rule = fetchRuleStrategies($route)[lowerCaseType];
+      const rule = fetchRuleStrategies($route)[lowerCaseTarget];
 
       // 判断store中list状态是否有数据,并根据标题判断是否博文数组
       const hasPostListInStore = !!(list.length > 0 && list[0].title);
@@ -76,12 +72,12 @@ export default {
       * 如果从列表页跳转到详情页,因为state树list状态已存有博文的信息
       * 可以从list状态中直接提取,不需要向服务器发送请求
       */
-      if (lowerCaseType === 'post' && hasPostListInStore) {
+      if (lowerCaseTarget === 'post' && hasPostListInStore) {
         const [ data ] = this.postFilterFromList(rule);
         this.updateStore({ target: 'post', data });
         return;
       }
-      await getData({ target: lowerCaseType, rule });
+      await getData({ target: lowerCaseTarget, rule });
     }
   }
 };

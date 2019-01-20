@@ -1,7 +1,6 @@
 <template>
   <el-menu
       :default-active="defaultActive"
-      :router="true"
       :id="id"
       mode="vertical"
       class="custom-aside-bar"

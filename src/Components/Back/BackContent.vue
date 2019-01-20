@@ -3,7 +3,7 @@
     <BreadCrumb />
     <transition name="el-fade-in-linear" mode="out-in">
       <router-view
-          :key="$route.path"
+          :key="$route.name + $route.path"
           v-loading="loading"
           element-loading-spinner="el-icon-loading"
           element-loading-text="Loading..."

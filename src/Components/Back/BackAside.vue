@@ -40,11 +40,12 @@ export default {
     // 点亮当前正在打开的边栏项label
     currentTab () {
       const { name } = this.$route;
-      return name === 'admin' ? 'posts' : name;
+      return name === 'admin' ? 'manage-posts' : name;
     },
     menuLinkOption () {
       return (category) => ({
-        name: category.name === 'home' ? 'home' : category.name });
+        name: category.name === 'home' ? 'home' : category.name
+      });
     }
   }
 };
