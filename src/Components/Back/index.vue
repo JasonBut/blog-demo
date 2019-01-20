@@ -2,18 +2,13 @@
 <div id="back">
   <el-container>
     <el-container>
-      <!--边栏-->
       <el-aside width="12em">
         <Aside />
       </el-aside>
-
-      <!--内容-->
       <el-main>
         <Content />
       </el-main>
     </el-container>
-
-    <!--页脚-->
     <el-footer>
       <Footer class="back-footer" />
     </el-footer>

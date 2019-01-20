@@ -4,12 +4,6 @@
 
     a {
         color: $back-text-secondary;
-        text-decoration: none;
-
-        &:visited,
-        &:hover {
-            text-decoration: underline;
-        }
     }
 
     footer {

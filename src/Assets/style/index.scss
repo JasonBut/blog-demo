@@ -4,6 +4,13 @@ html,body {
     padding: 0;
     font-family: Tahoma, Arial, Helvetica, sans-serif,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 
+    a{
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     pre{
         @include transparent-background(0.5);
         @include transparent-border(0.9,1px,10px);
@@ -18,6 +25,12 @@ html,body {
     .ql-tooltip,
     .ql-editing{
         left: 5em !important;
+    }
+
+    .custom-aside-bar{
+        a:hover{
+            text-decoration: none;
+        }
     }
 
     .icon {

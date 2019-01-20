@@ -7,11 +7,7 @@
     color: $front-text-primary;
 
     a{
-        text-decoration: none;
         color: $front-text-primary;
-        &:hover {
-            text-decoration: underline;
-        }
     }
 
     .el-card{

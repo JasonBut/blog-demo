@@ -1,27 +1,20 @@
 <template>
 <div id="front">
   <el-container id="front-app">
-
     <el-header height="5em">
       <Header/>
     </el-header>
-
     <el-container class="content">
-
       <el-aside width="12em">
         <Aside />
       </el-aside>
-
       <el-main>
         <Content />
       </el-main>
-
     </el-container>
-
     <el-footer>
       <Footer />
     </el-footer>
-
   </el-container>
 </div>
 </template>
@@ -32,7 +25,7 @@ export default {
   name: 'Front',
   components: {
     Header: () => import('./FrontHeader.vue'),
-    Aside: () => import('./FrontAside/index.vue'),
+    Aside: () => import('./FrontAside.vue'),
     Content: () => import('./FrontContent.vue'),
     Footer: () => import('../Commons/Footer.vue')
   }

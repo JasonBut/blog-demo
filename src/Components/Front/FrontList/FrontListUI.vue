@@ -11,7 +11,7 @@
           min-width="60%"
       >
         <template slot-scope="{ row }">
-          <router-link :to="`${postPath}/${row.id}`">
+          <router-link :to="to(row)">
             {{ row.title }}
           </router-link>
         </template>
@@ -42,7 +42,7 @@ export default {
   name: 'ListUI',
   props: {
     options: Object,
-    postPath: String
+    to: Function
   },
 
   data () {
