@@ -23,9 +23,9 @@
             >
               <el-option
                   v-for="option of categoryWithoutAbout"
-                  :key="option.name"
+                  :key="option.label"
                   :label="option.cname"
-                  :value="option.path"
+                  :value="option.name"
               />
             </el-select>
           </el-form-item>

@@ -55,9 +55,9 @@ export default {
         ]
       },
       categoryOptions: [
-        { name: '项目记录', value: '/programs' },
-        { name: '学习笔记', value: '/notes' },
-        { name: '日常生活', value: '/daily' }
+        { name: '项目记录', value: 'programs' },
+        { name: '学习笔记', value: 'notes' },
+        { name: '日常生活', value: 'daily' }
       ]
     };
   },
@@ -79,23 +79,22 @@ export default {
     // 发表文章/评论
     handlePublish (ref) {
       ref.validate((valid) => {
-        let [, category, postId] = this.$route.path.split('/');
+        let category, postId;
 
-        // 非评论模式从路径中不同位置获取分类和id
-        if (!this.comment) {
-          category = this.formData.selectedCategory.split('/')[1];
+        /*
+        * 发评论时信息从路由中解构获得
+        * 发博文时信息从编辑器中获得
+        */
+        if (this.comment) {
+          ({ categoryName: category, id: postId } = this.$route.params);
+        } else {
+          category = this.formData.selectedCategory;
           postId = null;
         }
 
         if (valid) {
-          const payload = {
-            isAmend: this.amend,
-            isComment: this.comment,
-            data: this.formData,
-            category,
-            postId
-          };
-          this.sendData(payload);
+          const { amend: isAmend, comment: isComment, formData: data } = this;
+          this.sendData({ isAmend, isComment, data, category, postId });
         }
       });
     }

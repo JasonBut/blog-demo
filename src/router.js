@@ -36,8 +36,8 @@ export default new Router({
       component: () => import('@/Components/Front/'),
       children: [
         {
-          path: '/',
-          alias: '/about',
+          path: '/about',
+          alias: '/',
           name: 'home',
           component: () => import('@/Components/Front/FrontAbout')
         },

@@ -2,7 +2,7 @@
   <div class="post">
     <PostDetails />
     <Comments />
-    <!--如果没有返回有效文章信息,则不渲染评论按钮-->
+    <!--如果没有返回有效文章信息,不渲染评论按钮-->
     <Editor v-if="post.content" comment />
   </div>
 </template>

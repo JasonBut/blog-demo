@@ -2,26 +2,26 @@
   "categories": [
     {
       "id": "01",
-      "name": "Programs",
+      "label": "Programs",
       "cname": "项目记录",
-      "path": "/programs"
+      "name": "programs"
     },
     {
       "id": "02",
-      "name": "Notes",
+      "label": "Notes",
       "cname": "学习笔记",
-      "path": "/notes"
+      "name": "notes"
     },
     {
       "id": "03",
-      "name": "Daily",
+      "label": "Daily",
       "cname": "日常生活",
-      "path": "/daily"
+      "name": "daily"
     },
     {
       "id": "04",
-      "name": "About Me",
-      "path": "/"
+      "label": "About Me",
+      "name": "about"
     }
   ],
   "posts": [
