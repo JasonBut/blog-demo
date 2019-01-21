@@ -64,10 +64,10 @@
         <el-button
             class="add-category"
             size="mini"
+            icon="el-icon-plus"
             @click="$emit('onAdd')"
             :disabled="!!(cname && label)"
-        >
-          新增
+        >新增
         </el-button>
       </template>
     </el-table>
