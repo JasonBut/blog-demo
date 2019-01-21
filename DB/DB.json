@@ -1,6 +1,11 @@
 {
   "categories": [
     {
+      "id": "04",
+      "label": "About Me",
+      "name": "about"
+    },
+    {
       "id": "01",
       "label": "Programs",
       "cname": "项目记录",
@@ -17,11 +22,6 @@
       "label": "Daily",
       "cname": "日常生活",
       "name": "daily"
-    },
-    {
-      "id": "04",
-      "label": "About Me",
-      "name": "about"
     }
   ],
   "posts": [
