@@ -86,14 +86,15 @@ export default {
     ...mapActions(['getData', 'sendData']),
 
     initAmendFormData () {
-      let { amendValue, formData } = this;
+      let { amendValue } = this;
       if (typeof amendValue === 'object') {
         const { category, title, content } = amendValue;
-        formData = Object.assign(formData, {
+        this.formData = {
+          ...this.formData,
           selectedCategory: category,
           title,
           content
-        });
+        };
       }
     },
 
