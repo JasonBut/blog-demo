@@ -41,6 +41,6 @@ export default {
 
 <style lang="scss">
 .post{
-  @include content-el-card-margin;
+  margin: $front-content-el-card-margin;
 }
 </style>

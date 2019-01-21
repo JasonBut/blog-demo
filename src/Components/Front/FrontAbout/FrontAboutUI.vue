@@ -95,8 +95,8 @@ export default {
 
   #about{
     min-width: 12em;
+    margin: $front-content-el-card-margin;
     @include transparent-background(0.25);
-    @include content-el-card-margin();
 
     ul{
       list-style-position: inside;

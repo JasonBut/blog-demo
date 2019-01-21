@@ -10,6 +10,7 @@ $front-item-hover-fill: rgba(29, 114, 201, 0.35);           // 边栏,表格及�
 $front-comment-color: #00a8c6;                              // 评论颜色
 $front-transparent-border: rgba(0,0,0,0.9);                 // 透明效果边框
 $front-transparent-background: rgba(0, 0, 0, 0.30);         // 透明效果背景
+$front-content-el-card-margin: 3%;                          // card组件外边距
 
 // 后台
 $back-body-background-color: #304156;                       // body背景色
@@ -51,11 +52,6 @@ $select-option-selected-color: #494949;                     // 选择器选中�
 // 透明背景
 @mixin transparent-background($opacity) {
     background: rgba(0,0,0,$opacity);
-}
-
-// card 统一margin
-@mixin content-el-card-margin () {
-    margin: 3%;
 }
 
 // 复用的页脚样式

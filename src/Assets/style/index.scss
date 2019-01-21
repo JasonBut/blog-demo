@@ -33,6 +33,10 @@ html,body {
         }
     }
 
+    .el-loading-mask{
+        @include transparent-border(0,0,20px);
+    }
+
     .icon {
         width: 1em;
         height: 1em;

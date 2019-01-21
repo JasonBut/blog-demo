@@ -11,12 +11,13 @@
     }
 
     .el-card{
+        @include transparent-border(0.9,1px,20px);
         @include transparent-background(0.25);
     }
 
     .el-table {
         @include transparent-background(0.2);
-        @include transparent-border(0,0,5%);
+        @include transparent-border(0,0,20px);
 
         thead tr,
         th{
