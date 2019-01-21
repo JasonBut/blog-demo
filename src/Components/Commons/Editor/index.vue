@@ -101,22 +101,22 @@ export default {
     // 发表文章/评论
     handlePublish (ref) {
       ref.validate((valid) => {
-        let category, currentId;
+        let category, postId;
 
         /*
         * 发评论时信息从路由中解构获得
         * 发博文时信息从编辑器中获得
         */
         if (this.comment) {
-          ({ categoryName: category, id: currentId } = this.$route.params);
+          ({ categoryName: category, id: postId } = this.$route.params);
         } else {
           category = this.formData.selectedCategory;
-          currentId = this.amendValue.postId || null;
+          postId = this.amendValue.postId || null;
         }
 
         if (valid) {
-          const { amend: isAmend, comment: isComment, formData: data } = this;
-          this.sendArticle({ isAmend, isComment, data, category, currentId });
+          const { amend: isAmend, formData } = this;
+          this.sendArticle({ ...formData, isAmend, category, postId });
         }
       });
     }

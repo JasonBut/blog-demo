@@ -46,7 +46,23 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getData', 'sendCategory']),
+    ...mapActions(['getData', 'sendArticle']),
+
+    cleanData () {
+      this.categoryInfo = {
+        cname: '',
+        label: ''
+      };
+    },
+
+    handleAdd () {
+      this.categoryWithoutAbout.push({
+        id: null,
+        name: '',
+        cname: '',
+        label: ''
+      });
+    },
 
     handleEdit (item) {
       // 当前条目id设为editing
@@ -57,33 +73,25 @@ export default {
 
     handleSave (item) {
       this.editing = '';
+
+      // 生成payload发给sendData action
       const payload = {
         ...item,
         ...this.categoryInfo,
         name: this.categoryInfo.label.toLowerCase()
       };
-      this.sendCategory(payload);
+      this.sendArticle(payload);
+      this.cleanData();
     },
 
     handleCancel () {
       this.editing = '';
-      this.categoryInfo = {
-        cname: '',
-        label: ''
-      };
+      this.cleanData();
+
       // 提取最后一项,如果没有id则证明是新增的项目,从列表中删除掉
       const lastIndex = this.categoryWithoutAbout.length - 1;
       const lastItem = this.categoryWithoutAbout[lastIndex];
       (!lastItem.id) && this.categoryWithoutAbout.pop();
-    },
-
-    handleAdd () {
-      this.categoryWithoutAbout.push({
-        id: null,
-        name: '',
-        cname: '',
-        label: ''
-      });
     }
   }
 };

@@ -1,11 +1,9 @@
 import getData from './getData';
-import sendArticle from './sendArticle';
-import sendCategory from './sendCategory';
+import sendData from './sendData';
 import deleteData from './deleteData';
 
 export default {
   getData,
-  sendArticle,
-  sendCategory,
+  sendData,
   deleteData
 };

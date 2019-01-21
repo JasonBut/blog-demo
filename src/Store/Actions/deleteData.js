@@ -1,7 +1,7 @@
 import Types from '../Types';
 import { asyncFetch } from '@/Util';
 
-export default async ({ commit }, payload) => {
+export default async ({ commit, dispatch }, payload) => {
   if (!payload) {
     throw new Error(`No valid data in payload - ${payload}`);
   }
@@ -16,10 +16,16 @@ export default async ({ commit }, payload) => {
   * 必须包含上面提到的其中一项
   */
   const { id, cname, title, guestName } = payload;
+
   const target =
     (!!cname && 'category') ||
     (!!title && 'post') ||
     (!!guestName && 'comment');
+
+  const reloadTarget =
+    (!!cname && 'categories') ||
+    (!!title && 'all_posts') ||
+    (!!guestName && 'all_comments');
 
   if (!target || !id) {
     throw new Error(`Invalid target '${target}' or id '${id}'`);
@@ -33,10 +39,10 @@ export default async ({ commit }, payload) => {
       rule: id
     });
     commit({ type: Types.REQUESTED_SUCCEEDED });
-    window.history.go(0);// 删除成功刷新页面
+    await dispatch('getData', { target: reloadTarget });
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });
-    await alert(`发送请求失败`);
+    alert(`发送请求失败，请稍后尝试！`);
     window.history.go(0);
   }
 };
