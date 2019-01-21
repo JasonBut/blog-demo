@@ -19,7 +19,7 @@ export default {
   name: 'BackPostList',
   mixins: [ DeleteDataMixin ],
   components: {
-    BackPostListUI: () => import('./BackPostListUI'),
+    BackPostListUI: () => import('./BackListUI'),
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
   },
   computed: {

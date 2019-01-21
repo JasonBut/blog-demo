@@ -18,7 +18,7 @@
 export default {
   name: 'BackList',
   components: {
-    BackPostList: () => import('./BackPostList'),
+    BackPostList: () => import('./BackList'),
     Editor: () => import('@/Components/Commons/Editor')
   },
   provide () {
