@@ -160,11 +160,6 @@
         .el-input{
             display: inline;
         }
-        .el-input__inner{
-            @extend .el-form;
-            padding-left: 1em;
-            width: 60%;
-        }
         .editor{
             @extend .el-form;
             border: none;
@@ -176,5 +171,11 @@
         .el-form-item__label{
             color: $back-text-secondary;
         }
+    }
+
+    .el-input__inner{
+        @extend .el-form;
+        padding-left: 1em;
+        width: 60%;
     }
 }
