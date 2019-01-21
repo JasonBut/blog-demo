@@ -70,6 +70,14 @@
             >
               {{ amend ? '修改' : '发布' }}
             </el-button>
+            <el-button
+                v-if="amend"
+                icon="el-icon-delete"
+                @click="handleCancel"
+                plain
+            >
+              放弃修改
+            </el-button>
           </el-form-item>
 
         </el-form>
@@ -81,6 +89,14 @@
 <script>
 export default {
   name: 'EditorUI',
+
+  // 后台PostList组件传入的方法
+  inject: {
+    handleCancel: {
+      default: 'handleCancel'
+    }
+  },
+
   props: {
     id: String,
     comment: Boolean,

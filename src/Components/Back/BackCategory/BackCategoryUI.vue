@@ -22,7 +22,7 @@
         <template slot-scope="{ row }">
           <router-link
               :to="{
-                name: 'postList',
+                name: 'manage-posts',
                 params: {
                   categoryName: row.name.toLowerCase()
                   }

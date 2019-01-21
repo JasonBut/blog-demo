@@ -5,8 +5,9 @@
           label="分类"
           prop="category"
           min-width="5%"
-          :filters="filters.filter"
+          :filters="filters.filterOptions"
           :filter-method="filters.method"
+          :filtered-value="filters.defaultValue"
       >
       </el-table-column>
 
@@ -42,8 +43,8 @@
             </el-button>
           </router-link>
 
-          <el-button size="mini">编辑</el-button>
-          <el-button size="mini" @click="$emit('onDelete',row)">删除</el-button>
+          <el-button size="mini" @click="handleEdit(row)">编辑</el-button>
+          <el-button size="mini" @click="$emit('onDelete', row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -61,6 +62,7 @@
 <script>
 export default {
   name: 'BackPostListUI',
+  inject: ['handleEdit'], // BackPostList/index传入
   props: {
     options: Object,
     filters: Object

@@ -21,7 +21,8 @@ export default {
     id: String,
     comment: Boolean,
     amend: Boolean,
-    post: Boolean
+    post: Boolean,
+    amendValue: [Object, Boolean]
   },
 
   components: {
@@ -31,12 +32,6 @@ export default {
   data () {
     return {
       active: false,
-      formData: {
-        selectedCategory: '',
-        guestName: '',
-        title: '',
-        content: ''
-      },
       rules: {
         selectedCategory: [
           { required: true, message: '请选择分组!', trigger: 'submit' }
@@ -63,7 +58,17 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['categoryWithoutAbout'])
+    ...mapGetters(['categoryWithoutAbout']),
+    formData () {
+      let category, title, content;
+      this.amendValue && ({ category, title, content } = this.amendValue);
+      return {
+        selectedCategory: category || '',
+        guestName: '',
+        title: title || '',
+        content: content || ''
+      };
+    }
   },
 
   created () {
@@ -89,7 +94,7 @@ export default {
           ({ categoryName: category, id: postId } = this.$route.params);
         } else {
           category = this.formData.selectedCategory;
-          postId = null;
+          postId = this.amendValue.postId || null;
         }
 
         if (valid) {

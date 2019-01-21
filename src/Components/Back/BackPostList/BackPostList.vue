@@ -24,16 +24,16 @@ export default {
   },
   computed: {
     ...mapGetters(['categoryFilters']),
+
     tableFilterOptions () {
+      const { categoryName } = this.$route.params;
       return {
-        filter: this.categoryFilters,
-        method: this.filterHandler
+        defaultValue: categoryName ? [ categoryName ] : [],
+        filterOptions: this.categoryFilters,
+        method (value, { category }) {
+          return category === value;
+        }
       };
-    }
-  },
-  methods: {
-    filterHandler (value, row) {
-      return row.category === value;
     }
   }
 };
