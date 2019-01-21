@@ -19,7 +19,7 @@ const mapTarget = function (target) {
 
 export default async ({ commit }, payload) => {
   if (!payload) {
-    throw new Error(`The payload which got ${payload} is invalid `);
+    throw new Error(`Payload - ${payload} is invalid `);
   }
   const { target } = payload;
   const targetToState = mapTarget(target);
@@ -52,5 +52,6 @@ export default async ({ commit }, payload) => {
     commit({ type: Types.REQUESTED_SUCCEEDED });
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });
+    await alert(`获取数据失败`);
   }
 };
