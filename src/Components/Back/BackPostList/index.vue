@@ -31,12 +31,7 @@ export default {
     return {
       editing: false,
       currentTab: 'post-list',
-      amendValue: {
-        category: '',
-        guestName: '',
-        title: '',
-        content: ''
-      }
+      amendValue: {}
     };
   },
   methods: {

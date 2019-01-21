@@ -32,6 +32,12 @@ export default {
   data () {
     return {
       active: false,
+      formData: {
+        selectedCategory: '',
+        guestName: '',
+        title: '',
+        content: ''
+      },
       rules: {
         selectedCategory: [
           { required: true, message: '请选择分组!', trigger: 'submit' }
@@ -58,16 +64,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['categoryWithoutAbout']),
-    formData () {
-      let category, title, content;
-      this.amendValue && ({ category, title, content } = this.amendValue);
-      return {
-        selectedCategory: category || '',
-        guestName: '',
-        title: title || '',
-        content: content || ''
-      };
+    ...mapGetters(['categoryWithoutAbout'])
+  },
+
+  watch: {
+    // 当父组件传入amendValue时就执行初始化将数据填入表单
+    amendValue () {
+      !!this.amend && this.initAmendFormData();
     }
   },
 
@@ -81,25 +84,38 @@ export default {
 
   methods: {
     ...mapActions(['getData', 'sendData']),
+
+    initAmendFormData () {
+      let { amendValue, formData } = this;
+      if (typeof amendValue === 'object') {
+        const { category, title, content } = amendValue;
+        formData = Object.assign(formData, {
+          selectedCategory: category,
+          title,
+          content
+        });
+      }
+    },
+
     // 发表文章/评论
     handlePublish (ref) {
       ref.validate((valid) => {
-        let category, postId;
+        let category, currentId;
 
         /*
         * 发评论时信息从路由中解构获得
         * 发博文时信息从编辑器中获得
         */
         if (this.comment) {
-          ({ categoryName: category, id: postId } = this.$route.params);
+          ({ categoryName: category, id: currentId } = this.$route.params);
         } else {
           category = this.formData.selectedCategory;
-          postId = this.amendValue.postId || null;
+          currentId = this.amendValue.postId || null;
         }
 
         if (valid) {
           const { amend: isAmend, comment: isComment, formData: data } = this;
-          this.sendData({ isAmend, isComment, data, category, postId });
+          this.sendData({ isAmend, isComment, data, category, currentId });
         }
       });
     }

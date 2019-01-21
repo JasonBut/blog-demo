@@ -1,7 +1,7 @@
 <template>
   <div>
     <BreadCrumb />
-    <transition name="el-fade-in-linear" mode="out-in">
+    <transition name="el-fade-in-linear" mode="out-in" duration="500">
       <router-view
           :key="$route.name + $route.path"
           v-loading="loading"
