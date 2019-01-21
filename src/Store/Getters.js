@@ -9,7 +9,7 @@ export default {
       return { ...category, first, last };
     });
   },
-  // 用于返回给后台的分类列表,过滤掉About分类
+  // 用于返回给后台的分类列表,过滤掉About项
   categoryWithoutAbout ({ categories }) {
     return categories.filter((item) => item && item.cname);
   },
@@ -17,7 +17,7 @@ export default {
   postFilterFromList ({ list }) {
     return (id) => list.filter((item) => item.id === id && !!item.title);
   },
-  // 后台PostList组件的分类过去项
+  // 后台PostList组件的分类项
   categoryFilters (state, { categoryWithoutAbout }) {
     return categoryWithoutAbout.map(({ name }) => ({
       text: name.toLowerCase(),

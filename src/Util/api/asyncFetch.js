@@ -22,11 +22,14 @@ const filters = (rule, mode) => {
       [`comments`, `comments?post=${rule}`],
       [`post`, `posts/${rule}`],
       [`latest_post`, `posts?_sort=id&&_order=desc&&_end=1`],
-      [`latest_comment`, `comments?_sort=id&&_order=desc&&_end=1`]
+      [`latest_comment`, `comments?_sort=id&&_order=desc&&_end=1`],
+      [`latest_category`, `categories?_sort=id&&_order=desc&&_end=1`]
     ]),
 
     put: new Map([
-      [`post`, `posts/${rule}`]
+      [`post`, `posts/${rule}`],
+      [`comment`, `comments/${rule}`],
+      [`category`, `categories/${rule}`]
     ]),
 
     delete: new Map([

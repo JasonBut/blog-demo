@@ -83,7 +83,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['getData', 'sendData']),
+    ...mapActions(['getData', 'sendArticle']),
 
     initAmendFormData () {
       let { amendValue } = this;
@@ -116,7 +116,7 @@ export default {
 
         if (valid) {
           const { amend: isAmend, comment: isComment, formData: data } = this;
-          this.sendData({ isAmend, isComment, data, category, currentId });
+          this.sendArticle({ isAmend, isComment, data, category, currentId });
         }
       });
     }

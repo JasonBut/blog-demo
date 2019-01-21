@@ -33,7 +33,7 @@ export default async ({ commit }, payload) => {
 
     commit({ type: Types.REQUESTED_START });
 
-    if (fetchMode === 'post') {
+    if (!isAmend) {
       // 获取最新的文章/评论内容
       ([ latestId ] = await asyncFetch.get({
         target: `latest_${fetchTarget}`
