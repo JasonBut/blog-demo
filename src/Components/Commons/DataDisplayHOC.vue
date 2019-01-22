@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!--判断子组件请求获取的是store中的list还是post-->
-    <!--然后根据类型再分配合适的数据-->
     <slot
         :list="list"
         :post="post"
@@ -34,10 +32,6 @@ export default {
         'comments': route.params.id, // eg. /programs/01 的 01
         'post': route.params.id // 同上
       });
-    },
-
-    lowerCaseTarget () {
-      return this.target.toLowerCase();
     }
   },
 
@@ -50,7 +44,8 @@ export default {
     ...mapMutations({ updateStore: Types.UPDATE_STORE }),
 
     async requestGetData () {
-      const { $route, lowerCaseTarget, list, fetchRuleStrategies, getData } = this;
+      const lowerCaseTarget = this.target.toLowerCase();
+      const { $route, list, fetchRuleStrategies, getData } = this;
       // 根据不同的请求目标返回asyncFetch方法的rule
       const rule = fetchRuleStrategies($route)[lowerCaseTarget];
 
@@ -66,6 +61,8 @@ export default {
         this.updateStore({ target: 'post', data });
         return;
       }
+
+      // 其余情况发送请求获取数据
       await getData({ target: lowerCaseTarget, rule });
     }
   }

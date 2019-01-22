@@ -55,12 +55,7 @@ export default {
           { required: true, message: '请输入内容!', trigger: 'submit' },
           { min: 15, message: '内容字数不得少于15个字符', trigger: 'blur' }
         ]
-      },
-      categoryOptions: [
-        { name: '项目记录', value: 'programs' },
-        { name: '学习笔记', value: 'notes' },
-        { name: '日常生活', value: 'daily' }
-      ]
+      }
     };
   },
 

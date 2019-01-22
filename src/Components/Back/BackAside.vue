@@ -3,7 +3,7 @@
       id="back-aside"
       :data="categoryList"
       :defaultActive="currentTab"
-      :to="menuLinkOption"
+      :to="({ name }) => ({ name })"
   />
 </template>
 
@@ -16,22 +16,10 @@ export default {
   data () {
     return {
       categoryList: [
-        {
-          name: 'home',
-          cname: '博客首页'
-        },
-        {
-          name: 'manage-categories',
-          cname: '管理分类'
-        },
-        {
-          name: 'manage-posts',
-          cname: '我的文章'
-        },
-        {
-          name: 'manage-comments',
-          cname: '访客回复'
-        }
+        { name: 'home', cname: '博客首页' },
+        { name: 'manage-categories', cname: '管理分类' },
+        { name: 'manage-posts', cname: '我的文章' },
+        { name: 'manage-comments', cname: '访客回复' }
       ]
     };
   },
@@ -43,11 +31,6 @@ export default {
       return ((name === 'admin') || (name === 'manage-post'))
         ? 'manage-posts'
         : name;
-    },
-    menuLinkOption () {
-      return (category) => ({
-        name: category.name === 'home' ? 'home' : category.name
-      });
     }
   }
 };

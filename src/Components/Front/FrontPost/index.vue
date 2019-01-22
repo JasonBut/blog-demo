@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import { GetPostMixins } from '@/Components/Commons';
+import { cleanPostMixins } from '@/Components/Commons';
 export default {
   name: 'FrontPost',
-  mixins: [ GetPostMixins ],
+  mixins: [ cleanPostMixins ],
 
   components: {
     PostDetails: () => import('./FrontPostDetails'),

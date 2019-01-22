@@ -30,9 +30,9 @@ export default {
 
     // 边栏的路由跳转规则
     menuLinkOption () {
-      return (category) => ({
-        name: category.name === 'about' ? 'home' : 'postList',
-        params: { categoryName: category.name }
+      return ({ name }) => ({
+        name: name === 'about' ? 'home' : 'postList',
+        params: { categoryName: name }
       });
     }
   },
@@ -43,7 +43,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions({ getData: 'getData' })
+    ...mapActions(['getData'])
   }
 };
 </script>

@@ -3,7 +3,7 @@
     <ListFadeIn name="el-zoom-in-left" :duration="600">
       <el-breadcrumb-item
           v-for="item of breadList"
-          :key="`${item}`"
+          :key="item"
           :to="{ path: item }"
       >
         {{ breadListFilters(item, $store) }}

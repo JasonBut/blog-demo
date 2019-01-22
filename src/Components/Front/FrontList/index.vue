@@ -19,11 +19,11 @@ export default {
   },
   computed: {
     linkGenerator () {
-      return (item) => ({
+      return ({ category, id }) => ({
         name: 'post',
         params: {
-          categoryName: item.category,
-          id: item.id
+          categoryName: category,
+          id
         }
       });
     }

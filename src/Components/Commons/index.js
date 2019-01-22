@@ -8,4 +8,4 @@ export Footer from './Footer';
 // Mixins
 export PaginationOptions from './PaginationOptions';
 export DeleteDataMixin from './DeleteDataMixin';
-export GetPostMixins from './GetPostMixins';
+export cleanPostMixins from './cleanPostMixins';

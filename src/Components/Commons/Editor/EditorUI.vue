@@ -40,7 +40,7 @@
             />
           </el-form-item>
 
-          <!--编辑模式渲染访客名文本框-->
+          <!--评论模式渲染访客名文本框-->
           <el-form-item v-else label="访客名字 ：" prop="guestName" autofocus>
             <el-input
                 class="name"
@@ -71,7 +71,7 @@
               {{ amend ? '修改' : '发布' }}
             </el-button>
             <el-button
-                v-if="amend"
+                v-if="amend || post"
                 icon="el-icon-delete"
                 @click="$emit('onCancel')"
                 plain

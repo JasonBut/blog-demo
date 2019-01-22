@@ -1,4 +1,4 @@
-import Types from './Types';
+import Types from './Types'
 
 export default {
   [Types.REQUESTED_START] (state, { target }) {
@@ -21,9 +21,8 @@ export default {
     state[target] = data;
   },
 
-  [Types.UPDATE_BREAD_LIST] (state, route) {
-    const currentPath = route.path;
-    const paths = currentPath.split('/');
+  [Types.UPDATE_BREAD_LIST] (state, { path }) {
+    const paths = path.split('/');
     state.breadList = paths.map((item, i, arr) => {
       if (i > 0 && !item) {
         return;

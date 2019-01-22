@@ -10,9 +10,7 @@
         :key="category.name"
         :to="to(category)"
     >
-      <el-menu-item
-          :index="category.name"
-      >
+      <el-menu-item :index="category.name">
         <slot :category="category">
           {{ category.cname }}
         </slot>
