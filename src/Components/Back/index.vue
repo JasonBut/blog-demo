@@ -1,5 +1,5 @@
 <template>
-<div class="back">
+<div id="back">
   <el-container>
     <el-container>
       <el-aside width="12em">
