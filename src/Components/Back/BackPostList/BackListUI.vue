@@ -31,7 +31,7 @@
           min-width="15%"
       >
         <template slot-scope="{ row }">
-          <router-link :to="{ name: 'post', params: { categoryName: row.category, id: row.id } }">
+          <router-link :to="{ name: 'manage-post', params: { id: row.id } }">
             <el-button size="mini">
               查看文章
             </el-button>

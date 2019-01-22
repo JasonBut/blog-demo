@@ -25,6 +25,11 @@ export default new Router({
           component: () => import('@/Components/Back/BackPostList')
         },
         {
+          path: 'post',
+          name: 'manage-post',
+          component: () => import('@/Components/Back/BackPost')
+        },
+        {
           path: 'comments',
           name: 'manage-comments',
           component: () => import('@/Components/Back/BackComments')

@@ -1,4 +1,4 @@
-#back {
+.back {
     color: $back-text-secondary;
     background: $back-body-background-color;
 
@@ -16,172 +16,178 @@
         @include footer-layout($back-text-light, 0.45);
     }
 
-    // 表格样式
-    .el-table{
-        color: $back-text-primary;
-        background: rgba(255, 255, 255, 0.6);
-        font-size: 0.5em;
-        font-weight: bold;
-        @include transparent-border(0.2, 1px, 5px);
 
-        &:before{
-            @include transparent-background(0)
-        }
+    .back-content{
+        background: $back-content-background-color;
+        // 表格样式
+        .el-table{
+            color: $back-text-primary;
+            background: rgba(255, 255, 255, 0.6);
+            font-size: 0.5em;
+            font-weight: bold;
+            @include transparent-border(0.2, 1px, 5px);
 
-        thead tr,
-        th{
-            background: $back-table-body-background;
-            color: $back-text-secondary;
-            text-align: center;
-            @include transparent-border(0.05, 1px, 0);
-            border-top: none;
-            border-left: none;
-
-            .highlight{
-                color: $back-text-secondary;
+            &:before{
+                @include transparent-background(0)
             }
-        }
 
-        .cell{
-            @include transparent-background(0);
-            @include autoBreak;
-            max-height: 7em;
-            text-overflow: ellipsis;
-        }
-
-        .el-table__row {
-            @include transparent-background(0);
-            @include transparent-item-hover($back-table-row-hover-fill);
-            height: 3em;
-            td{
-                @include transparent-border(0.05, 1px, 0);
-
+            thead tr,
+            th{
                 background: $back-table-body-background;
+                color: $back-text-secondary;
+                text-align: center;
+                @include transparent-border(0.05, 1px, 0);
                 border-top: none;
                 border-left: none;
-                text-align: center;
+
+                .highlight{
+                    color: $back-text-secondary;
+                }
+            }
+
+            .cell{
+                @include transparent-background(0);
+                @include autoBreak;
+                max-height: 7em;
+                text-overflow: ellipsis;
+            }
+
+            .el-table__row {
+                @include transparent-background(0);
+                @include transparent-item-hover($back-table-row-hover-fill);
+                height: 3em;
+                td{
+                    @include transparent-border(0.05, 1px, 0);
+
+                    background: $back-table-body-background;
+                    border-top: none;
+                    border-left: none;
+                    text-align: center;
+                }
+            }
+
+            .add-category{
+                margin: 0;
+                width: 100%;
+                border-radius: 0;
             }
         }
 
-        .add-category{
-            margin: 0;
-            width: 100%;
-            border-radius: 0;
-        }
-    }
-
-    // 分页器样式
-    .el-pagination{
-        text-align: right;
-        .number{
-            font-weight: normal;
-            &:hover:not(.active){
-                transform: scale(1.5);
+        // 分页器样式
+        .el-pagination{
+            text-align: right;
+            .number{
+                font-weight: normal;
+                &:hover:not(.active){
+                    transform: scale(1.5);
+                }
             }
-        }
-        .active{
-            font-weight: bold;
-        }
-        *{
-            @include transparent-background(0);
-            color: $back-text-secondary;
-        }
-    }
-
-    // 卡片样式
-    .el-card{
-        background: $back-card-background-color;
-        min-width: 24em;
-        margin: 3% 5%;
-        @include transparent-border(0.2, 1px, 5px);
-    }
-
-    // 面包屑样式
-    .el-breadcrumb__item{
-        .el-breadcrumb__inner,
-        .is-link{
-            color: $back-text-secondary;
-        }
-    }
-
-    // 按钮样式
-    .el-button{
-        margin: 0 2%;
-        color: $back-text-secondary;
-        border: $back-table-body-background 1px solid;
-        border-radius: 5px;
-        @include transparent-background(0.06);
-        &:hover{
-            background: $back-button-hover-fill;
-        }
-        &:active{
-            background: $back-button-active-fill;
-        }
-    }
-
-    // 选项卡样式
-    .el-tabs{
-        width: 100%;
-        margin: 1.5% auto;
-        @include transparent-border(0.15,1px,5px);
-
-        .el-tabs__header{
-            background: $back-table-body-background;
-            border-bottom: $back-table-body-background 1px solid;
-            margin: 0;
-            .el-tabs__item{
+            .active{
+                font-weight: bold;
+            }
+            *{
+                @include transparent-background(0);
                 color: $back-text-secondary;
-                border-right: $back-tab-item-background 1px solid;
-            }
-            .is-active{
-                background: $back-tab-item-active-background;
-                border-bottom: $back-tab-item-active-background 1px solid;
             }
         }
 
-        .el-tabs__content{
-            background: $back-tab-content-background;
-            min-height: 47em;
+        // 卡片样式
+        .el-card{
+            background: $back-card-background-color;
+            min-width: 24em;
+            margin: 3% 5%;
+            @include transparent-border(0.2, 1px, 5px);
         }
 
-        .el-tab-pane{
-            margin: -2%;
-        }
-    }
-
-    // loading样式
-    .el-loading-mask{
-        background: $back-card-background-color;
-        *{
-            color: $back-text-secondary
-        }
-    }
-
-    // 表单样式
-    .el-form{
-        background: $back-tab-content-background;
-        color: $back-text-primary;
-        padding: 0.5em;
-        @include transparent-border(0.1,1px,5px);
-        .el-input{
-            display: inline;
-        }
-        .editor{
-            @extend .el-form;
-            border: none;
-            padding: 0;
-            .ql-editor{
-                min-height: 20em;
+        // 面包屑样式
+        .el-breadcrumb__item{
+            .el-breadcrumb__inner,
+            .is-link{
+                color: $back-text-secondary;
             }
         }
-        .el-form-item__label{
+
+        // 按钮样式
+        .el-button{
+            margin: 0 2%;
             color: $back-text-secondary;
+            border: $back-table-body-background 1px solid;
+            border-radius: 5px;
+            @include transparent-background(0.06);
+            &:hover{
+                background: $back-button-hover-fill;
+            }
+            &:active{
+                background: $back-button-active-fill;
+            }
+        }
+
+        // 选项卡样式
+        .el-tabs{
+            width: 100%;
+            margin: 1.5% auto;
+            @include transparent-border(0.15,1px,5px);
+
+            .el-tabs__header{
+                background: $back-table-body-background;
+                border-bottom: $back-table-body-background 1px solid;
+                margin: 0;
+                .el-tabs__item{
+                    color: $back-text-secondary;
+                    border-right: $back-tab-item-background 1px solid;
+                }
+                .is-active{
+                    background: $back-tab-item-active-background;
+                    border-bottom: $back-tab-item-active-background 1px solid;
+                }
+            }
+
+            .el-tabs__content{
+                background: $back-tab-content-background;
+                min-height: 47em;
+            }
+
+            .el-tab-pane{
+                margin: -2%;
+            }
+        }
+
+        // loading样式
+        .el-loading-mask{
+            background: $back-card-background-color;
+            *{
+                color: $back-text-secondary
+            }
+        }
+
+        // 表单样式
+        .el-form{
+            background: $back-tab-content-background;
+            color: $back-text-primary;
+            padding: 0.5em;
+            @include transparent-border(0.1,1px,5px);
+            .el-input{
+                display: inline;
+            }
+            .editor{
+                @extend .el-form;
+                border: none;
+                padding: 0;
+                .ql-editor{
+                    min-height: 20em;
+                }
+            }
+            .el-form-item__label{
+                color: $back-text-secondary;
+            }
+        }
+
+        .el-input__inner{
+            @extend .el-form;
+            padding-left: 1em;
+            width: 60%;
         }
     }
 
-    .el-input__inner{
-        @extend .el-form;
-        padding-left: 1em;
-        width: 60%;
-    }
+
 }

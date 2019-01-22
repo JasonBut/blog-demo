@@ -1,11 +1,11 @@
 <template>
-<div id="back">
+<div class="back">
   <el-container>
     <el-container>
       <el-aside width="12em">
         <Aside />
       </el-aside>
-      <el-main>
+      <el-main class="back-content">
         <Content />
       </el-main>
     </el-container>
@@ -27,9 +27,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.el-main{
-  background: $back-content-background-color;
-}
-</style>

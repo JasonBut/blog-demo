@@ -1,10 +1,10 @@
 <template>
-<div id="front">
+<div class="front">
   <el-container id="front-app">
     <el-header height="5em">
       <Header/>
     </el-header>
-    <el-container class="content">
+    <el-container class="front-content">
       <el-aside width="12em">
         <Aside />
       </el-aside>
@@ -39,7 +39,7 @@ export default {
   margin: 1%;
   @include transparent-border(0.9,0.5em,20px);
 }
-.content{
+.front-content{
   width: 70%;
   min-width: 40em;
   margin: 2em auto 0 auto;

@@ -1,4 +1,4 @@
-#front{
+.front{
     height: 100%;
     width: 100%;
     margin: 0;
@@ -10,59 +10,62 @@
         color: $front-text-primary;
     }
 
-    .el-card{
-        @include transparent-border(0.9,1px,20px);
-        @include transparent-background(0.25);
-    }
+    .front-content{
+        .el-card{
+            @include transparent-border(0.9,1px,20px);
+            @include transparent-background(0.25);
+        }
 
-    .el-table {
-        @include transparent-background(0.2);
-        @include transparent-border(0,0,20px);
-
-        thead tr,
-        th{
+        .el-table {
             @include transparent-background(0.2);
+            @include transparent-border(0,0,20px);
+
+            thead tr,
+            th{
+                @include transparent-background(0.2);
+            }
+
+            .el-table__row{
+                @include transparent-background(0.2);
+            }
         }
 
-        .el-table__row{
-            @include transparent-background(0.2);
+        .el-collapse-item [role='tab']{
+            @include transparent-item-hover($front-item-hover-fill);
         }
-    }
 
-    .el-collapse-item [role='tab']{
-        @include transparent-item-hover($front-item-hover-fill);
-    }
-
-    .el-pagination{
-        text-align: right;
-    }
-
-    .el-button{
-        position: relative;
-        margin-top: 5%;
-        @include transparent-background(0.35);
-        @include transparent-item-hover($front-item-hover-fill);
-        &:focus{
-            @include transparent-background(0);
+        .el-pagination{
+            text-align: right;
         }
-    }
 
-    .ql-snow .ql-tooltip{
-        @include transparent-background(0.25);
+        .el-button{
+            position: relative;
+            margin-top: 5%;
+            @include transparent-background(0.35);
+            @include transparent-item-hover($front-item-hover-fill);
+            &:focus{
+                @include transparent-background(0);
+            }
+        }
+
+        .ql-snow .ql-tooltip{
+            @include transparent-background(0.25);
+        }
+
+        .el-form{
+            .el-input.name{
+                width: 130px;
+            }
+
+            .editor{
+                @include transparent-background(0.25);
+            }
+        }
     }
 
     footer{
         @include footer-layout($front-text-primary, 0.45);
     }
 
-    .el-form{
-        .el-input.name{
-            width: 130px;
-        }
-
-        .editor{
-            @include transparent-background(0.25);
-        }
-    }
 
 }
