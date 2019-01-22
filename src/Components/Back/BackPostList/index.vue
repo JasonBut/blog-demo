@@ -34,6 +34,15 @@ export default {
       amendValue: Object.create(null)
     };
   },
+
+  watch: {
+    currentTab (to, from) {
+      if (from === 'publish') {
+        this.handleCancel();
+      }
+    }
+  },
+
   methods: {
     handleEdit (post) {
       this.editing = true;
