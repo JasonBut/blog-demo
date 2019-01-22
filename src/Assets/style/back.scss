@@ -16,9 +16,26 @@
         @include footer-layout($back-text-light, 0.45);
     }
 
+    // loading样式
+    .el-loading-mask{
+        background: $back-card-background-color;
+        *{
+            color: $back-text-secondary
+        }
+    }
 
+    // 内容区域公用样式
     .back-content{
         background: $back-content-background-color;
+
+        // 面包屑样式
+        .el-breadcrumb__item{
+            .el-breadcrumb__inner,
+            .is-link{
+                color: $back-text-secondary;
+            }
+        }
+
         // 表格样式
         .el-table{
             color: $back-text-primary;
@@ -27,6 +44,7 @@
             font-weight: bold;
             @include transparent-border(0.2, 1px, 5px);
 
+            // 表格底部边框线
             &:before{
                 @include transparent-background(0)
             }
@@ -40,6 +58,7 @@
                 border-top: none;
                 border-left: none;
 
+                // 表头过滤器激活颜色
                 .highlight{
                     color: $back-text-secondary;
                 }
@@ -64,12 +83,6 @@
                     border-left: none;
                     text-align: center;
                 }
-            }
-
-            .add-category{
-                margin: 0;
-                width: 100%;
-                border-radius: 0;
             }
         }
 
@@ -99,13 +112,6 @@
             @include transparent-border(0.2, 1px, 5px);
         }
 
-        // 面包屑样式
-        .el-breadcrumb__item{
-            .el-breadcrumb__inner,
-            .is-link{
-                color: $back-text-secondary;
-            }
-        }
 
         // 按钮样式
         .el-button{
@@ -152,22 +158,22 @@
             }
         }
 
-        // loading样式
-        .el-loading-mask{
-            background: $back-card-background-color;
-            *{
-                color: $back-text-secondary
-            }
-        }
-
         // 表单样式
         .el-form{
             background: $back-tab-content-background;
             color: $back-text-primary;
             padding: 0.5em;
             @include transparent-border(0.1,1px,5px);
+            .el-form-item__label{
+                color: $back-text-secondary;
+            }
             .el-input{
                 display: inline;
+            }
+            .el-input__inner{
+                @extend .el-form;
+                padding-left: 1em;
+                width: 60%;
             }
             .editor{
                 @extend .el-form;
@@ -177,17 +183,6 @@
                     min-height: 20em;
                 }
             }
-            .el-form-item__label{
-                color: $back-text-secondary;
-            }
-        }
-
-        .el-input__inner{
-            @extend .el-form;
-            padding-left: 1em;
-            width: 60%;
         }
     }
-
-
 }

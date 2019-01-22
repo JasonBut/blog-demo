@@ -82,3 +82,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.add-category{
+  margin: 0 !important;
+  width: 100%;
+  border-radius: 0;
+}
+</style>

@@ -25,7 +25,7 @@ export default new Router({
           component: () => import('@/Components/Back/BackPostList')
         },
         {
-          path: 'post',
+          path: 'posts/:id',
           name: 'manage-post',
           component: () => import('@/Components/Back/BackPost')
         },
