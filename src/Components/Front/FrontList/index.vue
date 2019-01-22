@@ -1,8 +1,7 @@
 <template>
   <DataDisplayHOC target="posts">
-    <template slot-scope="{ list, options, handleCurrentChange }">
+    <template slot-scope="{ options, handleCurrentChange }">
       <ListUI
-          :list="list"
           :options="options"
           :to="linkGenerator"
           @onCurrentChange="handleCurrentChange"

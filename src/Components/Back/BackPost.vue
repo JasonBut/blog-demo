@@ -20,10 +20,9 @@
     </DataDisplayHOC>
 
     <DataDisplayHOC target="comments">
-      <template slot-scope="{ list, options, handleCurrentChange }">
+      <template slot-scope="{ options, handleCurrentChange }">
         <CommentListUI
             :options="options"
-            :list="list"
             @onCurrentChange="handleCurrentChange"
         />
       </template>

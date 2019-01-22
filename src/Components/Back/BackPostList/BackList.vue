@@ -1,8 +1,7 @@
 <template>
   <DataDisplayHOC target="all_posts">
-    <template slot-scope="{ list, options, handleCurrentChange }">
+    <template slot-scope="{ options, handleCurrentChange }">
       <BackPostListUI
-          :list="list"
           :options="options"
           :filters="tableFilterOptions"
           @onCurrentChange="handleCurrentChange"
