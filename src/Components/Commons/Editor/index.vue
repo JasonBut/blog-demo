@@ -10,6 +10,7 @@
       :active.sync="active"
       v-bind.sync="formData"
       @onPublish="handlePublish"
+      @onCancel="$emit('onCancel')"
   />
 </template>
 

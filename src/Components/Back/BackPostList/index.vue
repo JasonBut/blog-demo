@@ -9,6 +9,7 @@
           id="publish"
           :amend="editing"
           :amendValue="amendValue"
+          @onCancel="currentTab = 'post-list'"
       />
     </el-tab-pane>
   </el-tabs>
@@ -23,8 +24,7 @@ export default {
   },
   provide () {
     return {
-      handleEdit: this.handleEdit,
-      handleCancel: this.handleCancel
+      handleEdit: this.handleEdit
     };
   },
   data () {

@@ -73,7 +73,7 @@
             <el-button
                 v-if="amend"
                 icon="el-icon-delete"
-                @click="handleCancel"
+                @click="$emit('onCancel')"
                 plain
             >
               放弃修改
@@ -89,14 +89,6 @@
 <script>
 export default {
   name: 'EditorUI',
-
-  // 后台PostList组件传入的方法
-  inject: {
-    handleCancel: {
-      default: 'handleCancel'
-    }
-  },
-
   props: {
     id: String,
     comment: Boolean,
