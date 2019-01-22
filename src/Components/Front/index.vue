@@ -1,5 +1,5 @@
 <template>
-<div id="front">
+<div class="front">
   <el-container id="front-app">
     <el-header height="5em">
       <Header/>
