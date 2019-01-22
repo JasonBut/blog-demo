@@ -8,33 +8,15 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
-import { Types } from '@/Store';
+import { GetPostMixins } from '@/Components/Commons';
 export default {
   name: 'FrontPost',
+  mixins: [ GetPostMixins ],
 
   components: {
     PostDetails: () => import('./FrontPostDetails'),
     Comments: () => import('./FrontPostComments'),
     Editor: () => import('@/Components/Commons/Editor')
-  },
-  computed: {
-    ...mapState(['post'])
-  },
-
-  // 离开当前详情页时清理state中post内容,避免面包屑导航中文章标题项抖动
-  beforeRouteLeave (to, from, next) {
-    this.updateStore({
-      target: 'post',
-      data: {}
-    });
-    next();
-  },
-
-  methods: {
-    ...mapMutations({
-      updateStore: Types.UPDATE_STORE
-    })
   }
 };
 </script>
