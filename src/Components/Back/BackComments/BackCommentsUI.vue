@@ -33,7 +33,7 @@
           min-width="15%"
       >
         <template slot-scope="{ row }">
-          <el-button size="mini">查看文章</el-button>
+          <el-button size="mini" @click="$emit('handleClick', row)">查看文章</el-button>
           <el-button size="mini">编辑</el-button>
           <el-button size="mini" @click="$emit('onDelete',row)">删除</el-button>
         </template>

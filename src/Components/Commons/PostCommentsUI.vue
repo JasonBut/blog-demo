@@ -5,9 +5,9 @@
           v-for="comment in options.data"
           :key="comment.id"
       >
-        <h5>{{ comment.guestName }}：</h5>
-        <div v-html="comment.content"></div>
-        <p>评论时间：{{ comment.date }}</p>
+        <h4>{{ comment.guestName }}：</h4>
+        <div class="details-content" v-html="comment.content"></div>
+        <p class="sub-message">评论时间：{{ comment.date }}</p>
       </el-card>
     </ListFadeIn>
 
@@ -23,7 +23,7 @@
 
   <el-card class="comment-list" v-else>
     <el-card>
-      <p>暂无评论</p>
+      <p class="not-found">暂无评论</p>
     </el-card>
   </el-card>
 
@@ -42,35 +42,21 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-  .comment-list{
-    margin-top: 1em;
-    @include autoBreak;
-
-    .el-card{
-      margin: 0 0 1em 0;
-      color: $front-comment-color;
-
-      h5{
-        margin: 0;
-      }
-
-      div{
-        margin: 0;
-        padding: 1em;
-        font-size: 0.1em;
-      }
-
-      p{
-        text-align: right;
-        font-size: 0.1em;
-        margin-bottom: 0;
-
-        &:first-child{
-          text-align: center;
-        }
-      }
-    }
-
+<style lang="scss">
+.comment-list{
+  @include autoBreak;
+  margin-top: 1em;
+  padding: 0;
+  h4{
+    margin: 0;
   }
+  .sub-message{
+    font-size: 0.5em;
+    text-align: right;
+  }
+  .details-content{
+    font-size: 0.5em;
+    padding: 1em;
+  }
+}
 </style>

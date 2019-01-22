@@ -1,7 +1,7 @@
 <template>
   <DataDisplayHOC target="comments">
     <template slot-scope="{ list, options, handleCurrentChange }">
-      <CommentListUI
+      <PostCommentsUI
           :options="options"
           :list="list"
           @onCurrentChange="handleCurrentChange"
@@ -15,7 +15,19 @@ export default {
   name: 'FrontCommentList',
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
-    CommentListUI: () => import('./FrontPostCommentsUI')
+    PostCommentsUI: () => import('@/Components/Commons/PostCommentsUI')
   }
 };
 </script>
+
+<style lang="scss">
+.not-found{
+  text-align: center;
+}
+.comment-list{
+  .el-card{
+    margin-top: 0.5em;
+    color: $front-comment-color;
+  }
+}
+</style>

@@ -1,0 +1,79 @@
+<template>
+  <el-card class="back-post">
+    <DataDisplayHOC target="post">
+      <template slot-scope="{ post }">
+          <el-card class="post-details" v-if="post.content">
+            <h1>
+              <router-link :to="{ name: 'post', params: { categoryName: post.category, id: post.id } }">
+                {{ post.title }}
+              </router-link>
+            </h1>
+            <hr>
+            <p class="sub-message">分类：{{ post.category }}</p>
+            <div class="details-content" v-html="post.content"></div>
+            <p class="sub-message">最后更新：{{ post.date }}</p>
+          </el-card>
+        <el-card class="post-details" v-else>
+          <p class="not-found">文章不存在</p>
+        </el-card>
+      </template>
+    </DataDisplayHOC>
+
+    <DataDisplayHOC target="comments">
+      <template slot-scope="{ list, options, handleCurrentChange }">
+        <CommentListUI
+            :options="options"
+            :list="list"
+            @onCurrentChange="handleCurrentChange"
+        />
+      </template>
+    </DataDisplayHOC>
+  </el-card>
+</template>
+
+<script>
+import { GetPostMixins } from '@/Components/Commons';
+export default {
+  name: 'BackPostDetails',
+  mixins: [ GetPostMixins ],
+  components: {
+    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
+    CommentListUI: () => import('@/Components/Commons/PostCommentsUI')
+  }
+};
+</script>
+
+<style lang="scss">
+.not-found{
+  @extend .back-post;
+  text-align: center;
+}
+.details-content{
+  padding: 2em;
+  color: $back-text-primary;
+}
+
+.back-post{
+  color: $back-text-secondary;
+  margin: 2% 0;
+  .sub-message{
+    font-size: 0.5em;
+    &:last-child{
+      text-align: right;
+    }
+  }
+  .post-details{
+    @extend .back-post;
+    h1{
+      font-size: 2em;
+      margin: 0;
+    }
+  }
+  .comment-list{
+    .el-card{
+      color: $back-text-secondary;
+      margin: 0;
+    }
+  }
+}
+</style>

@@ -3,7 +3,7 @@
     <el-card><h1>{{  details.title  }}</h1></el-card>
     <el-card>
       <div v-html="details.content"></div>
-      <p>发表日期：{{ details.date }}</p>
+      <p>最后更新：{{ details.date }}</p>
     </el-card>
   </el-card>
 
