@@ -36,6 +36,10 @@
             @include transparent-border(0.05, 1px, 0);
             border-top: none;
             border-left: none;
+
+            .highlight{
+                color: $back-text-secondary;
+            }
         }
 
         .cell{
@@ -43,10 +47,6 @@
             @include autoBreak;
             max-height: 7em;
             text-overflow: ellipsis;
-        }
-
-        .highlight{
-            color: $back-text-secondary;
         }
 
         .el-table__row {
