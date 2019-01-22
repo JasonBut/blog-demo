@@ -31,7 +31,7 @@ export default {
     return {
       editing: false,
       currentTab: 'post-list',
-      amendValue: undefined
+      amendValue: {}
     };
   },
   methods: {
