@@ -8,7 +8,7 @@
           post
           id="publish"
           :amend="editing"
-          :amendValue="editing && amendValue"
+          :amendValue="amendValue"
       />
     </el-tab-pane>
   </el-tabs>
@@ -31,7 +31,7 @@ export default {
     return {
       editing: false,
       currentTab: 'post-list',
-      amendValue: undefined
+      amendValue: Object.create(null)
     };
   },
   methods: {
@@ -50,6 +50,7 @@ export default {
       if (confirm('确定放弃修改文章？')) {
         this.editing = false;
         this.currentTab = 'post-list';
+        this.amendValue = Object.create(null);
       }
     }
   }

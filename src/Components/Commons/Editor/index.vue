@@ -70,22 +70,22 @@ export default {
   watch: {
     // 当父组件传入amendValue时就执行初始化将数据填入表单
     amendValue () {
-      !!this.amend && this.initAmendFormData();
+      this.updateAmendToForm();
     }
   },
 
   created () {
     // 加载后如没有分类表数据时先发送一次查询请求
-    const { post, amend, categoryWithoutAbout } = this;
-    if (!!(post || amend) && categoryWithoutAbout.length < 1) {
+    const { post, categoryWithoutAbout } = this;
+    if (!!post && categoryWithoutAbout.length < 1) {
       this.getData({ target: 'categories' });
     }
   },
 
   methods: {
-    ...mapActions(['getData', 'sendArticle']),
+    ...mapActions(['getData', 'sendData']),
 
-    initAmendFormData () {
+    updateAmendToForm () {
       let { amendValue } = this;
       if (typeof amendValue === 'object') {
         const { category, title, content } = amendValue;
@@ -100,7 +100,7 @@ export default {
 
     // 发表文章/评论
     handlePublish (ref) {
-      ref.validate((valid) => {
+      ref.validate(async (valid) => {
         let category, postId;
 
         /*
@@ -116,7 +116,13 @@ export default {
 
         if (valid) {
           const { amend: isAmend, formData } = this;
-          this.sendArticle({ ...formData, isAmend, category, postId });
+          await this.sendData({ ...formData, isAmend, category, postId });
+          this.formData = {
+            selectedCategory: '',
+            guestName: '',
+            title: '',
+            content: ''
+          };
         }
       });
     }
