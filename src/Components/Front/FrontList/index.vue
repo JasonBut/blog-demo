@@ -1,11 +1,11 @@
 <template>
   <DataDisplayHOC target="posts">
-    <template slot-scope="scope">
+    <template slot-scope="{ list, options, handleCurrentChange }">
       <ListUI
-          :options="scope.options"
-          :list="scope.list"
-          :to="scope.to"
-          @onCurrentChange="scope.handleCurrentChange"
+          :list="list"
+          :options="options"
+          :to="linkGenerator"
+          @onCurrentChange="handleCurrentChange"
       />
     </template>
   </DataDisplayHOC>
@@ -17,6 +17,17 @@ export default {
   components: {
     ListUI: () => import('./FrontListUI'),
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
+  },
+  computed: {
+    linkGenerator () {
+      return (item) => ({
+        name: 'post',
+        params: {
+          categoryName: item.category,
+          id: item.id
+        }
+      });
+    }
   }
 };
 </script>

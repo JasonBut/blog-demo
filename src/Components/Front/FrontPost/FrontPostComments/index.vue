@@ -1,10 +1,10 @@
 <template>
   <DataDisplayHOC target="comments">
-    <template slot-scope="scope">
+    <template slot-scope="{ list, options, handleCurrentChange }">
       <CommentListUI
-          :options="scope.options"
-          :list="scope.list"
-          @onCurrentChange="scope.handleCurrentChange"
+          :options="options"
+          :list="list"
+          @onCurrentChange="handleCurrentChange"
       />
     </template>
   </DataDisplayHOC>

@@ -6,7 +6,6 @@
         :list="list"
         :post="post"
         :options="paginationOptions"
-        :to="linkGenerator"
         :handleCurrentChange="handleCurrentChange"
     />
   </div>
@@ -34,16 +33,6 @@ export default {
         'posts': route.params.categoryName, // eg. programs
         'comments': route.params.id, // eg. /programs/01 的 01
         'post': route.params.id // 同上
-      });
-    },
-
-    linkGenerator () {
-      return (item) => ({
-        name: 'post',
-        params: {
-          categoryName: item.category,
-          id: item.id
-        }
       });
     },
 

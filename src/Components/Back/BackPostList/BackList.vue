@@ -1,11 +1,11 @@
 <template>
   <DataDisplayHOC target="all_posts">
-    <template slot-scope="scope">
+    <template slot-scope="{ list, options, handleCurrentChange }">
       <BackPostListUI
-          :list="scope.list"
-          :options="scope.options"
+          :list="list"
+          :options="options"
           :filters="tableFilterOptions"
-          @onCurrentChange="scope.handleCurrentChange"
+          @onCurrentChange="handleCurrentChange"
           @onDelete="handleDelete"
       />
     </template>

@@ -1,7 +1,7 @@
 <template>
   <DataDisplayHOC target="post">
-    <template slot-scope="scope">
-      <PostDetailsUI :details="scope.post" />
+    <template slot-scope="{ post }">
+      <PostDetailsUI :details="post" />
     </template>
   </DataDisplayHOC>
 </template>
