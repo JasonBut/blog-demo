@@ -1,10 +1,7 @@
 <template>
   <el-card>
     <el-table :data="list">
-      <el-table-column
-          label="名称"
-          min-width="25%"
-      >
+      <el-table-column label="名称" min-width="25%">
         <template slot-scope="{ row }">
           <el-input
               v-if="editable(row)"
@@ -15,10 +12,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column
-          label="边栏标签"
-          min-width="25%"
-      >
+      <el-table-column label="边栏标签" min-width="25%">
         <template slot-scope="{ row }">
           <el-input
               v-if="editable(row)"
@@ -29,14 +23,16 @@
         </template>
       </el-table-column>
 
-      <el-table-column
-          label="操作"
-          min-width="50%"
-      >
+      <el-table-column label="操作" min-width="50%">
         <template slot-scope="{ row }">
-          <el-button size="mini" v-if="editable(row)" @click="$emit('onCancel')">
+          <el-button
+              size="mini"
+              v-if="editable(row)"
+              @click="$emit('onCancel')"
+          >
             取消
           </el-button>
+
           <el-button
               size="mini"
               @click="$emit(( editable(row) ? 'onSave' : 'onEdit' ), row)"
@@ -44,22 +40,22 @@
           >
             {{ editable(row) ? '保存' : '编辑' }}
           </el-button>
-          <router-link
-              :to="{
-                name: 'manage-posts',
-                params: {
-                  categoryName: row.name.toLowerCase()
-                  }
-                }
-            ">
+
+          <router-link :to="{ name: 'manage-posts', params: { categoryName: row.name.toLowerCase() } }">
             <el-button size="mini">
               查看文章
             </el-button>
           </router-link>
 
-          <el-button size="mini" @click="$emit('onDelete', row)">删除</el-button>
+          <el-button
+              size="mini"
+              @click="$emit('onDelete', row)"
+          >
+            删除
+          </el-button>
         </template>
       </el-table-column>
+
       <template slot="append">
         <el-button
             class="add-category"
@@ -67,7 +63,8 @@
             icon="el-icon-plus"
             @click="$emit('onAdd')"
             :disabled="!!(cname && label)"
-        >新增
+        >
+          新增
         </el-button>
       </template>
     </el-table>
@@ -81,7 +78,6 @@ export default {
     list: Array,
     cname: String,
     label: String,
-    newItem: Function,
     editable: Function
   }
 };

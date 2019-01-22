@@ -31,9 +31,10 @@ export default {
   },
   computed: {
     ...mapGetters(['categoryWithoutAbout']),
+
+    // 判断当前项id值是否正在编辑或新增的条目
     editable () {
-      // 判断当前项id值是否正在编辑或新增的条目
-      return (row) => (this.editing === row.id) || row.id === null;
+      return (row) => (this.editing === row.id) || (row.id === null);
     }
   },
   created () {
@@ -46,7 +47,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getData', 'sendArticle']),
+    ...mapActions(['getData', 'sendData']),
 
     cleanData () {
       this.categoryInfo = {
@@ -80,7 +81,7 @@ export default {
         ...this.categoryInfo,
         name: this.categoryInfo.label.toLowerCase()
       };
-      this.sendArticle(payload);
+      this.sendData(payload);
       this.cleanData();
     },
 

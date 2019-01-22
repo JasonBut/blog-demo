@@ -26,6 +26,11 @@ export default {
     ...mapGetters(['categoryFilters']),
 
     tableFilterOptions () {
+      /*
+      * 当从分类页跳转到详情页时
+      * 路由中会带有categoryName参数
+      * 根据此参数作为默认过滤项去过滤列表
+      */
       const { categoryName } = this.$route.params;
       return {
         defaultValue: categoryName ? [ categoryName ] : [],
