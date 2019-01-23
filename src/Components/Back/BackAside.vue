@@ -40,12 +40,6 @@ export default {
 #back-aside{
   background: $back-aside-background;
   height: calc(100vh);
-  border-right: $back-aside-background;
-
-  a{
-    text-decoration: none;
-  }
-
   .el-menu-item{
     text-align: center;
     font-weight: bold;

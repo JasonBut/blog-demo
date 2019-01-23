@@ -2,20 +2,20 @@
   <el-menu
       :default-active="defaultActive"
       :id="id"
+      router
       mode="vertical"
       class="custom-aside-bar"
   >
-    <router-link
+    <el-menu-item
         v-for="category of data"
         :key="category.name"
-        :to="to(category)"
+        :index="category.name"
+        :route="to(category)"
     >
-      <el-menu-item :index="category.name">
-        <slot :category="category">
-          {{ category.cname }}
-        </slot>
-      </el-menu-item>
-    </router-link>
+      <slot :category="category">
+        {{ category.cname }}
+      </slot>
+    </el-menu-item>
   </el-menu>
 </template>
 

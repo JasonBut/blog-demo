@@ -41,10 +41,20 @@ export default {
   },
 
   watch: {
+    // 从编辑器活动页切换回列表页会询问是否清楚数据
     currentTab (to, from) {
       !!(to === 'publish') && (this.publishing = true);
       !!(from === 'publish' && this.publishing) && (this.handleCancel());
     }
+  },
+
+  beforeRouteLeave (to, from, next) {
+    // 从编辑器跳转到其他页面时触发
+    if (this.currentTab === 'publish' && this.publishing) {
+      const confirmLeave = this.handleCancel();
+      return confirmLeave ? next() : next(...from);
+    }
+    next();
   },
 
   methods: {
@@ -59,7 +69,6 @@ export default {
       if (this.editing || this.publishing) {
         return alert('正在编辑文章中，请先取消或保存再进行操作！');
       }
-
       this.editing = true;
       this.publishing = true;
       this.currentTab = 'publish';
@@ -71,8 +80,11 @@ export default {
         content
       };
     },
+
     handleCancel () {
-      confirm('离开并放弃编辑文章？') ? this.cleanData() : this.currentTab = 'publish';
+      const confirmMsg = confirm('离开并放弃编辑文章？');
+      confirmMsg ? (this.cleanData()) : (this.currentTab = 'publish');
+      return confirmMsg;
     },
 
     handleSubmit () {
