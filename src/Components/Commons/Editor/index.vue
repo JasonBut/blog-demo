@@ -4,13 +4,13 @@
       :comment="comment"
       :amend="amend"
       :post="post"
-      :formData="formData"
+      :form-data="formData"
       :rules="rules"
-      :categoryWithoutAbout="categoryWithoutAbout"
+      :category="categoryWithoutAbout"
       :active.sync="active"
       v-bind.sync="formData"
-      @onPublish="handlePublish"
-      @onCancel="$emit('onCancel')"
+      @on-publish="handlePublish"
+      @on-cancel="$emit('on-cancel')"
   />
 </template>
 
@@ -133,7 +133,7 @@ export default {
               };
               this.comment
                 ? (this.active = false)
-                : (this.$once(this.$emit('onSubmit')));
+                : (this.$once(this.$emit('on-submit')));
             });
           } catch (e) {
             return false;

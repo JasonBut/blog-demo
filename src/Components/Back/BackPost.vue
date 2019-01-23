@@ -24,7 +24,7 @@
         <PostCommentsUI
             :list="list"
             :options="options"
-            @onCurrentChange="handleCurrentChange"
+            @on-current-change="handleCurrentChange"
         />
       </template>
     </DataDisplayHOC>

@@ -3,11 +3,11 @@
       :list="categoryWithoutAbout"
       :editable="editable"
       v-bind.sync="categoryInfo"
-      @onDelete="handleDelete"
-      @onEdit="handleEdit"
-      @onSave="handleSave"
-      @onCancel="handleCancel"
-      @onAdd="handleAdd"
+      @on-delete="handleDelete"
+      @on-edit="handleEdit"
+      @on-save="handleSave"
+      @on-cancel="handleCancel"
+      @on-add="handleAdd"
   />
 </template>
 

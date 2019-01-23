@@ -30,7 +30,7 @@
           <el-button
               size="mini"
               v-if="editable(row)"
-              @click="$emit('onCancel')"
+              @click="$emit('on-cancel')"
           >
             取消
           </el-button>
@@ -39,7 +39,7 @@
           <!--编辑中的条目如缺少信息,不能保存-->
           <el-button
               size="mini"
-              @click="$emit(( editable(row) ? 'onSave' : 'onEdit' ), row)"
+              @click="$emit(( editable(row) ? 'on-save' : 'on-edit' ), row)"
               :disabled="(editable(row) && !(cname && label))"
           >
             {{ editable(row) ? '保存' : '编辑' }}
@@ -53,7 +53,7 @@
 
           <el-button
               size="mini"
-              @click="$emit('onDelete', row)"
+              @click="$emit('on-delete', row)"
           >
             删除
           </el-button>
@@ -66,7 +66,7 @@
             class="add-category"
             size="mini"
             icon="el-icon-plus"
-            @click="$emit('onAdd')"
+            @click="$emit('on-add')"
         >
           新增
         </el-button>

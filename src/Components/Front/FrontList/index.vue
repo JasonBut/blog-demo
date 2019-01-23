@@ -8,7 +8,7 @@
         <Pagination
             slot="pagination"
             :options="options"
-            @onCurrentChange="handleCurrentChange"
+            @on-current-change="handleCurrentChange"
         />
       </FrontListUI>
     </template>

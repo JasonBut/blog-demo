@@ -8,9 +8,9 @@
           post
           id="publish"
           :amend="editing"
-          :amendValue="amendValue"
-          @onCancel="currentTab = 'post-list'"
-          @onSubmit="handleSubmit"
+          :amend-value="amendValue"
+          @on-cancel="currentTab = 'post-list'"
+          @on-submit="handleSubmit"
       />
     </el-tab-pane>
   </el-tabs>

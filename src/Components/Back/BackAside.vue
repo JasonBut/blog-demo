@@ -2,7 +2,7 @@
   <AsideBarUI
       id="back-aside"
       :data="categoryList"
-      :defaultActive="currentTab"
+      :default-active="currentTab"
       :to="({ name }) => ({ name })"
   />
 </template>

@@ -22,10 +22,10 @@
                 placeholder="请选择分组"
             >
               <el-option
-                  v-for="option of categoryWithoutAbout"
-                  :key="option.label"
-                  :label="option.cname"
-                  :value="option.name"
+                  v-for="item of category"
+                  :key="item.label"
+                  :label="item.cname"
+                  :value="item.name"
               />
             </el-select>
           </el-form-item>
@@ -65,7 +65,7 @@
             <el-button
                 icon="el-icon-edit"
                 native-type="submit"
-                @click.prevent="$emit('onPublish',$refs.publishForm)"
+                @click.prevent="$emit('on-publish',$refs.publishForm)"
                 plain
             >
               {{ amend ? '修改' : '发布' }}
@@ -73,7 +73,7 @@
             <el-button
                 v-if="amend || post"
                 icon="el-icon-delete"
-                @click="$emit('onCancel')"
+                @click="$emit('on-cancel')"
                 plain
             >
               放弃
@@ -94,21 +94,18 @@ export default {
     selectedCategory: String,
     title: String,
     guestName: String,
+    content: String,
     comment: Boolean,
     amend: Boolean,
     post: Boolean,
     active: Boolean,
-    categoryWithoutAbout: Array,
+    category: Array,
     formData: {
       type: Object,
       required: true
     },
     rules: {
       type: Object,
-      required: true
-    },
-    content: {
-      type: String,
       required: true
     }
   }

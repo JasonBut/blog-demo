@@ -38,7 +38,7 @@
           </router-link>
 
           <el-button size="mini" @click="handleEdit(row)">编辑</el-button>
-          <el-button size="mini" @click="$emit('onDelete', row)">删除</el-button>
+          <el-button size="mini" @click="$emit('on-delete', row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

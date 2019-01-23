@@ -4,7 +4,7 @@
       :total="options.total"
       :current-page="options.currentPage"
       layout="prev,pager,next"
-      @current-change="$emit('onCurrentChange',$event)"
+      @current-change="$emit('on-current-change',$event)"
       small
   />
 </template>

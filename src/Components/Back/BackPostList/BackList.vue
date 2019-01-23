@@ -4,12 +4,12 @@
       <BackPostListUI
           :list="list"
           :filters="tableFilterOptions"
-          @onDelete="handleDelete"
+          @on-delete="handleDelete"
       >
         <Pagination
             slot="pagination"
             :options="options"
-            @onCurrentChange="handleCurrentChange"
+            @on-current-change="handleCurrentChange"
         />
       </BackPostListUI>
     </template>

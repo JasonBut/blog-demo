@@ -14,7 +14,7 @@
 
     <Pagination
         :options="options"
-        @onCurrentChange="$emit('onCurrentChange',$event)"
+        @on-current-change="$emit('on-current-change',$event)"
     />
 
   </el-card>

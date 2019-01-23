@@ -2,7 +2,7 @@
   <AsideBarUI
       id="front-aside"
       :data="splitCategoryLabel"
-      :defaultActive="currentCategory"
+      :default-active="currentCategory"
       :to="menuLinkOption"
   >
     <template slot-scope="{ category }">

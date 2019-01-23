@@ -3,12 +3,12 @@
     <template slot-scope="{ list, options, handleCurrentChange }">
       <BackCommentsUI
           :list="list"
-          @onDelete="handleDelete"
+          @on-delete="handleDelete"
       >
         <Pagination
             slot="pagination"
             :options="options"
-            @onCurrentChange="handleCurrentChange"
+            @on-current-change="handleCurrentChange"
         />
       </BackCommentsUI>
     </template>
