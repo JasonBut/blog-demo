@@ -52,7 +52,7 @@ export default {
     // 从编辑器跳转到其他页面时触发
     if (this.currentTab === 'publish' && this.publishing) {
       const confirmLeave = this.handleCancel();
-      return confirmLeave ? next() : next(...from);
+      return confirmLeave ? next() : next({ ...from });
     }
     next();
   },
