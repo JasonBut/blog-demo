@@ -65,6 +65,7 @@ export default {
         return this.$message.error('请先完成现有的条目编辑，再进行操作！');
       }
       this.editing = 'new';
+      // 往列表添加一个新项
       this.categoryWithoutAbout.push({
         id: null,
         name: '',
@@ -74,13 +75,8 @@ export default {
     },
 
     handleEdit (item) {
-      // 如果有新增项目
-      if (this.editing === 'new') {
-        const { cname, label } = this.categoryInfo;
-        if (cname || label) {
-          return this.$message.error('请先保存或取消新增条目，再进行操作！');
-        }
-        this.cleanData();
+      if (this.editing) {
+        return this.$message.error('请先完成现有的条目编辑，再进行操作！');
       }
 
       // 当前条目id设为editing
