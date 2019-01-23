@@ -37,6 +37,18 @@ html,body {
         @include transparent-border(0,0,20px);
     }
 
+    .el-message-box{
+        *{
+            color: $back-text-secondary;
+        }
+    }
+
+    .el-notification{
+        *{
+            color: $back-text-secondary;
+        }
+    }
+
     .icon {
         width: 1em;
         height: 1em;

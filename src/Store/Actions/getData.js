@@ -24,7 +24,7 @@ export default async ({ commit }, payload) => {
   if (!payload) {
     throw new Error(`Payload - ${payload} is invalid `);
   }
-  const { target } = payload;
+  const { target, callback } = payload;
   const targetToState = mapTarget(target);
   if (!targetToState) {
     throw new Error(`Cannot found ${targetToState} in store`);
@@ -60,10 +60,6 @@ export default async ({ commit }, payload) => {
     commit({ type: Types.REQUESTED_SUCCEEDED });
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });
-    if (confirm('获取数据失败,是否重新刷新页面?')) {
-      window.history.go(0);
-    } else {
-      alert('请检查网络连接或稍后再尝试');
-    }
+    callback && callback();
   }
 };

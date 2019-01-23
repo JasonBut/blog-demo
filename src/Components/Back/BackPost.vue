@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import { cleanPostMixins } from '@/Components/Commons';
+import { CleanPostMixins } from '@/Components/Commons';
 export default {
   name: 'BackPostDetails',
-  mixins: [ cleanPostMixins ],
+  mixins: [ CleanPostMixins ],
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
     CommentListUI: () => import('@/Components/Commons/PostCommentsUI')

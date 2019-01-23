@@ -11,8 +11,9 @@
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
+import { requestFailed } from './';
 import { Types } from '@/Store';
-import PaginationOptions from './PaginationOptions';
+import PaginationOptions from './paginationOptions';
 export default {
   name: 'GetData',
   mixins: [
@@ -63,7 +64,7 @@ export default {
       }
 
       // 其余情况发送请求获取数据
-      await getData({ target: lowerCaseTarget, rule });
+      await getData({ callback: requestFailed, target: lowerCaseTarget, rule });
     }
   }
 };

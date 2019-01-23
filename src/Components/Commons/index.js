@@ -6,6 +6,9 @@ export AsideBarUI from './AsideBarUI';
 export Footer from './Footer';
 
 // Mixins
-export PaginationOptions from './PaginationOptions';
-export DeleteDataMixin from './DeleteDataMixin';
-export cleanPostMixins from './cleanPostMixins';
+export PaginationOptions from './paginationOptions';
+export DeleteDataMixin from './deleteDataMixin';
+export CleanPostMixins from './cleanPostMixins';
+
+// 其他
+export requestFailed from './requestFailed';

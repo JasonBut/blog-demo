@@ -48,11 +48,17 @@ export default {
     }
   },
 
-  beforeRouteLeave (to, from, next) {
+  async beforeRouteLeave (to, from, next) {
     // 从编辑器跳转到其他页面时触发
     if (this.currentTab === 'publish' && this.publishing) {
-      const confirmLeave = this.handleCancel();
-      return confirmLeave ? next() : next({ ...from });
+      const confirmLeave = await this.handleCancel();
+      if (!confirmLeave) {
+        this.$nextTick(() => {
+          next({ ...from });
+        });
+      } else {
+        next();
+      }
     }
     next();
   },
@@ -60,17 +66,15 @@ export default {
   methods: {
     cleanData () {
       this.currentTab = 'post-list';
-      this.editing = false;
-      this.publishing = false;
+      this.editing = this.publishing = false;
       this.amendValue = Object.create(null);
     },
 
     handleEdit (post) {
       if (this.editing || this.publishing) {
-        return alert('正在编辑文章中，请先取消或保存再进行操作！');
+        return this.$message.error('正在编辑文章中，请先取消或保存再进行操作！');
       }
-      this.editing = true;
-      this.publishing = true;
+      this.editing = this.publishing = true;
       this.currentTab = 'publish';
       const { category, title, content, id } = post;
       this.amendValue = {
@@ -81,9 +85,24 @@ export default {
       };
     },
 
-    handleCancel () {
-      const confirmMsg = confirm('离开并放弃编辑文章？');
-      confirmMsg ? (this.cleanData()) : (this.currentTab = 'publish');
+    async handleCancel () {
+      let confirmMsg;
+      try {
+        confirmMsg = await this.$confirm('确定离开并放弃正在编辑的文章？', {
+          type: 'warning',
+          center: true,
+          title: '警告',
+          confirmButtonText: '依然离开',
+          cancelButtonText: '返回'
+        });
+        this.$nextTick(() => {
+          this.cleanData();
+        });
+      } catch (e) {
+        this.$nextTick(() => {
+          this.currentTab = 'publish';
+        });
+      }
       return confirmMsg;
     },
 

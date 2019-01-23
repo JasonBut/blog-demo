@@ -5,9 +5,6 @@ export default async ({ commit, dispatch }, payload) => {
   if (!payload) {
     throw new Error(`No valid data in payload - ${payload}`);
   }
-  if (!confirm('确定是否删除？')) {
-    return false;
-  }
   /*
   * cname判断展示的分类
   * title判断博文
@@ -15,7 +12,7 @@ export default async ({ commit, dispatch }, payload) => {
   * 并且需要确保传入的payload对象格式正确
   * 必须包含上面提到的其中一项
   */
-  const { id, cname, title, guestName } = payload;
+  const { id, cname, title, guestName, callback } = payload;
 
   const target =
     (!!cname && 'category') ||
@@ -32,7 +29,6 @@ export default async ({ commit, dispatch }, payload) => {
   }
   try {
     commit({ type: Types.REQUESTED_START });
-
     // 调用封装好的axios方法去获取数据
     await asyncFetch.delete({
       target,
@@ -42,7 +38,6 @@ export default async ({ commit, dispatch }, payload) => {
     await dispatch('getData', { target: reloadTarget });
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });
-    alert(`发送请求失败，请稍后尝试！`);
-    window.history.go(0);
+    callback && callback();
   }
 };

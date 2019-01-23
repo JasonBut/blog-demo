@@ -16,6 +16,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import { requestFailed } from '@/Components/Commons';
 export default {
   name: 'Editor',
   props: {
@@ -111,22 +112,32 @@ export default {
         }
 
         if (valid) {
-          const { amend: isAmend, formData } = this;
+          const { amend: isAmend, formData, $confirm } = this;
 
-          if (!confirm('确定发表内容？')) {
-            return;
+          try {
+            await $confirm('确定发表内容？', {
+              title: '确认',
+              confirmButtonText: '发布',
+              cancelButtonText: '返回',
+              center: true
+            });
+
+            await this.sendData({ ...formData, isAmend, category, postId, callback: requestFailed });
+
+            await this.$nextTick(() => {
+              this.formData = {
+                selectedCategory: '',
+                guestName: '',
+                title: '',
+                content: ''
+              };
+              this.comment
+                ? (this.active = false)
+                : (this.$once(this.$emit('onSubmit')));
+            });
+          } catch (e) {
+            return false;
           }
-
-          await this.sendData({ ...formData, isAmend, category, postId });
-          this.formData = {
-            selectedCategory: '',
-            guestName: '',
-            title: '',
-            content: ''
-          };
-          this.comment
-            ? (this.active = false)
-            : (this.$once(this.$emit('onSubmit')));
         }
       });
     }

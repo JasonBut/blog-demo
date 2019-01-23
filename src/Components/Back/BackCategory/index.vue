@@ -54,9 +54,17 @@ export default {
         cname: '',
         label: ''
       };
+      // 提取最后一项,如果没有id则证明是新增的项目,从列表中删除掉
+      const lastIndex = this.categoryWithoutAbout.length - 1;
+      const lastItem = this.categoryWithoutAbout[lastIndex];
+      (!lastItem.id) && this.categoryWithoutAbout.pop();
     },
 
     handleAdd () {
+      if (this.editing === 'new') {
+        return this.$message.error('请先完成现有的新增条目，再进行操作！');
+      }
+      this.editing = 'new';
       this.categoryWithoutAbout.push({
         id: null,
         name: '',
@@ -66,6 +74,15 @@ export default {
     },
 
     handleEdit (item) {
+      // 如果有新增项目
+      if (this.editing === 'new') {
+        const { cname, label } = this.categoryInfo;
+        if (cname || label) {
+          return this.$message.error('请先保存或取消新增条目，再进行操作！');
+        }
+        this.cleanData();
+      }
+
       // 当前条目id设为editing
       this.editing = item.id;
       const { cname, label } = item;
@@ -88,11 +105,6 @@ export default {
     handleCancel () {
       this.editing = '';
       this.cleanData();
-
-      // 提取最后一项,如果没有id则证明是新增的项目,从列表中删除掉
-      const lastIndex = this.categoryWithoutAbout.length - 1;
-      const lastItem = this.categoryWithoutAbout[lastIndex];
-      (!lastItem.id) && this.categoryWithoutAbout.pop();
     }
   }
 };
