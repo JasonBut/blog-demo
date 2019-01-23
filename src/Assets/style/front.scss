@@ -53,13 +53,17 @@
         }
 
         .el-form{
-            .el-input.name{
-                width: 130px;
+            .el-input{
+                display: inline;
             }
-
             .editor{
                 @include transparent-background(0.25);
             }
+        }
+        .el-input__inner{
+            @include transparent-background(0.25);
+            padding-left: 1em;
+            width: 15em;
         }
     }
 
