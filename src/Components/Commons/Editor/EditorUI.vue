@@ -91,17 +91,26 @@ export default {
   name: 'EditorUI',
   props: {
     id: String,
+    selectedCategory: String,
+    title: String,
+    guestName: String,
     comment: Boolean,
     amend: Boolean,
     post: Boolean,
     active: Boolean,
-    formData: Object,
-    rules: Object,
-    selectedCategory: String,
-    title: String,
-    guestName: String,
-    content: String,
-    categoryWithoutAbout: Array
+    categoryWithoutAbout: Array,
+    formData: {
+      type: Object,
+      required: true
+    },
+    rules: {
+      type: Object,
+      required: true
+    },
+    content: {
+      type: String,
+      required: true
+    }
   }
 };
 </script>

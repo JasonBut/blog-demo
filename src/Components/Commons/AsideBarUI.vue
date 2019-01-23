@@ -24,9 +24,18 @@ export default {
   name: 'AsideBarUI',
   props: {
     id: String,
-    data: Array,
-    defaultActive: String,
-    to: Function
+    data: {
+      type: Array,
+      required: true
+    },
+    defaultActive: {
+      type: String,
+      required: true
+    },
+    to: {
+      type: Function,
+      required: true
+    }
   }
 };
 </script>

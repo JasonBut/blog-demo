@@ -18,7 +18,10 @@
 export default {
   name: 'PostDetailsUI',
   props: {
-    details: Object
+    details: {
+      type: Object,
+      required: true
+    }
   }
 };
 </script>

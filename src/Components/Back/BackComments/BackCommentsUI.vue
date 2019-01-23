@@ -54,8 +54,10 @@
 export default {
   name: 'BackCommentsUI',
   props: {
-    options: Object,
-    list: Array
+    options: {
+      type: Object,
+      required: true
+    }
   },
 
   methods: {

@@ -20,7 +20,10 @@ export default {
     PaginationOptions()
   ],
   props: {
-    target: String
+    target: {
+      type: String,
+      required: true
+    }
   },
 
   computed: {

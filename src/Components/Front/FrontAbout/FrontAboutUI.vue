@@ -82,7 +82,10 @@
 export default {
   name: 'aboutUI',
   props: {
-    infos: Object
+    infos: {
+      type: Object,
+      required: true
+    }
   }
 };
 </script>

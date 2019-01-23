@@ -58,8 +58,14 @@ export default {
   name: 'BackPostListUI',
   inject: ['handleEdit'], // BackPostList/index传入
   props: {
-    options: Object,
-    filters: Object
+    options: {
+      type: Object,
+      required: true
+    },
+    filters: {
+      type: Object,
+      required: true
+    }
   }
 };
 </script>

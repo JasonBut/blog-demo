@@ -67,7 +67,6 @@
             size="mini"
             icon="el-icon-plus"
             @click="$emit('onAdd')"
-            :disabled="!!(cname && label)"
         >
           新增
         </el-button>
@@ -80,7 +79,10 @@
 export default {
   name: 'BackCategoryUI',
   props: {
-    list: Array,
+    list: {
+      type: Array,
+      required: true
+    },
     cname: String,
     label: String,
     editable: Function

@@ -41,8 +41,14 @@
 export default {
   name: 'ListUI',
   props: {
-    options: Object,
-    to: Function
+    options: {
+      type: Object,
+      required: true
+    },
+    to: {
+      type: Function,
+      required: true
+    }
   },
 
   data () {

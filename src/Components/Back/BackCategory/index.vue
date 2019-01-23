@@ -61,8 +61,8 @@ export default {
     },
 
     handleAdd () {
-      if (this.editing === 'new') {
-        return this.$message.error('请先完成现有的新增条目，再进行操作！');
+      if (this.editing) {
+        return this.$message.error('请先完成现有的条目编辑，再进行操作！');
       }
       this.editing = 'new';
       this.categoryWithoutAbout.push({

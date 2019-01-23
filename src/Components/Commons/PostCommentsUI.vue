@@ -33,7 +33,10 @@
 export default {
   name: 'CommentListUI',
   props: {
-    options: Object
+    options: {
+      type: Object,
+      required: true
+    }
   },
   components: {
     ListFadeIn: () => import('@/Components/Commons/ListFadeIn')
