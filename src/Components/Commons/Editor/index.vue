@@ -112,6 +112,11 @@ export default {
 
         if (valid) {
           const { amend: isAmend, formData } = this;
+
+          if (!confirm('确定发表内容？')) {
+            return;
+          }
+
           await this.sendData({ ...formData, isAmend, category, postId });
           this.formData = {
             selectedCategory: '',
@@ -119,6 +124,9 @@ export default {
             title: '',
             content: ''
           };
+          this.comment
+            ? (this.active = false)
+            : (this.$once(this.$emit('onSubmit')));
         }
       });
     }

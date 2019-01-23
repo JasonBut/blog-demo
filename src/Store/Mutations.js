@@ -1,11 +1,8 @@
-import Types from './Types'
+import Types from './Types';
 
 export default {
-  [Types.REQUESTED_START] (state, { target }) {
+  [Types.REQUESTED_START] (state) {
     state.loading = true;
-    if (target) {
-      state[target] = target === 'post' ? {} : [];
-    }
   },
 
   [Types.REQUESTED_FAILED] (state, { err }) {

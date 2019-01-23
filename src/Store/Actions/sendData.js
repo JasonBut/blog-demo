@@ -68,17 +68,15 @@ export default async ({ commit, dispatch }, payload) => {
 
     commit({ type: Types.REQUESTED_SUCCEEDED });
 
-    if (cname) {
-      await dispatch('getData', {
-        target: 'categories',
-        rule: postId
-      });
-    } else {
-      window.history.go(0);
-    }
+    (!!cname && (await dispatch('getData', { target: 'categories' }))) ||
+    (!!title && (await dispatch('getData', { target: 'all_posts' }))) ||
+    (!!guestName && (await dispatch('getData', { target: 'comments', rule: postId })));
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });
-    alert(`发送请求失败`);
-    window.history.go(0);
+    if (confirm('获取数据失败,是否重新刷新页面?')) {
+      window.history.go(0);
+    } else {
+      alert('请检查网络连接或稍后再尝试');
+    }
   }
 };

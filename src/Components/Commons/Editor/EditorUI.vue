@@ -76,7 +76,7 @@
                 @click="$emit('onCancel')"
                 plain
             >
-              放弃修改
+              放弃
             </el-button>
           </el-form-item>
 

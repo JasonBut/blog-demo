@@ -12,8 +12,11 @@ const mapTarget = function (target) {
     case 'all_posts':
       return 'list';
 
-    default:
+    case 'post':
       return 'post';
+
+    default:
+      return undefined;
   }
 };
 
@@ -27,6 +30,7 @@ export default async ({ commit }, payload) => {
     throw new Error(`Cannot found ${targetToState} in store`);
   }
   try {
+    commit({ type: Types.REQUESTED_START });
     /*
     * 由于评论列表和帖子列表共享state树中的list状态
     * 从帖子列表页进入到详情页时,由于list依然存有帖子列表的数据
@@ -35,7 +39,11 @@ export default async ({ commit }, payload) => {
     * 至于分类categories,由于加载后就不会变动
     * 因此即使这里加入清理也不会影响
     */
-    commit({ type: Types.REQUESTED_START, target: targetToState });
+    commit({
+      type: Types.UPDATE_STORE,
+      target: targetToState,
+      data: targetToState === 'post' ? {} : []
+    });
 
     let data = await asyncFetch.get(payload); // 调用封装好的axios方法去获取数据
 
@@ -44,7 +52,7 @@ export default async ({ commit }, payload) => {
     }
 
     // 博文列表和后台评论列表倒序排列
-    if (!!(target.indexOf('posts') > -1 || target.indexOf('all_') > -1) && data.length > 0) {
+    if (!!(target.endsWith('posts') || target.startsWith('all_')) && data.length > 0) {
       data = data.reverse();
     }
 
@@ -52,6 +60,10 @@ export default async ({ commit }, payload) => {
     commit({ type: Types.REQUESTED_SUCCEEDED });
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });
-    await alert(`获取数据失败`);
+    if (confirm('获取数据失败,是否重新刷新页面?')) {
+      window.history.go(0);
+    } else {
+      alert('请检查网络连接或稍后再尝试');
+    }
   }
 };
