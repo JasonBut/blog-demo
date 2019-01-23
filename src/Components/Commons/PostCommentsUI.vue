@@ -1,8 +1,9 @@
 <template>
-  <el-card class="comment-list" v-if="options.data.length > 0">
+  <el-card class="comment-list" v-if="list.length > 0">
+
     <ListFadeIn :duration="1000">
       <el-card
-          v-for="comment in options.data"
+          v-for="comment in list"
           :key="comment.id"
       >
         <h4>{{ comment.guestName }}：</h4>
@@ -11,14 +12,11 @@
       </el-card>
     </ListFadeIn>
 
-    <el-pagination
-        :page-size="options.pageSize"
-        :total="options.total"
-        :current-page="options.currentPage"
-        layout="prev,pager,next"
-        @current-change="$emit('onCurrentChange',$event)"
-        small
+    <Pagination
+        :options="options"
+        @onCurrentChange="$emit('onCurrentChange',$event)"
     />
+
   </el-card>
 
   <el-card class="comment-list" v-else>
@@ -33,13 +31,18 @@
 export default {
   name: 'CommentListUI',
   props: {
+    list: {
+      type: Array,
+      required: true
+    },
     options: {
       type: Object,
       required: true
     }
   },
   components: {
-    ListFadeIn: () => import('@/Components/Commons/ListFadeIn')
+    ListFadeIn: () => import('@/Components/Commons/ListFadeIn'),
+    Pagination: () => import('@/Components/Commons/Pagination')
   }
 };
 </script>

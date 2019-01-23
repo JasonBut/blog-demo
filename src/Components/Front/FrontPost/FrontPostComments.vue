@@ -1,7 +1,8 @@
 <template>
   <DataDisplayHOC target="comments">
-    <template slot-scope="{ options, handleCurrentChange }">
+    <template slot-scope="{ list, options, handleCurrentChange }">
       <PostCommentsUI
+          :list="list"
           :options="options"
           @onCurrentChange="handleCurrentChange"
       />

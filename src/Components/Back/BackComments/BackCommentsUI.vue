@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <el-table
-        :data="options.data"
+        :data="list"
     >
       <el-table-column
           label="访客"
@@ -33,20 +33,15 @@
           min-width="15%"
       >
         <template slot-scope="{ row }">
-          <el-button size="mini" @click="$emit('handleClick', row)">查看文章</el-button>
+          <router-link :to="{ name: 'manage-post', params: { id: row.post } }">
+            <el-button size="mini">查看文章</el-button>
+          </router-link>
           <el-button size="mini">编辑</el-button>
           <el-button size="mini" @click="$emit('onDelete',row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-        :page-size="options.pageSize"
-        :total="options.total"
-        :current-page="options.currentPage"
-        layout="prev,pager,next"
-        @current-change="$emit('onCurrentChange',$event)"
-        small
-    />
+    <slot name="pagination"></slot>
   </el-card>
 </template>
 
@@ -54,8 +49,8 @@
 export default {
   name: 'BackCommentsUI',
   props: {
-    options: {
-      type: Object,
+    list: {
+      type: Array,
       required: true
     }
   },

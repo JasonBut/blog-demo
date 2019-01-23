@@ -1,11 +1,16 @@
 <template>
   <DataDisplayHOC target="all_comments">
-    <template slot-scope="{ options, handleCurrentChange }">
+    <template slot-scope="{ list, options, handleCurrentChange }">
       <BackCommentsUI
-          :options="options"
-          @onCurrentChange="handleCurrentChange"
+          :list="list"
           @onDelete="handleDelete"
-      />
+      >
+        <Pagination
+            slot="pagination"
+            :options="options"
+            @onCurrentChange="handleCurrentChange"
+        />
+      </BackCommentsUI>
     </template>
   </DataDisplayHOC>
 </template>
@@ -17,7 +22,8 @@ export default {
   mixins: [ DeleteDataMixin ],
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
-    BackCommentsUI: () => import('./BackCommentsUI')
+    BackCommentsUI: () => import('./BackCommentsUI'),
+    Pagination: () => import('@/Components/Commons/Pagination')
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <el-table
-        :data="options.data"
+        :data="list"
         border
     >
       <el-table-column
@@ -26,14 +26,7 @@
       >
       </el-table-column>
     </el-table>
-    <el-pagination
-        :page-size="options.pageSize"
-        :total="options.total"
-        :current-page="options.currentPage"
-        layout="prev,pager,next"
-        @current-change="$emit('onCurrentChange',$event)"
-        small
-    />
+    <slot name="pagination"></slot>
   </el-card>
 </template>
 
@@ -41,8 +34,8 @@
 export default {
   name: 'ListUI',
   props: {
-    options: {
-      type: Object,
+    list: {
+      type: Array,
       required: true
     },
     to: {

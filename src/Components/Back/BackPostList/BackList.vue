@@ -1,12 +1,17 @@
 <template>
   <DataDisplayHOC target="all_posts">
-    <template slot-scope="{ options, handleCurrentChange }">
+    <template slot-scope="{ list, options, handleCurrentChange }">
       <BackPostListUI
-          :options="options"
+          :list="list"
           :filters="tableFilterOptions"
-          @onCurrentChange="handleCurrentChange"
           @onDelete="handleDelete"
-      />
+      >
+        <Pagination
+            slot="pagination"
+            :options="options"
+            @onCurrentChange="handleCurrentChange"
+        />
+      </BackPostListUI>
     </template>
   </DataDisplayHOC>
 </template>
@@ -19,7 +24,8 @@ export default {
   mixins: [ DeleteDataMixin ],
   components: {
     BackPostListUI: () => import('./BackListUI'),
-    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
+    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
+    Pagination: () => import('@/Components/Commons/Pagination')
   },
   computed: {
     ...mapGetters(['categoryFilters']),

@@ -20,8 +20,9 @@
     </DataDisplayHOC>
 
     <DataDisplayHOC target="comments">
-      <template slot-scope="{ options, handleCurrentChange }">
-        <CommentListUI
+      <template slot-scope="{ list, options, handleCurrentChange }">
+        <PostCommentsUI
+            :list="list"
             :options="options"
             @onCurrentChange="handleCurrentChange"
         />
@@ -37,7 +38,7 @@ export default {
   mixins: [ CleanPostMixins ],
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
-    CommentListUI: () => import('@/Components/Commons/PostCommentsUI')
+    PostCommentsUI: () => import('@/Components/Commons/PostCommentsUI')
   }
 };
 </script>

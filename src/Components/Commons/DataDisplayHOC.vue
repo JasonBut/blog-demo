@@ -1,9 +1,9 @@
 <template>
   <div>
     <slot
-        :list="list"
         :post="post"
-        :options="paginationOptions"
+        :list="paginationData.list"
+        :options="paginationData.options"
         :handleCurrentChange="handleCurrentChange"
     />
   </div>
@@ -13,11 +13,11 @@
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
 import { requestFailed } from './';
 import { Types } from '@/Store';
-import PaginationOptions from './paginationOptions';
+import PaginationMixin from './PaginationMixin';
 export default {
   name: 'GetData',
   mixins: [
-    PaginationOptions()
+    PaginationMixin()
   ],
   props: {
     target: {

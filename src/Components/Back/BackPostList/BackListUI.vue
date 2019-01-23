@@ -1,6 +1,6 @@
 <template>
   <el-card>
-    <el-table :data="options.data" >
+    <el-table :data="list" >
       <el-table-column
           label="分类"
           prop="category"
@@ -42,14 +42,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-        :total="options.total"
-        :page-size="options.pageSize"
-        :current-page="options.currentPage"
-        layout="prev,pager,next"
-        @current-change="$emit('onCurrentChange',$event)"
-        small
-    />
+    <slot name="pagination"></slot>
   </el-card>
 </template>
 
@@ -58,8 +51,8 @@ export default {
   name: 'BackPostListUI',
   inject: ['handleEdit'], // BackPostList/index传入
   props: {
-    options: {
-      type: Object,
+    list: {
+      type: Array,
       required: true
     },
     filters: {

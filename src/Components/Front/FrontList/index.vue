@@ -1,11 +1,16 @@
 <template>
   <DataDisplayHOC target="posts">
-    <template slot-scope="{ options, handleCurrentChange }">
-      <ListUI
-          :options="options"
+    <template slot-scope="{ list, options, handleCurrentChange }">
+      <FrontListUI
+          :list="list"
           :to="linkGenerator"
-          @onCurrentChange="handleCurrentChange"
-      />
+      >
+        <Pagination
+            slot="pagination"
+            :options="options"
+            @onCurrentChange="handleCurrentChange"
+        />
+      </FrontListUI>
     </template>
   </DataDisplayHOC>
 </template>
@@ -14,8 +19,9 @@
 export default {
   name: 'FrontList',
   components: {
-    ListUI: () => import('./FrontListUI'),
-    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC')
+    FrontListUI: () => import('./FrontListUI'),
+    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
+    Pagination: () => import('@/Components/Commons/Pagination')
   },
   computed: {
     linkGenerator () {
