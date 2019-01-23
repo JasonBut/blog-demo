@@ -5,6 +5,7 @@
       <el-card
           v-for="comment in list"
           :key="comment.id"
+          :ref="comment.guestName + comment.post + comment.id"
       >
         <h4>{{ comment.guestName }}：</h4>
         <div class="details-content" v-html="comment.content"></div>
@@ -43,7 +44,11 @@ export default {
   components: {
     ListFadeIn: () => import('@/Components/Commons/ListFadeIn'),
     Pagination: () => import('@/Components/Commons/Pagination')
+  },
+  updated () {
+    this.$on(this.$emit('on-view-scroll', this.$refs));
   }
+
 };
 </script>
 

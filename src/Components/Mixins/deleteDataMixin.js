@@ -1,5 +1,5 @@
 import { mapActions } from 'vuex';
-import { requestFailed } from './';
+import { RequestFailed } from '@/Components/Mixins';
 export default {
   methods: {
     ...mapActions(['deleteData']),
@@ -13,7 +13,7 @@ export default {
           confirmButtonText: '删除',
           cancelButtonText: '返回'
         });
-        await this.deleteData({ ...payload, callback: requestFailed });
+        await this.deleteData({ ...payload, callback: RequestFailed });
       } catch (e) {
         return false;
       }

@@ -13,7 +13,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { DeleteDataMixin } from '@/Components/Commons';
+import { DeleteDataMixin } from '@/Components/Mixins';
 export default {
   name: 'BackCategory',
   mixins: [ DeleteDataMixin ],

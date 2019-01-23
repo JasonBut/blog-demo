@@ -16,7 +16,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { requestFailed } from '@/Components/Commons';
+import { RequestFailed } from '@/Components/Mixins';
 export default {
   name: 'Editor',
   props: {
@@ -122,7 +122,7 @@ export default {
               center: true
             });
 
-            await this.sendData({ ...formData, isAmend, category, postId, callback: requestFailed });
+            await this.sendData({ ...formData, isAmend, category, postId, callback: RequestFailed });
 
             await this.$nextTick(() => {
               this.formData = {

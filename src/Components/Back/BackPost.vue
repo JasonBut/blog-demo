@@ -25,6 +25,7 @@
             :list="list"
             :options="options"
             @on-current-change="handleCurrentChange"
+            @on-view-scroll="handleScrollToItem"
         />
       </template>
     </DataDisplayHOC>
@@ -32,10 +33,10 @@
 </template>
 
 <script>
-import { CleanPostMixins } from '@/Components/Commons';
+import { CleanPostMixins, ScrollToItem } from '@/Components/Mixins';
 export default {
   name: 'BackPostDetails',
-  mixins: [ CleanPostMixins ],
+  mixins: [ CleanPostMixins, ScrollToItem ],
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
     PostCommentsUI: () => import('@/Components/Commons/PostCommentsUI')

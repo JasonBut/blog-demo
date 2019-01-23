@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { DeleteDataMixin } from '@/Components/Commons';
+import { DeleteDataMixin } from '@/Components/Mixins';
 export default {
   name: 'BackComments',
   mixins: [ DeleteDataMixin ],

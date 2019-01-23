@@ -1,5 +1,5 @@
 export default function (
-  { pageSize, currentPage } = { pageSize: 5, currentPage: 1 }
+  { pageSize, currentPage = 1 } = { pageSize: 8, currentPage: 1 }
 ) {
   if (typeof pageSize !== 'number' || typeof currentPage !== 'number') {
     throw new Error(`Invalid arguments, expected Number `);

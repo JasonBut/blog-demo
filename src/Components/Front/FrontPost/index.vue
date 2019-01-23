@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { CleanPostMixins } from '@/Components/Commons';
+import { CleanPostMixins } from '@/Components/Mixins';
 export default {
   name: 'FrontPost',
   mixins: [ CleanPostMixins ],
