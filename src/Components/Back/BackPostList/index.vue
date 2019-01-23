@@ -19,16 +19,18 @@
 <script>
 export default {
   name: 'BackList',
+
   components: {
     BackPostList: () => import('./BackList'),
     Editor: () => import('@/Components/Commons/Editor')
   },
+
   provide () {
     return {
-      handleEdit: this.handleEdit,
-      editing: this.editing
+      handleEdit: this.handleEdit
     };
   },
+
   data () {
     return {
       editing: false,
@@ -40,21 +42,24 @@ export default {
 
   watch: {
     currentTab (to, from) {
-      if (from === 'publish' && this.publishing) {
-        this.handleCancel();
-      }
-      if (to === 'publish') {
-        this.publishing = true;
-      }
+      !!(to === 'publish') && (this.publishing = true);
+      !!(from === 'publish' && this.publishing) && (this.handleCancel());
     }
   },
 
   methods: {
+    cleanData () {
+      this.currentTab = 'post-list';
+      this.editing = false;
+      this.publishing = false;
+      this.amendValue = Object.create(null);
+    },
+
     handleEdit (post) {
       if (this.editing || this.publishing) {
-        alert('正在编辑文章中，请先取消或保存再进行操作！');
-        return;
+        return alert('正在编辑文章中，请先取消或保存再进行操作！');
       }
+
       this.editing = true;
       this.publishing = true;
       this.currentTab = 'publish';
@@ -67,19 +72,11 @@ export default {
       };
     },
     handleCancel () {
-      if (confirm('离开并放弃编辑文章？')) {
-        this.editing = false;
-        this.publishing = false;
-        this.currentTab = 'post-list';
-        this.amendValue = Object.create(null);
-      } else {
-        this.currentTab = 'publish';
-      }
+      confirm('离开并放弃编辑文章？') ? this.cleanData() : this.currentTab = 'publish';
     },
+
     handleSubmit () {
-      this.currentTab = 'post-list';
-      this.editing = false;
-      this.publishing = false;
+      this.cleanData();
     }
   }
 };
