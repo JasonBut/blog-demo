@@ -37,6 +37,11 @@ export default async ({ commit, dispatch }, payload) => {
     (!!title && 'post') ||
     (!!guestName && 'comment');
 
+  const reloadTarget =
+    (!!cname && 'categories') ||
+    (!!title && 'all_posts') ||
+    (!!(guestName && isAmend) && 'all_comments') ||
+    (!!guestName && 'comments');
   try {
     commit({ type: Types.REQUESTED_START });
     let newId;
@@ -71,9 +76,8 @@ export default async ({ commit, dispatch }, payload) => {
 
     commit({ type: Types.REQUESTED_SUCCEEDED });
 
-    (!!cname && (await dispatch('getData', { target: 'categories' }))) ||
-    (!!title && (await dispatch('getData', { target: 'all_posts' }))) ||
-    (!!guestName && (await dispatch('getData', { target: 'comments', rule: postId })));
+    // 发布后请求接口刷新页面
+    await dispatch('getData', { target: reloadTarget });
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });
     callback && callback();
