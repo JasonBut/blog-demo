@@ -1,5 +1,5 @@
 import { mapState, mapMutations } from 'vuex';
-import { Types } from '@/Store/Back';
+import { Types } from '@/Store';
 
 const postHooks = {
   watch: {

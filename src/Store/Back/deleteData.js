@@ -28,16 +28,16 @@ export default async ({ commit, dispatch }, payload) => {
     throw new Error(`Invalid target '${target}' or id '${id}'`);
   }
   try {
-    commit({ type: Types.REQUESTED_START });
+    commit({ type: Types.REQUESTED_START }, { root: true });
     // 调用封装好的axios方法去获取数据
     await asyncFetch.delete({
       target,
       rule: id
     });
-    commit({ type: Types.REQUESTED_SUCCEEDED });
-    await dispatch('getData', { target: reloadTarget });
+    commit({ type: Types.REQUESTED_SUCCEEDED }, { root: true });
+    await dispatch('getData', { target: reloadTarget }, { root: true });
   } catch (err) {
-    commit({ type: Types.REQUESTED_FAILED, err });
+    commit({ type: Types.REQUESTED_FAILED, err }, { root: true });
     callback && callback();
   }
 };

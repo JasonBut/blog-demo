@@ -10,9 +10,7 @@ export default {
     AboutUI: () => import('./FrontAboutUI')
   },
   computed: {
-    ...mapState({
-      myInfo: 'myInfo'
-    })
+    ...mapState('Front', ['myInfo'])
   }
 };
 </script>

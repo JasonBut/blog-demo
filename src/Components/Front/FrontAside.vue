@@ -3,7 +3,7 @@
       id="front-aside"
       :data="splitCategoryLabel"
       :default-active="currentCategory"
-      :to="menuLinkOption"
+      :to="routeObject"
   >
     <template slot-scope="{ category }">
       <span>{{ category.first }}</span>
@@ -20,7 +20,7 @@ export default {
     AsideBarUI: () => import('@/Components/Commons/AsideBarUI')
   },
   computed: {
-    ...mapGetters(['splitCategoryLabel', 'linkGenerator']),
+    ...mapGetters('Front', ['splitCategoryLabel']),
 
     // 判断当前打开的分类区,并点亮边栏对应的item
     currentCategory () {
@@ -29,7 +29,7 @@ export default {
     },
 
     // 边栏的路由跳转规则
-    menuLinkOption () {
+    routeObject () {
       return ({ name }) => ({
         name: name === 'about' ? 'home' : 'postList',
         params: { categoryName: name }

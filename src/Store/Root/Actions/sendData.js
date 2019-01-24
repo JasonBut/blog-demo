@@ -1,4 +1,4 @@
-import Types from '../Types';
+import Types from '../../Types';
 import { asyncFetch, createNewId } from '@/Util';
 
 // e.g payload = {
@@ -78,7 +78,7 @@ export default async ({ commit, dispatch }, payload) => {
     commit({ type: Types.REQUESTED_SUCCEEDED });
 
     // 发布后请求接口刷新页面
-    await dispatch('getData', { target: reloadTarget });
+    await dispatch('getData', { target: reloadTarget, rule: postId });
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });
     callback && callback();

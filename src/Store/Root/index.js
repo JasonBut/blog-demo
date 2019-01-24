@@ -1,14 +1,11 @@
 import state from './States';
 import getters from './Getters';
 import mutations from './Mutations';
-import deleteData from './deleteData';
+import actions from './Actions';
 
 export default {
-  namespaced: true,
   state,
   getters,
   mutations,
-  actions: {
-    deleteData
-  }
+  actions
 };

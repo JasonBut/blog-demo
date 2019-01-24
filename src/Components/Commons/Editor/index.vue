@@ -45,7 +45,7 @@ export default {
 
   computed: {
     ...mapState(['formValidateRules']),
-    ...mapGetters(['categoryWithoutAbout'])
+    ...mapGetters('Back', ['categoryWithoutAbout'])
   },
 
   watch: {
@@ -58,7 +58,8 @@ export default {
   created () {
     // 加载后如没有分类表数据时先发送一次查询请求
     const { comment, post, categoryWithoutAbout } = this;
-    if (!comment && !!post && categoryWithoutAbout.length < 1) {
+    const len = categoryWithoutAbout && categoryWithoutAbout.length;
+    if (!comment && !!post && len < 1) {
       this.getData({ target: 'categories' });
     }
   },

@@ -30,7 +30,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['categoryWithoutAbout']),
+    ...mapGetters('Back', ['categoryWithoutAbout']),
 
     // 判断当前项id值是否正在编辑或新增的条目
     editable () {

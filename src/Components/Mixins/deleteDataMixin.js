@@ -2,7 +2,7 @@ import { mapActions } from 'vuex';
 import { RequestFailed } from '@/Components/Mixins';
 export default {
   methods: {
-    ...mapActions(['deleteData']),
+    ...mapActions('Back', ['deleteData']),
 
     async handleDelete (payload) {
       try {
