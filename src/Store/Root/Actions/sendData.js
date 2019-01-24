@@ -69,7 +69,7 @@ export default async ({ commit, dispatch }, payload) => {
 
     await asyncFetch[fetchMode]({
       target: fetchTarget,
-      rule: (isAmend || categoryId) ? currentId : null, // 修改数据需要用原id去定位位置
+      id: (isAmend || categoryId) ? currentId : null, // 修改数据需要用原id去定位位置
       data: Object.assign({ id: newId || currentId }, (
         content ? articleCommonProps : categoryProps // 根据content是否有值去混入不同的对象
       ))
@@ -78,7 +78,7 @@ export default async ({ commit, dispatch }, payload) => {
     commit({ type: Types.REQUESTED_SUCCEEDED });
 
     // 发布后请求接口刷新页面
-    await dispatch('getData', { target: reloadTarget, rule: postId });
+    await dispatch('getData', { target: reloadTarget, id: postId });
   } catch (err) {
     commit({ type: Types.REQUESTED_FAILED, err });
     callback && callback();

@@ -47,8 +47,16 @@ export default async ({ commit }, payload) => {
 
     let data = await asyncFetch.get(payload); // 调用封装好的axios方法去获取数据
 
-    if (!Array.isArray(data) && typeof data !== 'object') {
-      throw new Error(`Wrong data returned, got ${typeof data}, expected 'Object' or 'Array'`);
+    if (!Array.isArray(data)) {
+      throw new Error(`Wrong data returned, got ${typeof data}, expected 'Array'`);
+    }
+
+    // 博文目标提取返回数组的首项
+    if (target.endsWith('post')) {
+      ([ data ] = data);
+      if (!data || !data.content) {
+        throw new Error(`No such post`);
+      }
     }
 
     // 博文列表和后台评论列表倒序排列

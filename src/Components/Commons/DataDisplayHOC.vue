@@ -27,15 +27,7 @@ export default {
 
   computed: {
     ...mapState(['list', 'post']),
-    ...mapGetters(['postFilterFromList']),
-
-    fetchRuleStrategies () {
-      return (route) => ({
-        'posts': route.params.categoryName, // eg. programs
-        'comments': route.params.id, // eg. /programs/01 的 01
-        'post': route.params.id // 同上
-      });
-    }
+    ...mapGetters(['postFilterFromList'])
   },
 
   created () {
@@ -48,9 +40,11 @@ export default {
 
     async requestGetData () {
       const lowerCaseTarget = this.target.toLowerCase();
-      const { $route, list, fetchRuleStrategies, getData } = this;
-      // 根据不同的请求目标返回asyncFetch方法的rule
-      const rule = fetchRuleStrategies($route)[lowerCaseTarget];
+      const { $route, $router, list, getData } = this;
+
+      // 根据路由中的数据返回用于asyncFetch方法的参数
+      const filter = $route.params.categoryName;
+      const id = $route.params.id;
 
       // 判断store中list状态是否有数据,并根据标题判断是否博文数组
       const hasPostListInStore = !!(list.length > 0 && list[0].title);
@@ -60,13 +54,15 @@ export default {
       * 可以从list状态中直接提取,不需要向服务器发送请求
       */
       if (lowerCaseTarget === 'post' && hasPostListInStore) {
-        const [ data ] = this.postFilterFromList(rule);
+        const [ data ] = this.postFilterFromList(id);
         this.updateStore({ target: 'post', data });
+        await getData({ target: 'comments', id });
         return;
       }
 
-      // 其余情况发送请求获取数据
-      await getData({ callback: RequestFailed, target: lowerCaseTarget, rule });
+      // 其余情况正常发送请求获取数据
+      await getData({ callback: RequestFailed($router), target: lowerCaseTarget, id, filter });
+      lowerCaseTarget === 'post' && await getData({ target: 'comments', id });
     }
   }
 };

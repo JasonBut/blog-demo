@@ -32,7 +32,7 @@ export default async ({ commit, dispatch }, payload) => {
     // 调用封装好的axios方法去获取数据
     await asyncFetch.delete({
       target,
-      rule: id
+      id
     });
     commit({ type: Types.REQUESTED_SUCCEEDED }, { root: true });
     await dispatch('getData', { target: reloadTarget }, { root: true });
