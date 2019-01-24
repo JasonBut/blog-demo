@@ -53,7 +53,7 @@ export default {
       * 如果从列表页跳转到详情页,因为state树list状态已存有博文的信息
       * 可以从list状态中直接提取,不需要向服务器发送请求
       */
-      if (lowerCaseTarget === 'post' && hasPostListInStore) {
+      if (lowerCaseTarget.endsWith('post') && hasPostListInStore) {
         const [ data ] = this.postFilterFromList(id);
         this.updateStore({ target: 'post', data });
         await getData({ target: 'comments', id });
@@ -62,7 +62,7 @@ export default {
 
       // 其余情况正常发送请求获取数据
       await getData({ callback: RequestFailed($router), target: lowerCaseTarget, id, filter });
-      lowerCaseTarget === 'post' && await getData({ target: 'comments', id });
+      lowerCaseTarget.endsWith('post') && await getData({ target: 'comments', id });
     }
   }
 };

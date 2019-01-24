@@ -1,6 +1,6 @@
 <template>
   <el-card class="back-post">
-    <DataDisplayHOC target="post">
+    <DataDisplayHOC target="back_post">
       <template slot-scope="{ post, list, options, handleCurrentChange }">
           <el-card class="post-details" v-if="post.content">
             <h1>

@@ -21,6 +21,7 @@ const filters = ({ id, filter }, mode) => {
       [`posts`, `posts?category=${filter}`],
       [`comments`, `comments?post=${id}`],
       [`post`, `posts?id=${id}&&category=${filter}`],
+      [`back_post`, `posts/${id}`],
       [`latest_post`, `posts?_sort=id&&_order=desc&&_end=1`],
       [`latest_comment`, `comments?_sort=id&&_order=desc&&_end=1`],
       [`latest_category`, `categories?_sort=id&&_order=desc&&_end=1`]

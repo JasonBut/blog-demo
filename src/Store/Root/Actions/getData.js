@@ -13,6 +13,7 @@ const mapTarget = function (target) {
       return 'list';
 
     case 'post':
+    case 'back_post':
       return 'post';
 
     default:
@@ -47,12 +48,12 @@ export default async ({ commit }, payload) => {
 
     let data = await asyncFetch.get(payload); // 调用封装好的axios方法去获取数据
 
-    if (!Array.isArray(data)) {
-      throw new Error(`Wrong data returned, got ${typeof data}, expected 'Array'`);
+    if (!Array.isArray(data) && typeof data !== 'object') {
+      throw new Error(`Wrong data returned, got ${typeof data}, expected 'Array' or 'Object'.`);
     }
 
-    // 博文目标提取返回数组的首项
-    if (target.endsWith('post')) {
+    // 前台博文目标提取返回数组的首项
+    if (target.startsWith('post')) {
       ([ data ] = data);
       if (!data || !data.content) {
         throw new Error(`No such post`);
