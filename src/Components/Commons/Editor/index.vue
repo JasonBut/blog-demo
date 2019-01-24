@@ -109,7 +109,14 @@ export default {
               center: true
             });
 
-            await this.sendData({ ...formData, isAmend, category, postId, commentId, callback: RequestFailed });
+            await this.sendData({
+              ...formData,
+              isAmend,
+              category,
+              postId,
+              commentId,
+              callback: RequestFailed(this.$router)
+            });
 
             await this.$nextTick(() => {
               this.formData = {

@@ -25,13 +25,13 @@ export default {
     // 判断当前打开的分类区,并点亮边栏对应的item
     currentCategory () {
       const { name, params: { categoryName } } = this.$route;
-      return name === 'home' ? 'about' : categoryName;
+      return name === 'home' || name === 'not-found' ? 'about' : categoryName;
     },
 
     // 边栏的路由跳转规则
     routeObject () {
       return ({ name }) => ({
-        name: name === 'about' ? 'home' : 'postList',
+        name: name === 'about' ? 'home' : 'post-list',
         params: { categoryName: name }
       });
     }

@@ -1,7 +1,7 @@
 <template>
   <el-card class="back-post">
     <DataDisplayHOC target="post">
-      <template slot-scope="{ post }">
+      <template slot-scope="{ post, list, options, handleCurrentChange }">
           <el-card class="post-details" v-if="post.content">
             <h1>
               <router-link :to="{ name: 'post', params: { categoryName: post.category, id: post.id } }">
@@ -16,11 +16,6 @@
         <el-card class="post-details" v-else>
           <p class="not-found">文章不存在</p>
         </el-card>
-      </template>
-    </DataDisplayHOC>
-
-    <DataDisplayHOC target="comments">
-      <template slot-scope="{ list, options, handleCurrentChange }">
         <PostCommentsUI
             :list="list"
             :options="options"
