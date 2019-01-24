@@ -5,6 +5,8 @@ import Getters from './Getters';
 import Mutations from './Mutations';
 import Actions from './Actions';
 
+import Back from './Back';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -26,7 +28,7 @@ export default new Vuex.Store({
   },
 
   modules: {
-
+    Back
   }
 });
 

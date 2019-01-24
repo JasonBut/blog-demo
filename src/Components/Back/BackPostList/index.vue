@@ -3,11 +3,11 @@
     <el-tab-pane label="文章列表" name="post-list">
       <BackPostList/>
     </el-tab-pane>
-    <el-tab-pane :label="`${ editing ? '编辑' : '发表' }文章`" name="publish">
+    <el-tab-pane :label="`${ editingArticle ? '编辑' : '发表' }文章`" name="publish">
       <Editor
           post
           id="publish"
-          :amend="editing"
+          :amend="editingArticle"
           :amend-value="amendValue"
           @on-cancel="currentTab = 'post-list'"
           @on-submit="handleSubmit"
@@ -17,8 +17,10 @@
 </template>
 
 <script>
+import { ArticleEdit } from '@/Components/Mixins';
 export default {
   name: 'BackList',
+  mixins: [ ArticleEdit('post') ],
 
   components: {
     BackPostList: () => import('./BackList'),
@@ -33,82 +35,8 @@ export default {
 
   data () {
     return {
-      editing: false,
-      publishing: false,
-      currentTab: 'post-list',
-      amendValue: Object.create(null)
+      currentTab: 'post-list'
     };
-  },
-
-  watch: {
-    // 从编辑器活动页切换回列表页会询问是否清楚数据
-    currentTab (to, from) {
-      !!(to === 'publish') && (this.publishing = true);
-      !!(from === 'publish' && this.publishing) && (this.handleCancel());
-    }
-  },
-
-  async beforeRouteLeave (to, from, next) {
-    // 从编辑器跳转到其他页面时触发
-    if (this.currentTab === 'publish' && this.publishing) {
-      const confirmLeave = await this.handleCancel();
-      if (!confirmLeave) {
-        this.$nextTick(() => {
-          next({ ...from });
-        });
-      } else {
-        next();
-      }
-    }
-    next();
-  },
-
-  methods: {
-    cleanData () {
-      this.currentTab = 'post-list';
-      this.editing = this.publishing = false;
-      this.amendValue = Object.create(null);
-    },
-
-    handleEdit (post) {
-      if (this.editing || this.publishing) {
-        return this.$message.error('正在编辑文章中，请先取消或保存再进行操作！');
-      }
-      this.editing = this.publishing = true;
-      this.currentTab = 'publish';
-      const { category, title, content, id } = post;
-      this.amendValue = {
-        postId: id,
-        category,
-        title,
-        content
-      };
-    },
-
-    async handleCancel () {
-      let confirmMsg;
-      try {
-        confirmMsg = await this.$confirm('确定离开并放弃正在编辑的文章？', {
-          type: 'warning',
-          center: true,
-          title: '警告',
-          confirmButtonText: '依然离开',
-          cancelButtonText: '返回'
-        });
-        this.$nextTick(() => {
-          this.cleanData();
-        });
-      } catch (e) {
-        this.$nextTick(() => {
-          this.currentTab = 'publish';
-        });
-      }
-      return confirmMsg;
-    },
-
-    handleSubmit () {
-      this.cleanData();
-    }
   }
 };
 </script>

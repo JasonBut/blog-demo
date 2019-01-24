@@ -28,7 +28,7 @@ export default {
     Pagination: () => import('@/Components/Commons/Pagination')
   },
   computed: {
-    ...mapGetters(['categoryFilters']),
+    ...mapGetters(['categoryWithoutAbout']),
 
     tableFilterOptions () {
       /*
@@ -39,7 +39,10 @@ export default {
       const { categoryName } = this.$route.params;
       return {
         defaultValue: categoryName ? [ categoryName ] : [],
-        filterOptions: this.categoryFilters,
+        filterOptions: this.categoryWithoutAbout.map(({ name }) => ({
+          text: name.toLowerCase(),
+          value: name.toLowerCase()
+        })),
         method (value, { category }) {
           return category === value;
         }

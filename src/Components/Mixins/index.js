@@ -1,8 +1,9 @@
-// Mixins
+// 公用
 export PaginationMixin from './paginationMixin';
-export DeleteDataMixin from './deleteDataMixin';
 export CleanPostMixins from './cleanPostMixins';
-export ScrollToItem from './scrollToItem';
-
-// 其他
 export RequestFailed from './requestFailed';
+
+// 后台
+export ArticleEdit from './articleEdit';
+export ScrollToItem from './scrollToItem';
+export DeleteDataMixin from './deleteDataMixin';

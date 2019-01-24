@@ -3,7 +3,7 @@
     <template slot-scope="{ list, options, handleCurrentChange }">
       <FrontListUI
           :list="list"
-          :to="linkGenerator"
+          :to="routeObject"
       >
         <Pagination
             slot="pagination"
@@ -24,13 +24,10 @@ export default {
     Pagination: () => import('@/Components/Commons/Pagination')
   },
   computed: {
-    linkGenerator () {
-      return ({ category, id }) => ({
+    routeObject () {
+      return ({ category: categoryName, id }) => ({
         name: 'post',
-        params: {
-          categoryName: category,
-          id
-        }
+        params: { categoryName, id }
       });
     }
   }

@@ -1,30 +1,22 @@
 <template>
   <AsideBarUI
       id="back-aside"
-      :data="categoryList"
+      :data="asideMenu"
       :default-active="currentTab"
       :to="({ name }) => ({ name })"
   />
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   name: 'BackAside',
   components: {
     AsideBarUI: () => import('@/Components/Commons/AsideBarUI')
   },
-  data () {
-    return {
-      categoryList: [
-        { name: 'home', cname: '博客首页' },
-        { name: 'manage-categories', cname: '管理分类' },
-        { name: 'manage-posts', cname: '我的文章' },
-        { name: 'manage-comments', cname: '访客回复' }
-      ]
-    };
-  },
-
   computed: {
+    ...mapState('Back', ['asideMenu']),
+
     // 点亮当前正在打开的边栏项label
     currentTab () {
       const { name } = this.$route;

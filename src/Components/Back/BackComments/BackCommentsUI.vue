@@ -35,7 +35,7 @@
         <template slot-scope="{ row }">
           <router-link :to="{
             name: 'manage-post',
-            params: { id: row.post, anchor: row.guestName + row.post + row.id }
+            params: { id: row.post, anchor: row.post + row.id }
           }">
             <el-button size="mini">查看文章</el-button>
           </router-link>

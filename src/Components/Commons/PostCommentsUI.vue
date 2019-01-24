@@ -5,7 +5,7 @@
       <el-card
           v-for="comment in list"
           :key="comment.id"
-          :ref="comment.guestName + comment.post + comment.id"
+          :ref="comment.post + comment.id"
       >
         <h4>{{ comment.guestName }}：</h4>
         <div class="details-content" v-html="comment.content"></div>

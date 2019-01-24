@@ -17,17 +17,19 @@
     </DataDisplayHOC>
 
     <el-dialog
-        :visible.sync="editing"
+        :visible="editingArticle"
         :close-on-click-modal="false"
+        :show-close="false"
         title="编辑评论"
         top="3em"
         lock-scroll
-        center>
+        center
+    >
       <Editor
           id="comment-amend"
           :amend-value="amendValue"
-          @on-cancel="editing = false"
-          @on-submit="editing = false"
+          @on-cancel="handleCancel"
+          @on-submit="handleSubmit"
           comment
           amend
       />
@@ -36,32 +38,15 @@
 </template>
 
 <script>
-import { DeleteDataMixin } from '@/Components/Mixins';
+import { DeleteDataMixin, ArticleEdit } from '@/Components/Mixins';
 export default {
   name: 'BackComments',
-  mixins: [ DeleteDataMixin ],
+  mixins: [ DeleteDataMixin, ArticleEdit('comment') ],
   components: {
     DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
     BackCommentsUI: () => import('./BackCommentsUI'),
     Editor: () => import('@/Components/Commons/Editor'),
     Pagination: () => import('@/Components/Commons/Pagination')
-  },
-
-  data () {
-    return {
-      editing: false,
-      amendValue: Object.create(null)
-    };
-  },
-
-  methods: {
-    handleEdit (comment) {
-      this.editing = true;
-      const { guestName, content, post: postId, id: commentId } = comment;
-      this.$nextTick(() => {
-        this.amendValue = { guestName, content, postId, commentId };
-      });
-    }
   }
 };
 </script>
