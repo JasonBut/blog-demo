@@ -73,8 +73,8 @@ export default {
 
   created () {
     // 加载后如没有分类表数据时先发送一次查询请求
-    const { post, categoryWithoutAbout } = this;
-    if (!!post && categoryWithoutAbout.length < 1) {
+    const { comment, post, categoryWithoutAbout } = this;
+    if (!comment && !!post && categoryWithoutAbout.length < 1) {
       this.getData({ target: 'categories' });
     }
   },
@@ -85,11 +85,12 @@ export default {
     updateAmendToForm () {
       let { amendValue } = this;
       if (typeof amendValue === 'object') {
-        const { category, title, content } = amendValue;
+        const { category, title, content, guestName } = amendValue;
         this.formData = {
           ...this.formData,
           selectedCategory: category,
           title,
+          guestName,
           content
         };
       }
@@ -98,15 +99,16 @@ export default {
     // 发表文章/评论
     handlePublish (ref) {
       ref.validate(async (valid) => {
-        let category, postId;
+        let category, postId, commentId;
 
-        /*
-        * 发评论时信息从路由中解构获得
-        * 发博文时信息从编辑器中获得
-        */
-        if (this.comment) {
-          ({ categoryName: category, id: postId } = this.$route.params);
+        if (this.comment && this.amend) {
+          // 修改评论
+          ({ postId, commentId } = this.amendValue);
+        } else if (this.comment) {
+          // 新评论
+          ({ id: postId } = this.$route.params);
         } else {
+          // 修改博文
           category = this.formData.selectedCategory;
           postId = this.amendValue.postId || null;
         }
@@ -122,7 +124,7 @@ export default {
               center: true
             });
 
-            await this.sendData({ ...formData, isAmend, category, postId, callback: RequestFailed });
+            await this.sendData({ ...formData, isAmend, category, postId, commentId, callback: RequestFailed });
 
             await this.$nextTick(() => {
               this.formData = {
@@ -131,7 +133,7 @@ export default {
                 title: '',
                 content: ''
               };
-              this.comment
+              this.comment && !this.amend
                 ? (this.active = false)
                 : (this.$once(this.$emit('on-submit')));
             });

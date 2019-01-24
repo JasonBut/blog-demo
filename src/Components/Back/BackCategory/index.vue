@@ -90,8 +90,8 @@ export default {
 
       // 生成payload发给sendData action
       const payload = {
-        ...item,
         ...this.categoryInfo,
+        categoryId: item.id,
         name: this.categoryInfo.label.toLowerCase()
       };
       this.sendData(payload);

@@ -2,7 +2,7 @@
   <div>
     <!--评论模式下才渲染此按键-->
     <el-button
-        v-if="comment"
+        v-if="comment && !amend"
         icon="el-icon-edit"
         @click="$emit('update:active',$event = !active)"
         plain>

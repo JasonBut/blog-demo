@@ -39,7 +39,7 @@
           }">
             <el-button size="mini">查看文章</el-button>
           </router-link>
-          <el-button size="mini">编辑</el-button>
+          <el-button size="mini" @click="$emit('on-edit', row)">编辑</el-button>
           <el-button size="mini" @click="$emit('on-delete',row)">删除</el-button>
         </template>
       </el-table-column>

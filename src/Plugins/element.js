@@ -28,7 +28,8 @@ import {
   Option,
   Scrollbar,
   Message,
-  MessageBox
+  MessageBox,
+  Dialog
 } from 'element-ui';
 
 Vue.use(Container);
@@ -56,6 +57,7 @@ Vue.use(TabPane);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Scrollbar);
+Vue.use(Dialog);
 
 Vue.prototype.$message = Message;
 Vue.prototype.$confirm = MessageBox.confirm;

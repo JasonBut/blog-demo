@@ -186,5 +186,17 @@
             padding-left: 1em;
             width: 60%;
         }
+
+        .el-dialog__header{
+            *{
+                color: $back-text-secondary;
+                font-weight: bold;
+            }
+        }
+
+        .el-dialog{
+            background: $back-tab-content-background;
+            border-radius: 5px;
+        }
     }
 }
