@@ -86,7 +86,7 @@
             }
 
             .el-table__empty-block{
-                @extend .el-table__row
+                background: $back-content-background-color;
             }
         }
 
