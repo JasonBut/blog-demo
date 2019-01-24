@@ -33,6 +33,10 @@ export default new Router({
           path: 'comments',
           name: 'manage-comments',
           component: () => import('@/Components/Back/BackComments')
+        },
+        {
+          path: '*',
+          component: () => import('@/Components/Commons/NotFound')
         }
       ]
     },
@@ -48,7 +52,7 @@ export default new Router({
         },
         {
           path: '/:categoryName',
-          name: 'postList',
+          name: 'post-list',
           props: true,
           component: () => import('@/Components/Front/FrontList')
         },
@@ -57,6 +61,11 @@ export default new Router({
           name: 'post',
           props: true,
           component: () => import('@/Components/Front/FrontPost')
+        },
+        {
+          path: '*',
+          name: 'not-found',
+          component: () => import('@/Components/Commons/NotFound')
         }
       ]
     }
