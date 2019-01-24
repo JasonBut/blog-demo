@@ -42,6 +42,7 @@ export default async ({ commit, dispatch }, payload) => {
     (!!title && 'all_posts') ||
     (!!(guestName && isAmend) && 'all_comments') ||
     (!!guestName && 'comments');
+
   try {
     commit({ type: Types.REQUESTED_START });
     let newId;
