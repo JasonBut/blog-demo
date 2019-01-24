@@ -187,16 +187,17 @@
             width: 60%;
         }
 
-        .el-dialog__header{
-            *{
-                color: $back-text-secondary;
-                font-weight: bold;
-            }
-        }
-
         .el-dialog{
             background: $back-tab-content-background;
+            color: $back-text-secondary;
             border-radius: 5px;
+            .el-dialog__title{
+                font-weight: bold;
+                @extend .el-dialog;
+            }
+            .el-dialog__body{
+                padding: 0 0 1em 0;
+            }
         }
     }
 }
