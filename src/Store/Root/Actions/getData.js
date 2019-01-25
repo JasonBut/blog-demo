@@ -26,7 +26,8 @@ export default async ({ commit }, payload) => {
     throw new Error(`Payload - ${payload} is invalid `);
   }
   const { target, callback } = payload;
-  const targetToState = mapTarget(target);
+  const lowerCaseTarget = target.toLowerCase();
+  const targetToState = mapTarget(lowerCaseTarget);
   if (!targetToState) {
     throw new Error(`Cannot found ${targetToState} in store`);
   }
@@ -53,7 +54,7 @@ export default async ({ commit }, payload) => {
     }
 
     // 前台博文目标提取返回数组的首项
-    if (target.startsWith('post')) {
+    if (lowerCaseTarget === 'post') {
       ([ data ] = data);
       if (!data || !data.content) {
         throw new Error(`No such post`);
@@ -61,7 +62,7 @@ export default async ({ commit }, payload) => {
     }
 
     // 博文列表和后台评论列表倒序排列
-    if (!!(target.endsWith('posts') || target.startsWith('all_')) && data.length > 0) {
+    if (!!(lowerCaseTarget.endsWith('posts') || lowerCaseTarget.startsWith('all_')) && data.length > 0) {
       data = data.reverse();
     }
 
