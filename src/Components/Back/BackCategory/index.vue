@@ -86,13 +86,21 @@ export default {
     },
 
     handleSave (item) {
+      const { cname, label } = this.categoryInfo;
+      if (cname.length >= 6) {
+        return this.$message.error('名称长度不能多于6个字符！');
+      }
+      if (label.length > 10) {
+        return this.$message.error('边栏标签不能多于10个字符！');
+      }
       this.editing = '';
 
       // 生成payload发给sendData action
       const payload = {
-        ...this.categoryInfo,
         categoryId: item.id,
-        name: this.categoryInfo.label.toLowerCase()
+        name: this.categoryInfo.label.toLowerCase(),
+        cname,
+        label
       };
       this.sendData(payload);
       this.cleanData();
