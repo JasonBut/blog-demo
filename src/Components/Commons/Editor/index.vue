@@ -99,7 +99,7 @@ export default {
         }
 
         if (valid) {
-          const { amend: isAmend, formData, $confirm } = this;
+          const { amend: isAmend, formData, $confirm, comment } = this;
 
           try {
             await $confirm('确定发表内容？', {
@@ -125,7 +125,7 @@ export default {
                 title: '',
                 content: ''
               };
-              this.comment && !this.amend
+              comment && !isAmend
                 ? (this.active = false)
                 : (this.$once(this.$emit('on-submit')));
             });

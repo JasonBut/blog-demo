@@ -18,9 +18,17 @@
 
 <script>
 import { ArticleEdit } from '@/Assets/Mixins';
+
+// 传入Mixin的配置,内容是当前PostList组件的一些信息
+const editMixinOptions = {
+  tabDataName: 'currentTab',
+  mainTab: 'post-list',
+  editorTab: 'publish'
+};
+
 export default {
   name: 'BackList',
-  mixins: [ ArticleEdit('post') ],
+  mixins: [ ArticleEdit('post', editMixinOptions) ],
 
   components: {
     BackPostList: () => import('./BackList'),
