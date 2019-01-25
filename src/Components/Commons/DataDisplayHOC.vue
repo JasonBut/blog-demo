@@ -61,7 +61,7 @@ export default {
       }
 
       // 其余情况正常发送请求获取数据
-      await getData({ callback: RequestFailed($router), target: lowerCaseTarget, id, filter });
+      await getData({ callback: RequestFailed($router, true), target: lowerCaseTarget, id, filter });
       lowerCaseTarget.endsWith('post') && await getData({ target: 'comments', id });
     }
   }

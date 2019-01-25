@@ -6,7 +6,7 @@ const idGenerator = function (type) {
         ? `${type}_${++id}`
         : (id >= 0 && id < 9)
           ? `0${++id}`
-          : ++id;
+          : `${++id}`;
     }
   };
 };

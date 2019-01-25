@@ -1,8 +1,9 @@
 import { Notification } from 'element-ui';
 
-export default (router) => {
+export default (router, isGet) => {
   return () => {
-    router.replace({ name: 'not-found' });
+    // 获取数据失败跳转到404页面
+    !!isGet && router.replace({ name: 'not-found' });
     Notification({
       type: 'waring',
       title: '连接失败',

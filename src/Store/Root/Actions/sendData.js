@@ -48,7 +48,7 @@ export default async ({ commit, dispatch }, payload) => {
     let newId;
 
     // POST请求前创建新id
-    (!isAmend || !categoryId) && (newId = await createNewId(fetchTarget));
+    (!isAmend && !categoryId) && (newId = await createNewId(fetchTarget));
 
     // 评论独有属性
     const commentProps = guestName ? { post: postId, guestName } : {};
@@ -65,7 +65,8 @@ export default async ({ commit, dispatch }, payload) => {
     };
 
     // 分类属性对象
-    const categoryProps = !!cname && payload;
+    const { label, name } = !!cname && payload;
+    const categoryProps = { cname, label, name };
 
     await asyncFetch[fetchMode]({
       target: fetchTarget,
