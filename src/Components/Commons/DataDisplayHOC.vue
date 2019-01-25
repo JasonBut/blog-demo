@@ -11,7 +11,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
-import { RequestFailed, PaginationMixin } from '@/Components/Mixins';
+import { RequestFailed, PaginationMixin } from '@/Assets/Mixins';
 import { Types } from '@/Store';
 export default {
   name: 'GetData',

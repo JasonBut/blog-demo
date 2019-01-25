@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import '@/Assets/style/element-variables.scss';
+import '@/Assets/Styles/element-variables.scss';
 
 import {
   Container,

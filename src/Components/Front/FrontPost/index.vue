@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { CleanPostMixins } from '@/Components/Mixins';
+import { CleanPostMixins } from '@/Assets/Mixins';
 export default {
   name: 'FrontPost',
   mixins: [ CleanPostMixins ],

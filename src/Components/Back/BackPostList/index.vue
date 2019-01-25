@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { ArticleEdit } from '@/Components/Mixins';
+import { ArticleEdit } from '@/Assets/Mixins';
 export default {
   name: 'BackList',
   mixins: [ ArticleEdit('post') ],

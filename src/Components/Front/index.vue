@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import '@/Assets/style/front.scss';
+import '@/Assets/Styles/front.scss';
 export default {
   name: 'Front',
   components: {

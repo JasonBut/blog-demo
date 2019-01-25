@@ -2,6 +2,7 @@ import state from './States';
 import getters from './Getters';
 import mutations from './Mutations';
 import deleteData from './deleteData';
+import Auth from './Auth';
 
 export default {
   namespaced: true,
@@ -10,5 +11,8 @@ export default {
   mutations,
   actions: {
     deleteData
+  },
+  modules: {
+    Auth
   }
 };

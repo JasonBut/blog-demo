@@ -1,11 +1,7 @@
-export default {
-  UPDATE_STORE: 'UPDATE_STORE',
-  REQUESTED_FAILED: 'REQUESTED_FAILED',
-  REQUESTED_START: 'REQUESTED_START',
-  REQUESTED_SUCCEEDED: 'REQUESTED_SUCCEEDED',
-  UPDATE_BREAD_LIST: 'UPDATE_BREAD_LIST',
+import rootTypes from './Root/Types';
+import backTypes from './Back/Types';
 
-  SET_EDIT_STATUS: 'SET_EDIT_STATUS',
-  UPDATE_AMEND_VALUE: 'UPDATE_AMEND_VALUE',
-  CLEAN_AMEND_VALUE: 'CLEAN_AMEND_VALUE'
+export default {
+  ...rootTypes,
+  ...backTypes
 };

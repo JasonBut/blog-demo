@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { CleanPostMixins, ScrollToItem } from '@/Components/Mixins';
+import { CleanPostMixins, ScrollToItem } from '@/Assets/Mixins';
 export default {
   name: 'BackPostDetails',
   mixins: [ CleanPostMixins, ScrollToItem ],

@@ -1,6 +1,6 @@
 <template>
 <div class="back">
-  <el-container>
+  <el-container v-if="withCredentials" >
     <el-container>
       <el-aside width="12em">
         <Aside />
@@ -13,17 +13,23 @@
       <Footer class="back-footer" />
     </el-footer>
   </el-container>
+  <Auth v-else />
 </div>
 </template>
 
 <script>
-import '@/Assets/style/back.scss';
+import { mapState } from 'vuex';
+import '@/Assets/Styles/back.scss';
 export default {
   name: 'Back',
   components: {
     Aside: () => import('./BackAside'),
     Footer: () => import('../Commons/Footer'),
-    Content: () => import('./BackContent')
+    Content: () => import('./BackContent'),
+    Auth: () => import('./Auth')
+  },
+  computed: {
+    ...mapState('Back/Auth', ['withCredentials'])
   }
 };
 </script>

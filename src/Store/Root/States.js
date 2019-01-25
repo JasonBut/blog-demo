@@ -20,6 +20,12 @@ export default {
     content: [
       { required: true, message: '请输入内容!', trigger: 'submit' },
       { min: 15, message: '内容字数不得少于15个字符', trigger: 'blur' }
+    ],
+    username: [
+      { required: true, message: '请输入账号！', trigger: 'submit' }
+    ],
+    password: [
+      { required: true, message: '请输入密码！', trigger: 'submit' }
     ]
   }
 };

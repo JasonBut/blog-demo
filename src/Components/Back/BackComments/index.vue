@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { DeleteDataMixin, ArticleEdit } from '@/Components/Mixins';
+import { DeleteDataMixin, ArticleEdit } from '@/Assets/Mixins';
 export default {
   name: 'BackComments',
   mixins: [ DeleteDataMixin, ArticleEdit('comment') ],

@@ -1,4 +1,4 @@
-import Types from '../Types';
+import Types from '@/Store/Types';
 import { asyncFetch } from '@/Util';
 
 export default async ({ commit, dispatch }, payload) => {
