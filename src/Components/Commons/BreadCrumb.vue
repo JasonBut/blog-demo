@@ -2,11 +2,11 @@
   <el-breadcrumb separator-class="el-icon-arrow-right">
     <ListFadeIn name="el-zoom-in-left" :duration="600">
       <el-breadcrumb-item
-          v-for="item of breadList"
-          :key="item || `home`"
-          :to="{ path: item }"
+          v-for="breadItem of breadList"
+          :key="breadItem.name + (breadcrumbCnameFilter(breadItem) || encodeURIComponent(breadItem.cname))"
+          :to="{ name: breadItem.name, params: breadItem.params }"
       >
-        {{ breadListFilters(item, $store) }}
+        {{ breadItem.cname || breadcrumbCnameFilter(breadItem) || post.title }}
       </el-breadcrumb-item>
     </ListFadeIn>
   </el-breadcrumb>
@@ -21,30 +21,30 @@ export default {
     ListFadeIn: () => import('./ListFadeIn')
   },
 
-  data () {
-    return {
-      pool: new Map([
-        ['/', '首页'],
-        ['/daily', '日常生活'],
-        ['/programs', '项目记录'],
-        ['/notes', '学习笔记'],
-        ['/admin', `管理后台`],
-        ['/admin/categories', '分类'],
-        ['/admin/posts', `文章`],
-        ['/admin/comments', `评论`]
-      ])
-    };
+  filters: {
+    breadItemFilter (value) {
+      return value;
+    }
   },
 
   computed: {
-    ...mapState(['breadList'])
+    ...mapState(['breadList', 'post', 'categories']),
+
+    breadcrumbCnameFilter () {
+      return (breadItem) => {
+        let categoryCname;
+        if (breadItem.list) {
+          ([categoryCname] = this.categories.filter((item) => {
+            return item.cname && item.name === breadItem.params.categoryName;
+          }));
+          return categoryCname && categoryCname.cname;
+        }
+      };
+    }
   },
 
-  methods: {
-    breadListFilters (bread, store) {
-      if (!bread) { return; }
-      return this.pool.get(bread) || store.state.post.title;
-    }
+  created () {
+    //    console.log(this.categories);
   }
 };
 </script>

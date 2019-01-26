@@ -1,5 +1,5 @@
 <template>
-  <el-tabs v-model="currentTab" type="card">
+  <el-tabs v-if="$route.path === '/admin/posts' || $route.path === '/admin'" v-model="currentTab" type="card">
     <el-tab-pane label="文章列表" name="post-list">
       <BackPostList/>
     </el-tab-pane>
@@ -14,6 +14,7 @@
       />
     </el-tab-pane>
   </el-tabs>
+  <router-view v-else />
 </template>
 
 <script>
