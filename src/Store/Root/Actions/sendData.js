@@ -19,7 +19,7 @@ export default async ({ commit, dispatch }, payload) => {
     categoryId, guestName, content, title, cname,
     category, postId, commentId, isAmend, callback
   } = payload;
-  const currentId = categoryId || commentId || postId;
+  const currentId = `${categoryId || commentId || postId}`;
 
   if (!content && !cname) {
     throw new Error(`Invalid value from payload, seems it's an unexpected object.`);

@@ -5,7 +5,7 @@ export default {
       const { label } = category;
       const halfLength = Number.parseInt(label.length / 2); // 获取分类名一半长度
       const first = label.slice(0, halfLength);
-      const last = label.slice(halfLength, label.length);
+      const last = label.slice(-halfLength);
       return { ...category, first, last };
     });
   }

@@ -61,7 +61,7 @@ export default (articleType, options) => {
       }),
 
       // 切换组件当前页
-      toggleToMainTab (tab) {
+      toggleTab (tab) {
         this[tabDataName] = tab;
       },
 
@@ -69,7 +69,7 @@ export default (articleType, options) => {
       cleanData () {
         this.setEditStatus('CANCEL');
         this.cleanAmendValue();
-        !!isPost && this.toggleToMainTab(mainTab);
+        !!isPost && this.toggleTab(mainTab);
       },
 
       // 点击编辑按钮后的操作
@@ -94,7 +94,7 @@ export default (articleType, options) => {
         });
 
         // PostList组件的活动页切换
-        !!isPost && this.toggleToMainTab(editorTab);
+        !!isPost && this.toggleTab(editorTab);
       },
 
       async handleCancel () {
@@ -111,9 +111,9 @@ export default (articleType, options) => {
             this.cleanData();
           });
         } catch (e) {
+          // PostList组件的活动页切换
           !!isPost && this.$nextTick(() => {
-            // PostList组件的活动页切换
-            this.toggleToMainTab(mainTab);
+            this.toggleTab(editorTab);
           });
         }
         // 返回的结果用于文章编辑时路由离开前的导航守卫判断

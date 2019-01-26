@@ -70,13 +70,11 @@ export default {
     updateAmendToForm () {
       let { amendValue } = this;
       if (typeof amendValue === 'object') {
-        const { category, title, content, guestName } = amendValue;
+        const { category: selectedCategory, ...rest } = amendValue;
         this.formData = {
           ...this.formData,
-          selectedCategory: category,
-          title,
-          guestName,
-          content
+          selectedCategory,
+          ...rest
         };
       }
     },

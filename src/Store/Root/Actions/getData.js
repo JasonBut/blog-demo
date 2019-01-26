@@ -25,7 +25,7 @@ export default async ({ commit }, payload) => {
   if (!payload) {
     throw new Error(`Payload - ${payload} is invalid `);
   }
-  const { target, callback } = payload;
+  const { target, callback, ...rest } = payload;
   const lowerCaseTarget = target.toLowerCase();
   const targetToState = mapTarget(lowerCaseTarget);
   if (!targetToState) {
@@ -47,7 +47,7 @@ export default async ({ commit }, payload) => {
       data: targetToState === 'post' ? {} : []
     });
 
-    let data = await asyncFetch.get(payload); // 调用封装好的axios方法去获取数据
+    let data = await asyncFetch.get({ target, ...rest }); // 调用封装好的axios方法去获取数据
 
     if (!Array.isArray(data) && typeof data !== 'object') {
       throw new Error(`Wrong data returned, got ${typeof data}, expected 'Array' or 'Object'.`);

@@ -1,13 +1,10 @@
 <template>
   <el-card>
-    <el-table
-        :data="list"
-    >
+    <el-table :data="list">
       <el-table-column
           label="访客"
           prop="guestName"
           min-width="10%"
-
       >
       </el-table-column>
 

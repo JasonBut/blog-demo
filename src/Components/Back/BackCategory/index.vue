@@ -50,13 +50,13 @@ export default {
     ...mapActions(['getData', 'sendData']),
 
     cleanData () {
+      this.editing = '';
       this.categoryInfo = {
         cname: '',
         label: ''
       };
       // 提取最后一项,如果没有id则证明是新增的项目,从列表中删除掉
-      const lastIndex = this.categoryWithoutAbout.length - 1;
-      const lastItem = this.categoryWithoutAbout[lastIndex];
+      const [ lastItem ] = this.categoryWithoutAbout.slice(-1);
       (!lastItem.id) && this.categoryWithoutAbout.pop();
     },
 
@@ -78,36 +78,32 @@ export default {
       if (this.editing) {
         return this.$message.error('请先完成现有的条目编辑，再进行操作！');
       }
-
+      const { id, cname, label } = item;
       // 当前条目id设为editing
-      this.editing = item.id;
-      const { cname, label } = item;
+      this.editing = id;
+
       this.categoryInfo = { cname, label };
     },
 
     handleSave (item) {
-      const { cname, label } = this.categoryInfo;
+      const { categoryInfo, categoryInfo: { cname, label } } = this;
       if (cname.length >= 6) {
         return this.$message.error('名称长度不能多于6个字符！');
       }
       if (label.length > 10) {
         return this.$message.error('边栏标签不能多于10个字符！');
       }
-      this.editing = '';
 
       // 生成payload发给sendData action
-      const payload = {
+      this.sendData({
+        ...categoryInfo,
         categoryId: item.id,
-        name: this.categoryInfo.label.toLowerCase(),
-        cname,
-        label
-      };
-      this.sendData(payload);
+        name: label.toLowerCase()
+      });
       this.cleanData();
     },
 
     handleCancel () {
-      this.editing = '';
       this.cleanData();
     }
   }
