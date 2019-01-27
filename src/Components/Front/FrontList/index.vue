@@ -1,6 +1,6 @@
 <template>
   <DataDisplayHOC v-if="$route.name === 'post-list'" target="posts">
-    <template slot-scope="{ list, post, options, handleCurrentChange }">
+    <template slot-scope="{ list, options, handleCurrentChange }">
       <FrontListUI
           :list="list"
           :to="routeObject"

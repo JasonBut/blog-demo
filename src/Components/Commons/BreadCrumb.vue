@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 export default {
   name: 'BreadCrumb',
 
@@ -34,11 +34,16 @@ export default {
     ...mapState(['breadList', 'post', 'categories']),
 
     breadcrumbCnameFilter () {
+      // store中如无categories数据,先进行一次获取
+      if (this.categories.length < 1) {
+        this.getData({ target: 'categories' });
+      }
+
       return ({ list, params: { categoryName } }) => {
         let categoryCname;
         if (list) {
           /*
-          * store中已存有的categories的数据
+          * 将store中的categories数据
           * 跟breadItem.params里的categoryName逐项对比
           * 获得对应分类在数据库里的中文名
           */
@@ -51,8 +56,8 @@ export default {
     }
   },
 
-  created () {
-    //    console.log(this.categories);
+  methods: {
+    ...mapActions(['getData'])
   }
 };
 </script>

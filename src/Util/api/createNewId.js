@@ -1,4 +1,5 @@
-import { asyncFetch, idGenerator } from '@/Util';
+import { asyncFetch } from '../';
+import { idGenerator } from '../tools';
 
 export default async (fetchTarget) => {
   let lastItem;

@@ -2,6 +2,7 @@ import Types from './Types';
 
 export default {
   [Types.REQUESTED_START] (state) {
+    state.err = '';
     state.loading = true;
   },
 

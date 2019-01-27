@@ -15,9 +15,7 @@ import { RequestFailed, PaginationMixin } from '@/Assets/Mixins';
 import { Types } from '@/Store';
 export default {
   name: 'GetData',
-  mixins: [
-    PaginationMixin()
-  ],
+  mixins: [PaginationMixin()],
   props: {
     target: {
       type: String,
