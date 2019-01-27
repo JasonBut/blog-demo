@@ -67,6 +67,7 @@ export default {
   .details-content{
     font-size: 0.5em;
     padding: 1em;
+
   }
 }
 </style>

@@ -14,6 +14,7 @@
 * Vue2Editor
 * Element
 * Scss
+* Normalize.css
 * Axios
 * Json-server
 
