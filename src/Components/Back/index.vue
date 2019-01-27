@@ -1,19 +1,21 @@
 <template>
 <div class="back">
-  <el-container v-if="withCredentials" >
-    <el-container>
-      <el-aside width="12em">
-        <Aside />
-      </el-aside>
-      <el-main class="back-content">
-        <Content />
-      </el-main>
+  <transition-group name="el-fade-in-linear">
+    <el-container v-if="withCredentials" :key="$route.name + $route.path" >
+      <el-container>
+        <el-aside width="12em">
+          <Aside />
+        </el-aside>
+        <el-main class="back-content">
+          <Content />
+        </el-main>
+      </el-container>
+      <el-footer>
+        <Footer class="back-footer" />
+      </el-footer>
     </el-container>
-    <el-footer>
-      <Footer class="back-footer" />
-    </el-footer>
-  </el-container>
-  <Auth v-else />
+    <Auth v-else :key="$route.name + $route.path" />
+  </transition-group>
 </div>
 </template>
 
@@ -29,6 +31,7 @@ export default {
     Auth: () => import('./Auth')
   },
   computed: {
+    ...mapState(['loading']),
     ...mapState('Back/Auth', ['withCredentials'])
   }
 };
