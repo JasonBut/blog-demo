@@ -20,7 +20,7 @@ export default function (
 
     watch: {
       list (newVal, oldVal) {
-        if (newVal.length > 0 && newVal !== oldVal) {
+        if (newVal !== oldVal) {
           this.updateOptions();
         }
       }
