@@ -8,6 +8,7 @@ export default {
   [Types.REQUESTED_FAILED] (state, { err }) {
     console.log(err);
     state.err = err.toString();
+    state.loading = false;
   },
 
   [Types.REQUESTED_SUCCEEDED] (state) {

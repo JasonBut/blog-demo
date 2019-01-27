@@ -1,7 +1,54 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = `http://localhost:4000/`;
-axios.defaults.timeout = 2000;
+// 用于将axios发送前或接收后的数据进行转码操作
+const transformData = (data, encode = true) => {
+  if (typeof data !== 'object') {
+    return data;
+  }
+
+  // 判断传入的数据是否数组,生成对应的缓存类型
+  const cache = Array.isArray(data) ? [] : {};
+
+  // 根据传入的encode指令进行转码操作,进行两次是避免部分字符解析失败
+  const transform = encode
+    ? (item) => encodeURIComponent(encodeURIComponent(item))
+    : (item) => decodeURIComponent(decodeURIComponent(item));
+
+  for (let [key, value] of Object.entries(data)) {
+    (typeof value === 'number') && (value = `${value}`);
+    (typeof value === 'string') && (cache[key] = transform(value));
+    (typeof value === 'object') && (cache[key] = transformData(data[key], encode));
+  }
+  return cache;
+};
+
+// 创建axios实例
+const request = axios.create({
+  baseURL: `http://localhost:4000/`,
+  timeout: 2000
+});
+
+// 拦截发送前的操作
+request.interceptors.request.use(
+  (config) => {
+    if (config.method === 'post' || config.method === 'put') {
+      config.data = transformData(config.data);
+    }
+    return config;
+  },
+  (err) => Promise.reject(err)
+);
+
+// 拦截接收后的操作
+request.interceptors.response.use(
+  (response) => {
+    if (response.data) {
+      response.data = transformData(response.data, false);
+    }
+    return response;
+  },
+  (err) => Promise.reject(err)
+);
 
 // 过滤条件
 const filters = ({ id, filter }, mode) => {
@@ -74,9 +121,9 @@ export default async function asyncFetch ({ mode, target, id, filter, data }) {
 
   try {
     // 这句代码是根据传入的参数去调整axios的get/post/put方法,并填入对应路径及数据
-    const response = await axios[lowerCaseMode](`${path}`, data);
+    const response = await request[lowerCaseMode](`${path}`, data);
 
-    path = null; // 解除filters引用
+    path = null;
 
     if (!(response.status >= 200 && response.status < 300)) {
       throw new Error(response.statusText);
