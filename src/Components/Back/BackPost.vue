@@ -60,7 +60,6 @@ export default {
   }
   .post-details{
     @extend .back-post;
-    margin: 0;
     h1{
       font-size: 2em;
       margin: 0;
