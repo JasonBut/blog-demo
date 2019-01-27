@@ -11,9 +11,16 @@ html,body {
         }
     }
 
-    pre{
-        @include transparent-background(0.5);
+    blockquote{
+        @include transparent-background(0.7);
         @include transparent-border(0.9,1px,10px);
+        color: white;
+        padding: 2em;
+    }
+
+    pre{
+        @include transparent-background(0.9);
+        @include transparent-border(0.9,1px,20px);
         color: $common-pre-color;
         padding: 2em;
     }

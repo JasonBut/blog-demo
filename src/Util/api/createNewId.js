@@ -15,7 +15,7 @@ export default async (fetchTarget) => {
 
   // 如没有返回数据,表示还没有内容
   if (!lastItem) {
-    lastItem = { id: 0 };
+    lastItem = { id: '00' };
   }
 
   if (!lastItem.id) {
