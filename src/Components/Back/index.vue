@@ -1,7 +1,7 @@
 <template>
 <div class="back">
   <transition-group name="el-fade-in-linear">
-    <el-container v-if="withCredentials" :key="$route.name + $route.path" >
+    <el-container v-if="withCredentials" key="admin" >
       <el-container>
         <el-aside width="12em">
           <Aside />
@@ -14,7 +14,7 @@
         <Footer class="back-footer" />
       </el-footer>
     </el-container>
-    <Auth v-else :key="$route.name + $route.path" />
+    <Auth v-else key="auth" />
   </transition-group>
 </div>
 </template>

@@ -37,7 +37,7 @@ export default async function asyncFetch ({ mode, target, id, filter, data }) {
     path = null;
 
     if (!(response.status >= 200 && response.status < 300)) {
-      throw new Error(response.statusText);
+      return Promise.reject(response.statusText);
     }
 
     return response.data;
