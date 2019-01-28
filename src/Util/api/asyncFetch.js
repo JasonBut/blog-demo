@@ -1,9 +1,9 @@
 import { request, requestPool } from '../tools';
 /*
- * 必须 mode = "GET" / "POST" / "PUT" axios的get/post/put方法
- * 必须 type = 读取或发送的数据的类型, 如"boards","posts"等, 详细看filters的key
- * 可选 id = 读取数据时提供的id值或其他数据值,用于filters生成路径
- * 可选 body = 发送给服务器的数据内容
+ * 必须 mode = "GET" / "POST" / "PUT" / "DELETE" axios的对应方法
+ * 必须 target = 读取或发送的数据的类型, 详细看requestPool的key
+ * 可选 id = 读取数据时提供的id值或其他数据值,用于从requestPool生成路径
+ * 可选 data = 发送给服务器的数据内容
  */
 
 // 三个静态方法, 方便调用
