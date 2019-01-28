@@ -5,6 +5,8 @@ Vue.use(Router);
 
 const backRoutes = {
   path: '/admin',
+  name: 'admin',
+  redirect: { name: 'manage-posts' },
   meta: {
     cname: '管理后台'
   },
@@ -47,6 +49,7 @@ const backRoutes = {
     },
     {
       path: '*',
+      name: 'back-not-found',
       meta: {
         cname: '找不到页面'
       },
