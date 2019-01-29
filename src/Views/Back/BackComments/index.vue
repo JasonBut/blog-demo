@@ -43,10 +43,10 @@ export default {
   name: 'BackComments',
   mixins: [ DeleteDataMixin, ArticleEdit('comment') ],
   components: {
-    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
+    DataDisplayHOC: () => import('@/Components/DataDisplayHOC'),
     BackCommentsUI: () => import('./BackCommentsUI'),
-    Editor: () => import('@/Components/Commons/Editor'),
-    Pagination: () => import('@/Components/Commons/Pagination')
+    Editor: () => import('@/Components/Editor'),
+    Pagination: () => import('@/Components/Pagination')
   }
 };
 </script>

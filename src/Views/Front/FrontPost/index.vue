@@ -22,10 +22,10 @@ export default {
   mixins: [ CleanPostMixins ],
 
   components: {
-    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
+    DataDisplayHOC: () => import('@/Components/DataDisplayHOC'),
     PostDetailsUI: () => import('./FrontPostDetailsUI'),
-    PostCommentsUI: () => import('@/Components/Commons/PostCommentsUI'),
-    Editor: () => import('@/Components/Commons/Editor')
+    PostCommentsUI: () => import('@/Components/PostCommentsUI'),
+    Editor: () => import('@/Components/Editor')
   }
 };
 </script>

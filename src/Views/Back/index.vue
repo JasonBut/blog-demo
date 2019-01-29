@@ -26,7 +26,7 @@ export default {
   name: 'Back',
   components: {
     Aside: () => import('./BackAside'),
-    Footer: () => import('../Commons/Footer'),
+    Footer: () => import('../../Components/Footer'),
     Content: () => import('./BackContent'),
     Auth: () => import('./Auth')
   },

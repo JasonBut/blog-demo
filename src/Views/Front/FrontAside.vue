@@ -17,7 +17,7 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'FrontAside',
   components: {
-    AsideBarUI: () => import('@/Components/Commons/AsideBarUI')
+    AsideBarUI: () => import('@/Components/AsideBarUI')
   },
   computed: {
     ...mapGetters('Front', ['splitCategoryLabel']),

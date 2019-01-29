@@ -42,8 +42,8 @@ export default {
     }
   },
   components: {
-    ListFadeIn: () => import('@/Components/Commons/ListFadeIn'),
-    Pagination: () => import('@/Components/Commons/Pagination')
+    ListFadeIn: () => import('@/Components/ListFadeIn'),
+    Pagination: () => import('@/Components/Pagination')
   },
   updated () {
     this.$on(this.$emit('on-view-scroll', this.$refs));

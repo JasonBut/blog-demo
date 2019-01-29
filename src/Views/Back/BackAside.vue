@@ -12,7 +12,7 @@ import { mapState } from 'vuex';
 export default {
   name: 'BackAside',
   components: {
-    AsideBarUI: () => import('@/Components/Commons/AsideBarUI')
+    AsideBarUI: () => import('@/Components/AsideBarUI')
   },
   computed: {
     ...mapState('Back', ['asideMenu']),

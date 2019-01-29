@@ -33,7 +33,7 @@ export default {
 
   components: {
     BackPostList: () => import('./BackList'),
-    Editor: () => import('@/Components/Commons/Editor')
+    Editor: () => import('@/Components/Editor')
   },
 
   provide () {

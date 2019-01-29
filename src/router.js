@@ -10,7 +10,7 @@ const backRoutes = {
   meta: {
     cname: '管理后台'
   },
-  component: () => import('@/Components/Back/'),
+  component: () => import('@/Views/Back/'),
   children: [
     {
       path: 'categories',
@@ -18,7 +18,7 @@ const backRoutes = {
       meta: {
         cname: '分类一览'
       },
-      component: () => import('@/Components/Back/BackCategory')
+      component: () => import('@/Views/Back/BackCategory')
     },
     {
       path: 'posts',
@@ -27,7 +27,7 @@ const backRoutes = {
       meta: {
         cname: '所有文章'
       },
-      component: () => import('@/Components/Back/BackPostList'),
+      component: () => import('@/Views/Back/BackPostList'),
       children: [
         {
           path: '/admin/posts/:id',
@@ -35,7 +35,7 @@ const backRoutes = {
           meta: {
             cname: null
           },
-          component: () => import('@/Components/Back/BackPost')
+          component: () => import('@/Views/Back/BackPost')
         }
       ]
     },
@@ -45,7 +45,7 @@ const backRoutes = {
       meta: {
         cname: '访客评论'
       },
-      component: () => import('@/Components/Back/BackComments')
+      component: () => import('@/Views/Back/BackComments')
     },
     {
       path: '*',
@@ -53,14 +53,14 @@ const backRoutes = {
       meta: {
         cname: '找不到页面'
       },
-      component: () => import('@/Components/Commons/NotFound')
+      component: () => import('@/Components/NotFound')
     }
   ]
 };
 
 const frontRoutes = {
   path: '/',
-  component: () => import('@/Components/Front/'),
+  component: () => import('@/Views/Front/'),
   meta: {
     cname: '首页'
   },
@@ -72,7 +72,7 @@ const frontRoutes = {
       meta: {
         cname: '关于我'
       },
-      component: () => import('@/Components/Front/FrontAbout')
+      component: () => import('@/Views/Front/FrontAbout')
     },
     {
       path: ':categoryName',
@@ -81,7 +81,7 @@ const frontRoutes = {
         cname: null,
         list: true
       },
-      component: () => import('@/Components/Front/FrontList'),
+      component: () => import('@/Views/Front/FrontList'),
       children: [
         {
           path: ':id',
@@ -89,7 +89,7 @@ const frontRoutes = {
           meta: {
             cname: null
           },
-          component: () => import('@/Components/Front/FrontPost')
+          component: () => import('@/Views/Front/FrontPost')
         }
       ]
     },
@@ -99,7 +99,7 @@ const frontRoutes = {
       meta: {
         cname: '找不到页面'
       },
-      component: () => import('@/Components/Commons/NotFound')
+      component: () => import('@/Components/NotFound')
     }
   ]
 };

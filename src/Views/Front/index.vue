@@ -27,7 +27,7 @@ export default {
     Header: () => import('./FrontHeader.vue'),
     Aside: () => import('./FrontAside.vue'),
     Content: () => import('./FrontContent.vue'),
-    Footer: () => import('../Commons/Footer.vue')
+    Footer: () => import('../../Components/Footer.vue')
   }
 };
 </script>

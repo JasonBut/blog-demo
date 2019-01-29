@@ -33,8 +33,8 @@ export default {
   name: 'BackPostDetails',
   mixins: [ CleanPostMixins, ScrollToItem ],
   components: {
-    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
-    PostCommentsUI: () => import('@/Components/Commons/PostCommentsUI')
+    DataDisplayHOC: () => import('@/Components/DataDisplayHOC'),
+    PostCommentsUI: () => import('@/Components/PostCommentsUI')
   }
 };
 </script>

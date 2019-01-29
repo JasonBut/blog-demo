@@ -21,8 +21,8 @@ export default {
   name: 'FrontList',
   components: {
     FrontListUI: () => import('./FrontListUI'),
-    DataDisplayHOC: () => import('@/Components/Commons/DataDisplayHOC'),
-    Pagination: () => import('@/Components/Commons/Pagination')
+    DataDisplayHOC: () => import('@/Components/DataDisplayHOC'),
+    Pagination: () => import('@/Components/Pagination')
   },
   computed: {
     routeObject () {

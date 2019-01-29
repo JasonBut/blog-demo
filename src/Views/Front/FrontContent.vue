@@ -18,7 +18,7 @@ import { mapState } from 'vuex';
 export default {
   name: 'FrontContent',
   components: {
-    BreadCrumb: () => import('../Commons/BreadCrumb')
+    BreadCrumb: () => import('../../Components/BreadCrumb')
   },
   computed: {
     ...mapState(['loading'])
