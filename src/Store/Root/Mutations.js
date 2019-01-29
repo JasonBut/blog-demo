@@ -42,10 +42,10 @@ export default {
     * 并在对应路由规则中将信息写进meta里传递
     * 因此可以根据嵌套关系获取每层的数据
     */
-    state.breadList = matched.map(({ name, meta: { cname, list } }) => {
+    state.breadList = matched.map(({ name, meta: { title, list } }) => {
       return {
         name: name || 'home',
-        cname,
+        title,
         list,
         params
       };

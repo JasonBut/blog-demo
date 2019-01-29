@@ -8,7 +8,7 @@ const backRoutes = {
   name: 'admin',
   redirect: { name: 'manage-posts' },
   meta: {
-    cname: '管理后台'
+    title: '管理后台'
   },
   component: () => import('@/Views/Back/'),
   children: [
@@ -16,7 +16,7 @@ const backRoutes = {
       path: 'categories',
       name: 'manage-categories',
       meta: {
-        cname: '分类一览'
+        title: '分类一览'
       },
       component: () => import('@/Views/Back/BackCategory')
     },
@@ -25,7 +25,7 @@ const backRoutes = {
       alias: '/admin',
       name: 'manage-posts',
       meta: {
-        cname: '所有文章'
+        title: '所有文章'
       },
       component: () => import('@/Views/Back/BackPostList'),
       children: [
@@ -33,7 +33,7 @@ const backRoutes = {
           path: '/admin/posts/:id',
           name: 'manage-post',
           meta: {
-            cname: null
+            title: null
           },
           component: () => import('@/Views/Back/BackPost')
         }
@@ -43,7 +43,7 @@ const backRoutes = {
       path: 'comments',
       name: 'manage-comments',
       meta: {
-        cname: '访客评论'
+        title: '访客评论'
       },
       component: () => import('@/Views/Back/BackComments')
     },
@@ -51,7 +51,7 @@ const backRoutes = {
       path: '*',
       name: 'back-not-found',
       meta: {
-        cname: '找不到页面'
+        title: '找不到页面'
       },
       component: () => import('@/Components/NotFound')
     }
@@ -62,7 +62,7 @@ const frontRoutes = {
   path: '/',
   component: () => import('@/Views/Front/'),
   meta: {
-    cname: '首页'
+    title: '首页'
   },
   children: [
     {
@@ -70,7 +70,7 @@ const frontRoutes = {
       alias: '/',
       name: 'home',
       meta: {
-        cname: '关于我'
+        title: '关于我'
       },
       component: () => import('@/Views/Front/FrontAbout')
     },
@@ -78,7 +78,7 @@ const frontRoutes = {
       path: ':categoryName',
       name: 'post-list',
       meta: {
-        cname: null,
+        title: null,
         list: true
       },
       component: () => import('@/Views/Front/FrontList'),
@@ -87,7 +87,7 @@ const frontRoutes = {
           path: ':id',
           name: 'post',
           meta: {
-            cname: null
+            title: null
           },
           component: () => import('@/Views/Front/FrontPost')
         }
@@ -97,7 +97,7 @@ const frontRoutes = {
       path: '*',
       name: 'not-found',
       meta: {
-        cname: '找不到页面'
+        title: '找不到页面'
       },
       component: () => import('@/Components/NotFound')
     }

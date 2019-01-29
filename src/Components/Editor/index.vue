@@ -16,7 +16,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
-import { RequestFailed } from '@/Assets/Mixins';
+import { RequestFailed } from '@/Util/mixins';
 export default {
   name: 'Editor',
   props: {

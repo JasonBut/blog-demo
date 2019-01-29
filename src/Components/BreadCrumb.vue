@@ -1,15 +1,15 @@
 <template>
   <el-breadcrumb separator-class="el-icon-arrow-right">
     <ListFadeIn name="el-zoom-in-left" :duration="600">
-      <!--如果路由表中存在cname中文名,则直接使用-->
-      <!--前台列表页因为没有固定的cname,因此需要计算获得-->
+      <!--如果路由表中存在title中文名,则直接使用-->
+      <!--前台列表页因为没有固定的title,因此需要计算获得-->
       <!--详情页则直接根据获取到的文章标题作为面包屑标签-->
       <el-breadcrumb-item
           v-for="breadItem of breadList"
-          :key="breadItem.name + (breadcrumbCnameFilter(breadItem) || encodeURIComponent(breadItem.cname))"
+          :key="breadItem.name + (breadcrumbCnameFilter(breadItem) || encodeURIComponent(breadItem.title))"
           :to="{ name: breadItem.name, params: breadItem.params }"
       >
-        {{ breadItem.cname || breadcrumbCnameFilter(breadItem) || post.title }}
+        {{ breadItem.title || breadcrumbCnameFilter(breadItem) || post.title }}
       </el-breadcrumb-item>
     </ListFadeIn>
   </el-breadcrumb>

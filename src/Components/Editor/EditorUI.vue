@@ -24,7 +24,7 @@
               <el-option
                   v-for="item of category"
                   :key="item.label"
-                  :label="item.cname"
+                  :label="item.title"
                   :value="item.name"
               />
             </el-select>
