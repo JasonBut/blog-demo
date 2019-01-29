@@ -1,5 +1,5 @@
 import { mapActions } from 'vuex';
-import { RequestFailed } from './';
+import { RequestFailed } from '@/Util/mixins';
 export default {
   methods: {
     ...mapActions('Back', ['deleteData']),

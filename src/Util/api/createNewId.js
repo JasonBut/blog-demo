@@ -1,4 +1,4 @@
-import { asyncFetch } from '../';
+import { asyncFetch } from '.';
 import { idGenerator } from '../tools';
 
 export default async (fetchTarget) => {

@@ -1,5 +1,5 @@
 import Types from '@/Store/Types';
-import { asyncFetch, createNewId } from '@/Util';
+import { asyncFetch, createNewId } from '@/Util/api';
 
 // e.g payload = {
 // String title || guestName || cname, 文章标题 || 评论访客名 || 分类中文名,

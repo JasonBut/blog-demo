@@ -1,5 +1,5 @@
 import Types from '@/Store/Types';
-import { asyncFetch } from '@/Util';
+import { asyncFetch } from '@/Util/api';
 
 const mapTarget = function (target) {
   switch (target) {

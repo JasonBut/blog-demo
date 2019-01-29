@@ -18,7 +18,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { DeleteDataMixin } from '@/Assets/Mixins';
+import { DeleteDataMixin } from '@/Util/mixins';
 export default {
   name: 'BackPostList',
   mixins: [ DeleteDataMixin ],

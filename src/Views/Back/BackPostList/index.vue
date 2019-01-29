@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { ArticleEdit } from '@/Assets/Mixins';
+import { ArticleEdit } from '@/Util/mixins';
 
 // 传入Mixin的配置,内容是当前PostList组件的一些信息
 const editMixinOptions = {
