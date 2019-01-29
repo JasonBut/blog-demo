@@ -57,7 +57,7 @@ export default {
   },
 
   created () {
-    document.title = `管理后台 - Jason's Blog`;
+    document.title = `登录后台 - Jason's Blog`;
   },
 
   methods: {
