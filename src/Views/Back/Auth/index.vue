@@ -56,6 +56,10 @@ export default {
     }
   },
 
+  created () {
+    document.title = `管理后台 - Jason's Blog`;
+  },
+
   methods: {
     ...mapMutations({
       handleAuthChange: 'AUTH_FORM_CHANGE'

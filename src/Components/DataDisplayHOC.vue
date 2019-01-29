@@ -32,6 +32,12 @@ export default {
     this.requestGetData();
   },
 
+  updated () {
+    if (this.post.title) {
+      document.title = `${this.post.title} - Jason's Blog`;
+    }
+  },
+
   methods: {
     ...mapActions(['getData']),
     ...mapMutations({ updateStore: Types.UPDATE_STORE }),

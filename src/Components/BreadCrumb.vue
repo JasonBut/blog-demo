@@ -6,17 +6,17 @@
       <!--详情页则直接根据获取到的文章标题作为面包屑标签-->
       <el-breadcrumb-item
           v-for="breadItem of breadList"
-          :key="breadItem.name + (breadcrumbCnameFilter(breadItem) || encodeURIComponent(breadItem.title))"
+          :key="breadItem.name + (routeTitleFilter(breadItem) || encodeURIComponent(breadItem.meta.title))"
           :to="{ name: breadItem.name, params: breadItem.params }"
       >
-        {{ breadItem.title || breadcrumbCnameFilter(breadItem) || post.title }}
+        {{ breadItem.meta.title || routeTitleFilter(breadItem) || post.title }}
       </el-breadcrumb-item>
     </ListFadeIn>
   </el-breadcrumb>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 export default {
   name: 'BreadCrumb',
 
@@ -31,33 +31,9 @@ export default {
   },
 
   computed: {
-    ...mapState(['breadList', 'post', 'categories']),
+    ...mapState(['breadList', 'post']),
+    ...mapGetters(['routeTitleFilter'])
 
-    breadcrumbCnameFilter () {
-      // store中如无categories数据,先进行一次获取
-      if (this.categories.length < 1) {
-        this.getData({ target: 'categories' });
-      }
-
-      return ({ list, params: { categoryName } }) => {
-        let categoryCname;
-        if (list) {
-          /*
-          * 将store中的categories数据
-          * 跟breadItem.params里的categoryName逐项对比
-          * 获得对应分类在数据库里的中文名
-          */
-          ([categoryCname] = this.categories.filter(({ cname, name }) => {
-            return cname && name === categoryName;
-          }));
-          return categoryCname && categoryCname.cname;
-        }
-      };
-    }
-  },
-
-  methods: {
-    ...mapActions(['getData'])
   }
 };
 </script>
