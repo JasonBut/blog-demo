@@ -15,7 +15,7 @@
 
     <Pagination
         :options="options"
-        @on-current-change="$emit('on-current-change',$event)"
+        @on-current-change="handleCurrentChange"
     />
 
   </el-card>
@@ -45,8 +45,16 @@ export default {
     ListFadeIn: () => import('@/Components/ListFadeIn'),
     Pagination: () => import('@/Components/Pagination')
   },
+
   updated () {
-    this.$on(this.$emit('on-view-scroll', this.$refs));
+    const { $refs, list, options: { currentPage }, handleCurrentChange: method } = this;
+    this.$on(this.$emit('on-view-scroll', $refs, { method, currentPage, list }));
+  },
+
+  methods: {
+    handleCurrentChange (currentPage) {
+      this.$emit('on-current-change', currentPage);
+    }
   }
 
 };

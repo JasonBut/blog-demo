@@ -10,9 +10,9 @@ export default function (
         paginationData: {
           list: [],
           options: {
-            pageSize: pageSize,
-            currentPage: currentPage,
-            total: null
+            total: null,
+            pageSize,
+            currentPage
           }
         }
       };
