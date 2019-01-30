@@ -45,7 +45,7 @@ export default {
 
     p{
       text-align: right;
-      font-size: 0.5em;
+      font-size: 0.7em;
       margin-top: 3em;
 
       &:first-child{

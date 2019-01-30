@@ -8,7 +8,7 @@ export default {
       phone: '电话：13650700330',
       graduation: '毕业学校：广东外语外贸大学',
       email: '邮箱：Jason.But@yahoo.com',
-      github: `Github：<a href="https://github.com/JasonBut" rel="github">https://github.com/JasonBut</a>`
+      github: `Github：<a href="https://github.com/JasonBut" rel="github">点解进入</a>`
     },
     certifications: [
       `会计从业资格证书`,
