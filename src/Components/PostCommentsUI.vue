@@ -36,6 +36,13 @@ export default {
       type: Array,
       required: true
     },
+    scroll: {
+      type: Boolean,
+      default: false
+    },
+    activeClass: {
+      type: String
+    },
     options: {
       type: Object,
       required: true
@@ -47,8 +54,17 @@ export default {
   },
 
   updated () {
-    const { $refs, list, options: { currentPage }, handleCurrentChange: method } = this;
-    this.$on(this.$emit('on-view-scroll', $refs, { method, currentPage, list }));
+    // 有传入scroll时才执行滑动操作
+    if (this.scroll) {
+      const { $refs, list, options: { currentPage }, handleCurrentChange: method } = this;
+      const scrollOptions = {
+        activeClass: this.activeClass || 'scroll-focus',
+        method,
+        currentPage,
+        list
+      };
+      this.$on(this.$emit('on-view-scroll', $refs, scrollOptions));
+    }
   },
 
   methods: {
@@ -68,6 +84,9 @@ export default {
   h4{
     margin: 0;
   }
+  .el-card{
+    transition: border 2.5s linear;
+  }
   .sub-message{
     font-size: 0.8em;
     text-align: right;
@@ -75,7 +94,9 @@ export default {
   .details-content{
     font-size: 0.8em;
     padding: 1em;
-
+  }
+  .scroll-focus{
+    border: $back-menu-item-hover-fill 1px solid !important;
   }
 }
 </style>

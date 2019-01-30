@@ -19,6 +19,7 @@
         <PostCommentsUI
             :list="list"
             :options="options"
+            scroll
             @on-current-change="handleCurrentChange"
             @on-view-scroll="handleScrollToItem"
         />
