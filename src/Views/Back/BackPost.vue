@@ -10,7 +10,7 @@
             </h1>
             <hr>
             <p class="sub-message">分类：{{ post.category }}</p>
-            <div class="details-content" v-html="post.content"></div>
+            <div v-html="post.content"></div>
             <p class="sub-message">最后更新：{{ post.date }}</p>
           </el-card>
         <el-card class="post-details" v-else>
@@ -45,10 +45,6 @@ export default {
   @extend .back-post;
   text-align: center;
 }
-.details-content{
-  padding: 2em;
-  color: $back-text-primary;
-}
 
 .back-post{
   color: $back-text-secondary;
@@ -62,6 +58,7 @@ export default {
   .post-details{
     @extend .back-post;
     margin: 0 !important;
+    color: $back-text-primary;
     h1{
       font-size: 2em;
       margin: 0;
