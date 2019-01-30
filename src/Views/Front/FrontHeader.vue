@@ -15,7 +15,7 @@ header{
   margin: 0.7em auto;
 
   h1{
-    color: $front-text-primary;
+    text-shadow: 0.2em 0.2em 0.2em $front-body-background-color;
     font-size: 3em;
     margin: 1% 0 3% 10%;
   }
