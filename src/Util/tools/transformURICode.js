@@ -1,6 +1,6 @@
 // 用于将axios发送前或接收后的数据进行转码操作
 export default function transformData (data, encode = true) {
-  if (Object.prototype.toString.call(data) !== '[object Object]') {
+  if (Object.prototype.toString.call(data) !== '[object Object]' && !Array.isArray(data)) {
     return data;
   }
 

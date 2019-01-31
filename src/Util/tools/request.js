@@ -3,7 +3,7 @@ import { transformURICode } from '../tools';
 
 // 创建axios实例
 const request = axios.create({
-  baseURL: `http://localhost:4000/`,
+  baseURL: `http://localhost:4001/`,
   timeout: 2000
 });
 
