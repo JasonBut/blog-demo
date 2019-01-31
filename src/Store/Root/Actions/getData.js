@@ -49,7 +49,7 @@ export default async ({ commit }, payload) => {
 
     let data = await asyncFetch.get({ target, ...rest }); // 调用封装好的axios方法去获取数据
 
-    if (!Array.isArray(data) && typeof data !== 'object') {
+    if (!Array.isArray(data) && Object.prototype.toString.call(data) !== '[object Object]') {
       throw new Error(`Wrong data returned, got ${typeof data}, expected 'Array' or 'Object'.`);
     }
 

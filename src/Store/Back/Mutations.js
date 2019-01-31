@@ -19,7 +19,7 @@ export default {
   },
 
   [Types.UPDATE_AMEND_VALUE] (state, payload) {
-    if (typeof payload !== 'object' || Array.isArray(payload)) {
+    if (Object.prototype.toString.call(payload) !== '[object Object]') {
       throw new Error(`Amend value payload should only be 'Object'!`);
     }
     state.amendValue = payload;

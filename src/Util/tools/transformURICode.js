@@ -1,6 +1,6 @@
 // 用于将axios发送前或接收后的数据进行转码操作
 export default function transformData (data, encode = true) {
-  if (typeof data !== 'object') {
+  if (Object.prototype.toString.call(data) !== '[object Object]') {
     return data;
   }
 
@@ -15,7 +15,10 @@ export default function transformData (data, encode = true) {
   for (let [key, value] of Object.entries(data)) {
     (typeof value === 'number') && (value = `${value}`);
     (typeof value === 'string') && (cache[key] = transform(value));
-    (typeof value === 'object') && (cache[key] = transformData(data[key], encode));
+    (
+      Object.prototype.toString.call(value) === '[object Object]') &&
+      (cache[key] = transformData(data[key], encode)
+      );
   }
   return cache;
 };

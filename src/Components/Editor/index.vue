@@ -69,7 +69,7 @@ export default {
 
     updateAmendToForm () {
       let { amendValue } = this;
-      if (typeof amendValue === 'object') {
+      if (Object.prototype.toString.call(amendValue) === '[object Object]') {
         const { category: selectedCategory, ...rest } = amendValue;
         this.formData = {
           ...this.formData,
