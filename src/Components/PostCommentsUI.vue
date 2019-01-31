@@ -40,7 +40,10 @@ export default {
       type: Boolean,
       default: false
     },
-    activeClass: {
+    enterActiveClass: {
+      type: String
+    },
+    leaveActiveClass: {
       type: String
     },
     options: {
@@ -58,7 +61,8 @@ export default {
     if (this.scroll) {
       const { $refs, list, options: { currentPage }, handleCurrentChange: method } = this;
       const scrollOptions = {
-        activeClass: this.activeClass || 'scroll-focus',
+        enterActiveClass: this.enterActiveClass || 'scroll-focus',
+        leaveActiveClass: this.leaveActiveClass || 'scroll-blur',
         method,
         currentPage,
         list
@@ -84,9 +88,6 @@ export default {
   h4{
     margin: 0;
   }
-  .el-card{
-    transition: border 2.5s linear;
-  }
   .sub-message{
     font-size: 0.8em;
     text-align: right;
@@ -97,6 +98,10 @@ export default {
   }
   .scroll-focus{
     border: $back-menu-item-hover-fill 1px solid !important;
+  }
+  .scroll-blur{
+    border: none;
+    transition: border 2.5s linear;
   }
 }
 </style>

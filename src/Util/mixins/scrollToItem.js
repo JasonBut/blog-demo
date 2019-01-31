@@ -1,6 +1,6 @@
 export default {
   methods: {
-    handleScrollToItem (refs, { list, currentPage, method, activeClass }) {
+    async handleScrollToItem (refs, { list, currentPage, method, enterActiveClass, leaveActiveClass }) {
       const { id: postId, commentId } = this.$route.params;
       // 从评论列表页跳转到博文详情页时,路由params里会包含锚点的信息
       if (!commentId) { return; }
@@ -32,12 +32,22 @@ export default {
 
       if (Array.isArray(ref) && ref.length > 0) {
         const [{ $el }] = ref;
-        $el.classList.add(activeClass);
+        // 高亮评论
+        $el.classList.toggle(enterActiveClass);
         // 平滑滚动到锚点
         $el.scrollIntoView({ behavior: 'smooth' });
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            // 取消高亮
+            $el.classList.toggle(enterActiveClass);
+            $el.classList.toggle(leaveActiveClass);
+            resolve();
+          }, 2500);
+        });
+        // 预留时间给退出过渡特效,之后清除类名
         setTimeout(() => {
-          $el.classList.remove(activeClass);
-        }, 2500);
+          $el.classList.toggle(leaveActiveClass);
+        }, 1000);
       }
     }
   }
