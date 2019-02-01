@@ -57,7 +57,7 @@ export default {
 
   methods: {
     ...mapMutations({
-      handleFilterChange: Types.FILTER_POST_LIST
+      handleFilterChange: Types.FILTER_RULES_CHANGE
     })
   }
 };

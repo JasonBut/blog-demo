@@ -26,12 +26,11 @@ export default {
   computed: {
     ...mapState({
       fullList: 'list',
-      filteredList: 'filteredList',
       post: 'post'
     }),
-    ...mapGetters(['postFilterFromList']),
+    ...mapGetters(['postFilterFromList', 'filteredList']),
 
-    // 如果列表存在筛选条件,优先返回筛选后的列表,并传入分页器
+    // store中如有筛选条件,优先返回筛选后的列表,并传入分页器
     list () {
       const { fullList, filteredList } = this;
       return filteredList.length > 0 ? filteredList : fullList;
