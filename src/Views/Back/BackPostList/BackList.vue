@@ -34,20 +34,35 @@ export default {
       ['postListFilters', 'postListFilterMethod']
     ),
 
+    categoryName () {
+      return this.$route.params.categoryName;
+    },
+
     /*
     * 当从分类页跳转到详情页时
     * 路由中会带有categoryName参数
     * 根据此参数作为默认过滤项去过滤列表
     */
     tableFilterOptions () {
-      const { categoryName } = this.$route.params;
+      const {
+        categoryName,
+        postListFilters,
+        postListFilterMethod,
+        handleFilterChange
+      } = this;
+
       return {
         defaultValue: categoryName ? [ categoryName ] : [],
-        filterOptions: this.postListFilters,
-        method: this.postListFilterMethod,
-        onFilterChange: this.handleFilterChange
+        filterOptions: postListFilters,
+        method: postListFilterMethod,
+        onFilterChange: handleFilterChange
       };
     }
+  },
+
+  created () {
+    const { categoryName, handleFilterChange } = this;
+    categoryName && handleFilterChange([ categoryName ]);
   },
 
   beforeDestroy () {
