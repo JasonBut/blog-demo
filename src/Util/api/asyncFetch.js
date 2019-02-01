@@ -36,12 +36,12 @@ export default async function asyncFetch ({ mode, target, id, filter, data }) {
 
     path = null;
 
-    if (!(response.status >= 200 && response.status < 300)) {
-      return Promise.reject(response.statusText);
+    if (!((response.status >= 200 && response.status < 300) || response.status !== 304)) {
+      throw new Error(response.statusText);
     }
 
-    return response.data;
+    return Promise.resolve(response.data);
   } catch (err) {
-    throw new Error(err);
+    return Promise.reject(err);
   }
 }
