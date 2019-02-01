@@ -17,7 +17,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
+import { Types } from '@/Store';
 import { DeleteDataMixin } from '@/Util/mixins';
 export default {
   name: 'BackPostList',
@@ -27,6 +28,7 @@ export default {
     DataDisplayHOC: () => import('@/Components/DataDisplayHOC'),
     Pagination: () => import('@/Components/Pagination')
   },
+
   computed: {
     ...mapGetters('Back',
       ['postListFilters', 'postListFilterMethod']
@@ -42,9 +44,21 @@ export default {
       return {
         defaultValue: categoryName ? [ categoryName ] : [],
         filterOptions: this.postListFilters,
-        method: this.postListFilterMethod
+        method: this.postListFilterMethod,
+        onFilterChange: this.handleFilterChange
       };
     }
+  },
+
+  beforeDestroy () {
+    // 销毁前清空filteredList状态
+    this.handleFilterChange([]);
+  },
+
+  methods: {
+    ...mapMutations({
+      handleFilterChange: Types.FILTER_POST_LIST
+    })
   }
 };
 </script>

@@ -1,10 +1,11 @@
 <template>
   <el-card>
-    <el-table :data="list" >
+    <el-table :data="list" @filter-change="filters.onFilterChange($event.category)" >
       <el-table-column
           label="分类"
           prop="category"
           min-width="5%"
+          column-key="category"
           :filters="filters.filterOptions"
           :filter-method="filters.method"
           :filtered-value="filters.defaultValue"

@@ -2,6 +2,7 @@ export default {
   categories: [],
   breadList: [],
   list: [],
+  filteredList: [],
   post: {},
   err: '',
   loading: false,

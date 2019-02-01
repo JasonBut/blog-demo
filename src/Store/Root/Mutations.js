@@ -49,5 +49,30 @@ export default {
         params
       };
     });
+  },
+
+  [Types.FILTER_POST_LIST] (state, filters) {
+    if (filters && !Array.isArray(filters)) {
+      return;
+    }
+    const arr = [];
+
+    /*
+    * 列表更改筛选或重置时会传入filters
+    * 当filters不为空,就会遍历filters的筛选项
+    * 然后同时找出store中的list对应项目
+    * 保存到filteredList状态
+    */
+    if (filters.length > 0) {
+      for (const filterCategory of filters) {
+        arr.push(...state.list.filter(({ category }) => {
+          return category && category === filterCategory;
+        }));
+      }
+      // 根据id由新到旧排列
+      arr.sort((a, b) => b.id - a.id);
+    }
+
+    state.filteredList = arr;
   }
 };
