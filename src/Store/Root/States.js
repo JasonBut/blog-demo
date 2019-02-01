@@ -5,7 +5,6 @@ export default {
   post: {},
   err: '',
   loading: false,
-  filterRules: [],
   formValidateRules: {
     selectedCategory: [
       { required: true, message: '请选择分组!', trigger: 'submit' }

@@ -28,7 +28,8 @@ export default {
       fullList: 'list',
       post: 'post'
     }),
-    ...mapGetters(['postFilterFromList', 'filteredList']),
+    ...mapGetters(['postFilterFromList']),
+    ...mapGetters('Back', ['filteredList']),
 
     // store中如有筛选条件,优先返回筛选后的列表,并传入分页器
     list () {

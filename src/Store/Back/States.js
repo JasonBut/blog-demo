@@ -2,6 +2,7 @@ export default {
   editingArticle: false, // 是否处于文章/评论编辑状态
   publishing: false, // 是否正在发表文章
   amendValue: Object.create(null), // 用来缓存要编辑的文章/评论信息
+  filterRules: [], // 用于存放筛选列表的条件
   asideMenu: [
     { name: 'home', cname: '博客首页' },
     { name: 'manage-categories', cname: '管理分类' },

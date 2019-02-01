@@ -71,7 +71,7 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
+    ...mapMutations('Back', {
       handleFilterChange: Types.FILTER_RULES_CHANGE
     })
   }

@@ -27,5 +27,12 @@ export default {
 
   [Types.CLEAN_AMEND_VALUE] (state) {
     state.amendValue = Object.create(null);
+  },
+
+  [Types.FILTER_RULES_CHANGE] (state, filters) {
+    if (filters && !Array.isArray(filters)) {
+      Types.REQUESTED_FAILED(`Type of list filter's rules should be 'Array'`);
+    }
+    state.filterRules = filters;
   }
 };
