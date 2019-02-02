@@ -1,40 +1,41 @@
-$common-footer-border: #065b9c;                             // 页脚线
-$common-pre-color: #018031;                                 // 富文本pre标签内容颜色
-$common-selection-color: #00ffb8;                           // 选择文本颜色
+$color-black: rgba(0,0,0,0);
+$common-footer-border: #065b9c;                                                         // 页脚线
+$common-pre-color: #018031;                                                             // 富文本pre标签内容颜色
+$common-selection-color: #00ffb8;                                                       // 选择文本颜色
 
 // 前台
-$front-body-background-color: #111111;                      // body背景色
-$front-content-background-color: #0C1021;                   // 布局区底色
-$front-text-primary: #fdfdfd;                               // 主要文字颜色
-$front-aside-item-second: #0B85CC;                          // 边栏长亮色
-$front-item-hover-fill: rgba(29, 114, 201, 0.35);           // 边栏,表格及下拉框的hover颜色
-$front-comment-color: #00a8c6;                              // 评论颜色
-$front-transparent-border: rgba(0,0,0,0.9);                 // 透明效果边框
-$front-transparent-background: rgba(0, 0, 0, 0.30);         // 透明效果背景
-$front-content-el-card-margin: 3%;                          // card组件外边距
+$front-body-background-color: #111111;                                                  // body背景色
+$front-content-background-color: #0C1021;                                               // 布局区底色
+$front-text-primary: #fdfdfd;                                                           // 主要文字颜色
+$front-aside-item-second: #0B85CC;                                                      // 边栏长亮色
+$front-item-hover-fill: rgba(29, 114, 201, 0.35);                                       // 边栏,表格及下拉框的hover颜色
+$front-comment-color: #00a8c6;                                                          // 评论颜色
+$front-transparent-border: opacify($color-black, 0.9);                                  // 透明效果边框
+$front-transparent-background: opacify($color-black, 0.3);                              // 透明效果背景
+$front-content-el-card-margin: 3%;                                                      // card组件外边距
 
 // 后台
-$back-body-background-color: #304156;                       // body背景色
-$back-content-background-color: #e3e5e8;                    // 内容区背景色
-$back-aside-background: #304156;                            // 边栏背景色
-$back-menu-item-border: rgba(220, 222, 225, 0.2);           // 边栏边框色
-$back-menu-item-hover-fill: #23344b;                        // 边栏hover颜色
-$back-menu-item-active-color: #00a8c6;                      // 边框当前项颜色
-$back-table-basic-background: rgba(255, 255, 255, 0.6);     // 表格基础背景色
-$back-table-body-background: rgba(110,110,110,0.1);         // 表格背景色
-$back-table-row-hover-fill: rgba(217, 217, 217, 0.25);      // 表格hover颜色
-$back-card-background-color: rgba(228, 226, 226, 0.6);      // card组件背景色
-$back-text-primary: #292929;                                // 主要颜色
-$back-text-secondary: #565656;                              // 内容区域次要文字颜色 (表头颜色)
-$back-text-light: #fdfdfd;                                  // 边栏及页脚文字色
-$back-tab-content-background: #dcdee1;                      // tab背景色
-$back-tab-item-background: #BBBBBB;                         // tab按键色
-$back-tab-item-active-background: #dcdee1;                  // tab按键active
-$back-button-hover-fill: #d7d7d7;                           // 按钮hover
-$back-button-active-fill: #bbbbbb;                          // 按钮active
-$select-options-hover-background: rgba(244, 244, 244, 0.35);// 选择器hover颜色
-$select-dropdown-background: rgba(64, 64, 64, 0.6);         // 选择器背景色
-$select-option-selected-color: #494949;                     // 选择器选中项颜色
+$back-body-background-color: #304156;                                                   // body背景色
+$back-content-background-color: #e3e5e8;                                                // 内容区背景色
+$back-aside-background: #304156;                                                        // 边栏背景色
+$back-menu-item-border: rgba(220, 222, 225, 0.2);                                       // 边栏边框色
+$back-menu-item-hover-fill: #23344b;                                                    // 边栏hover颜色
+$back-menu-item-active-color: #00a8c6;                                                  // 边框当前项颜色
+$back-table-basic-background: rgba(255, 255, 255, 0.6);                                 // 表格基础背景色
+$back-table-body-background: rgba(110,110,110,0.1);                                     // 表格背景色
+$back-table-row-hover-fill: rgba(217, 217, 217, 0.25);                                  // 表格hover颜色
+$back-card-background-color: rgba(228, 226, 226, 0.6);                                  // card组件背景色
+$back-text-primary: #292929;                                                            // 主要颜色
+$back-text-secondary: #565656;                                                          // 内容区域次要文字颜色 (表头颜色)
+$back-text-light: #fdfdfd;                                                              // 边栏及页脚文字色
+$back-tab-content-background: #dcdee1;                                                  // tab背景色
+$back-tab-item-background: #BBBBBB;                                                     // tab按键色
+$back-tab-item-active-background: #dcdee1;                                              // tab按键active
+$back-button-hover-fill: #d7d7d7;                                                       // 按钮hover
+$back-button-active-fill: #bbbbbb;                                                      // 按钮active
+$select-options-hover-background: rgba(244, 244, 244, 0.35);                            // 选择器hover颜色
+$select-dropdown-background: rgba(64, 64, 64, 0.6);                                     // 选择器背景色
+$select-option-selected-color: #494949;                                                 // 选择器选中项颜色
 
 
 // 前台透明item-hover
@@ -46,18 +47,18 @@ $select-option-selected-color: #494949;                     // 选择器选中�
 
 // 透明边框
 @mixin transparent-border($opacity,$size,$radius) {
-    border: rgba(0,0,0,$opacity) $size solid;
+    border: opacify($color-black, $opacity) $size solid;
     border-radius: $radius;
 }
 
 // 透明背景
 @mixin transparent-background($opacity) {
-    background: rgba(0,0,0,$opacity);
+    background:  opacify($color-black, $opacity);
 }
 
 // 复用的页脚样式
 @mixin footer-layout ($color, $opacity) {
-    background: rgba(0,0,0,$opacity);
+    background:  opacify($color-black, $opacity);
     font-size: 0.9em;
     text-align: center;
     color: $color;
