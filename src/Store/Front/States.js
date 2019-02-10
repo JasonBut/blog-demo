@@ -69,18 +69,33 @@ export default {
       {
         name: `基于React的简易论坛程序`,
         git: `<a href="https://github.com/JasonBut/forum-demo" rel="forum-demo">https://github.com/JasonBut/forum-demo</a>`,
-        deploy: `<a href="https://jasonbut.github.io/forum-demo/" rel="forum-deply">https://jasonbut.github.io/forum-demo/</a>`,
+        deploy: `<a href="https://jasonbut.github.io/forum-demo/" rel="forum-deploy">https://jasonbut.github.io/forum-demo/</a>`,
         libs: [
           'React', 'Redux', 'React-Redux', 'Redux-Saga', 'React-Router', 'React-Loadable',
           'Reselect', 'Braft-Editor', 'Antd', 'Less', 'Axios', 'Animate.css'
         ],
         introduction: `
 <p>
-  这是一个基于react-redux的简易论坛程序，是本人学习完react和redux系列技术栈后做的一个demo。Demo功能比较简单，数据库是简单的一个JSON文件，用json-server搭建的，主要用于演示功能，之后会尝试加入真正的数据库。
+这是一个基于react-redux的简易论坛程序，是本人学习完react和redux系列技术栈后做的一个demo。Demo功能比较简单，数据库是简单的一个JSON文件，用json-server搭建的，主要用于演示功能，之后会尝试加入真正的数据库。
 </p>
 <p>
 暂时实现的功能有以下几个：发帖、评论、编辑帖子、注册、登录等。
 </p>`
+      },
+      {
+        name: `基于Vue的博客程序`,
+        git: `<a href="https://github.com/JasonBut/blog-demo" rel="blog-demo">https://github.com/JasonBut/blog-demo</a>`,
+        deploy: `<a href="https://jasonbut.github.io/blog-demo/" rel="blog-deploy">https://jasonbut.github.io/blog-demo/</a>`,
+        libs: [
+          'Vue', 'Vuex', 'Vue-Router', 'Vue2Editor', 'Element', 'SCSS',
+          'Normalize.css', 'Axios'
+        ],
+        introduction: `
+Demo分成了前台和后台两个部分。虽然结构上是共用一个store，但已经为store中各自对应的部份分割成了不同的modules，可以按需引入；并且前后台两个部分不要求部署在同一个域中，可以分开部署；前台展示区的代码中也没有暴露跟后台有关的信息，只要两部分能连接到数据库就可以，实行前台展示与后台管理两个功能部分的分离。Demo实现了以下功能：
+    <ul>
+    <li>前台查看博文列表、博文详情及评论列表，并有发表评论的功能。</li>
+    <li>后台除了具备前台的查看内容功能外，还增设了分类、文章和评论的增删改功能，并在各自对应的页面提供跳转并及平滑滑动功能。</li>
+</ul>`
       }
     ]
   }
