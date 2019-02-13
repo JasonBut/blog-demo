@@ -7,7 +7,14 @@
 >   这个demo是本人学习完vue系列相关知识后作为练手项目完成的。Demo做得比较简单，之后会陆续进行优化。
 
 #### 展示：
-![image](./Sample.gif)
+
+前台：
+![image](./img-f0.gif)
+![image](./img-f1.gif)
+![image](./img-f2.gif)
+
+中后台：
+![image](./img-b0.gif)
 
 主要用到：
 * Vue
