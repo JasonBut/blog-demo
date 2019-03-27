@@ -59,8 +59,5 @@ phone : 13650700330
 email : Jason.But@yahoo.com
 QQ    : 153436677
 ```
-<<<<<<< HEAD
-=======
 
 [踩坑记录](./UPDATE.md)
->>>>>>> parent of 852fee7... update
